@@ -17,6 +17,7 @@ interface IColors {
 
 interface IDefault {
   bgColor: string
+  contrastColor: string
   forecastGradient: string
   hoverAlpha: string
   scroll: string
