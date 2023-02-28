@@ -13,7 +13,7 @@ interface ILayoutProps {
 export function Layout({ children, ...props }: ILayoutProps): JSX.Element {
   return (
     <>
-      <Header title='Athena' />
+      <Header title='Redux Store' />
 
       <Container initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
         <Navbar />

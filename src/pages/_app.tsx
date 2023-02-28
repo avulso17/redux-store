@@ -2,11 +2,13 @@ import type { AppProps } from 'next/app'
 
 import { useState } from 'react'
 import { Toaster } from 'react-hot-toast'
+import { Provider } from 'react-redux'
 
 import type { DefaultTheme } from 'styled-components'
 import { ThemeProvider } from 'styled-components'
 
 import { Layout } from '@/components/layout/layout'
+import store from '@/store'
 import { GlobalStyle } from '@/styles/global'
 import { darkTheme, lightTheme } from '@/styles/theme'
 
@@ -31,22 +33,24 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
   }
 
   return (
-    <ThemeProvider theme={handleTheme()}>
-      <GlobalStyle />
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-      <Toaster
-        position='top-center'
-        toastOptions={{
-          style: {
-            backgroundColor: theme === 'light' ? '#fff' : '#212121',
-            color: theme === 'light' ? '#212121' : '#fff',
-            fontFamily: 'Roboto',
-            fontSize: '1.6rem',
-          },
-        }}
-      />
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={handleTheme()}>
+        <GlobalStyle />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+        <Toaster
+          position='top-center'
+          toastOptions={{
+            style: {
+              backgroundColor: theme === 'light' ? '#fff' : '#212121',
+              color: theme === 'light' ? '#212121' : '#fff',
+              fontFamily: 'Roboto',
+              fontSize: '1.6rem',
+            },
+          }}
+        />
+      </ThemeProvider>
+    </Provider>
   )
 }

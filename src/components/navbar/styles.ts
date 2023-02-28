@@ -5,8 +5,8 @@ export const Container = styled.nav`
   display: flex;
   justify-content: space-between;
   grid-area: nav;
-  gap: 32px;
-  padding: 8px 12px;
+  gap: 3.2rem;
+  padding: 0.8rem 1.2rem;
   height: 100%;
   width: 100%;
 `
@@ -14,8 +14,8 @@ export const Logo = styled.img`
   -webkit-user-drag: none;
   cursor: pointer;
   object-fit: contain;
-  height: 40px;
-  width: 148px;
+  height: 4rem;
+  width: 14.8rem;
 `
 
 export const InputDiv = styled.form`
@@ -23,26 +23,34 @@ export const InputDiv = styled.form`
   align-items: center;
   position: relative;
   height: fit-content;
-  min-width: 172px;
+  min-width: 17.2rem;
   width: 100%;
-  max-width: 424px;
+  max-width: 42.4rem;
 `
 
 export const SearchButton = styled.button`
   background-color: unset;
   border: none;
+  border-radius: 999px;
   padding: 0;
   position: absolute;
-  left: 16px;
-  top: 8px;
-  bottom: 8px;
+  top: 50%;
+  left: 10px;
+  padding: 0.3rem 0.4rem;
+  transform: translateY(-50%);
+  transition: all ${({ theme }) => theme.transition.default};
   height: fit-content;
   width: fit-content;
 
-  > img {
+  > svg {
+    color: ${({ theme }) => theme.default.primary};
     object-fit: contain;
-    height: 24px;
-    width: 24px;
+    height: 2.4rem;
+    width: 2.4rem;
+  }
+
+  &:hover {
+    background-color: ${({ theme }) => theme.default.hoverAlpha};
   }
 `
 
@@ -50,25 +58,26 @@ export const StyledInput = styled.input`
   background-color: ${({ theme }) => theme.default.bgColor};
   border: none;
   border-radius: 8px;
-  color: #484848;
+  color: ${({ theme }) => theme.default.text};
   font-size: 1.6rem;
   font-weight: 500;
   line-height: 3.2rem;
-  padding: 8px 56px 8px 50px;
+  padding: 0.8rem;
+  padding-left: 5rem;
   transition: all 200ms ease;
-  height: 40px;
+  height: 4rem;
   width: 100%;
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.orange};
+    box-shadow: 0 0 0 2px ${({ theme }) => theme.default.primary};
   }
 `
 
 export const RightDiv = styled.div`
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 1.4rem;
   height: fit-content;
   width: fit-content;
 `
@@ -79,23 +88,28 @@ export const MenuButton = styled.button`
   border-radius: 8px;
   display: grid;
   place-items: center;
-  padding: 4px;
+  padding: 0.6rem;
   transition: all ${({ theme }) => theme.transition.default};
   height: fit-content;
   width: fit-content;
 
-  > img {
+  > svg {
+    color: ${({ theme }) => theme.default.primary};
     object-fit: contain;
     transition: all ${({ theme }) => theme.transition.default};
-    height: 32px;
-    width: 32px;
+    height: 2.8rem;
+    width: 2.8rem;
   }
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.orange};
+    background-color: ${({ theme }) => theme.default.primary};
 
-    > img {
-      filter: grayscale(1) brightness(2);
+    > svg {
+      color: ${({ theme }) => theme.default.contrastColor};
     }
   }
+`
+
+export const CartButton = styled(MenuButton)`
+  position: relative;
 `

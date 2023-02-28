@@ -2,9 +2,17 @@ import Link from 'next/link'
 
 import { useState } from 'react'
 import { toast } from 'react-hot-toast'
+import { GiShoppingCart } from 'react-icons/gi'
 
-import { TunePopover } from './popover'
 import {
+  GearIcon,
+  HeartFilledIcon,
+  MagnifyingGlassIcon,
+  QuestionMarkCircledIcon,
+} from '@radix-ui/react-icons'
+
+import {
+  CartButton,
   Container,
   InputDiv,
   Logo,
@@ -32,10 +40,11 @@ export function Navbar(): JSX.Element {
 
         <InputDiv>
           <SearchButton type='submit'>
-            <img src={'/navbarIcons/search_icon.svg'} alt='Pesquisar' />
+            <MagnifyingGlassIcon />
           </SearchButton>
           <StyledInput
-            placeholder={'Pesquisar'}
+            autoComplete='off'
+            placeholder='O que voce procura?'
             type='text'
             name='search'
             value={search}
@@ -43,7 +52,6 @@ export function Navbar(): JSX.Element {
               handleSearch(e)
             }}
           />
-          <TunePopover />
         </InputDiv>
 
         <RightDiv>
@@ -52,15 +60,22 @@ export function Navbar(): JSX.Element {
               toast('Falta regra de negócio e UI design.', { icon: '🚧' })
             }
           >
-            <img src='/navbarIcons/config_icon.svg' alt='Configuração' />
+            <QuestionMarkCircledIcon />
           </MenuButton>
           <MenuButton
             onClick={() =>
               toast('Falta regra de negócio e UI design.', { icon: '🚧' })
             }
           >
-            <img src='/navbarIcons/help_circle_icon.svg' alt='Help' />
+            <HeartFilledIcon />
           </MenuButton>
+          <CartButton
+            onClick={() =>
+              toast('Falta regra de negócio e UI design.', { icon: '🚧' })
+            }
+          >
+            <GiShoppingCart />
+          </CartButton>
 
           <UserMenu />
         </RightDiv>

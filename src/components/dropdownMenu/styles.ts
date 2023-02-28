@@ -24,8 +24,6 @@ import {
   SubContent,
 } from '@radix-ui/react-dropdown-menu'
 
-// const ContentStyles = css``
-
 export const MenuRoot = styled(Root)`
   outline: none;
 `
@@ -88,13 +86,13 @@ export const MenuItem = styled(Item)`
   }
 
   &[data-highlighted] {
-    background-color: ${({ theme }) => theme.colors.orange};
-    color: #fff;
+    background-color: ${({ theme }) => theme.default.primary};
+    color: ${({ theme }) => theme.default.textContrast};
   }
 `
 
 export const MenuItemIndicator = styled(ItemIndicator)`
-  color: ${({ theme }) => theme.default.text};
+  color: ${({ theme }) => theme.default.textContrast};
   font-size: 1.2rem;
   line-height: 25px;
   padding-left: 25px;
@@ -120,7 +118,7 @@ export const MenuRadioItem = styled(RadioItem)`
   }
 
   &[data-highlighted] {
-    background-color: ${({ theme }) => theme.colors.orange};
+    background-color: ${({ theme }) => theme.default.primary};
     color: #fff;
   }
 `
@@ -145,7 +143,7 @@ export const MenuCheckboxItem = styled(CheckboxItem)`
   }
 
   &[data-highlighted] {
-    background-color: ${({ theme }) => theme.colors.orange};
+    background-color: ${({ theme }) => theme.default.primary};
     color: #fff;
   }
 `
@@ -186,7 +184,7 @@ export const MenuSubTrigger = styled(SubTrigger)`
   }
 
   &[data-highlighted] {
-    background-color: ${({ theme }) => theme.colors.orange};
+    background-color: ${({ theme }) => theme.default.primary};
     color: #fff;
   }
 `
@@ -227,7 +225,7 @@ export const RightSlot = styled.div`
   color: ${({ theme }) => theme.default.text};
 
   [data-highlighted] > & {
-    color: #fff;
+    color: ${({ theme }) => theme.default.textContrast};
   }
 
   [data-disabled] & {

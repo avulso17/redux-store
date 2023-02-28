@@ -20,9 +20,11 @@ interface IDefault {
   contrastColor: string
   forecastGradient: string
   hoverAlpha: string
+  primary: string
   scroll: string
   selection: string
   text: string
+  textContrast: string
   thumb: string
   thumbHover: string
 }

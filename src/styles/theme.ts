@@ -20,14 +20,16 @@ export const lightTheme: IDefaultTheme = {
   default: {
     bgColor: '#E1F5FE',
     contrastColor: '#FFFFFF',
-    text: '#333333',
-    selection: '#E76D1D',
-    scroll: 'unset',
-    thumb: '#E76D1D',
-    thumbHover: '#E65100',
-    hoverAlpha: 'rgba(255, 167, 38, 0.1)',
     forecastGradient:
       'linear-gradient(257.83deg, #BAE9FF 2.16%, #FFFFFF 99.55%)',
+    hoverAlpha: 'rgba(255, 167, 38, 0.1)',
+    primary: '#FF7F2F',
+    scroll: 'unset',
+    selection: '#E76D1D',
+    text: '#333333',
+    textContrast: '#FFFFFF',
+    thumb: '#E76D1D',
+    thumbHover: '#E65100',
   },
   transition: {
     default: '200ms ease',
@@ -46,7 +48,7 @@ export const lightTheme: IDefaultTheme = {
 export const darkTheme: IDefaultTheme = {
   colors: {
     ...colors,
-    orange: '#FF7F2F',
+    orange: '#50c878',
     gray: '#7D868C ',
     black: '#111820',
     blueDark: '#003B49',
@@ -61,14 +63,16 @@ export const darkTheme: IDefaultTheme = {
   default: {
     bgColor: '#2A2A2A',
     contrastColor: '#202020',
-    text: '#E0E1E2',
-    selection: '#E76D1D',
-    scroll: 'unset',
-    thumb: '#E76D1D',
-    thumbHover: '#E65100',
-    hoverAlpha: 'rgba(255, 167, 38, 0.1)',
     forecastGradient:
       'linear-gradient(257.83deg, #BAE9FF 2.16%, #FFFFFF 99.55%)',
+    hoverAlpha: 'rgba(80, 200, 120, 0.1)',
+    primary: '#50c878',
+    scroll: 'unset',
+    selection: '#339152',
+    text: '#E0E1E2',
+    textContrast: '#202020',
+    thumb: '#50c878',
+    thumbHover: '#339152',
   },
   transition: {
     default: '200ms ease',

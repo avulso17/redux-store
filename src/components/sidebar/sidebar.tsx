@@ -1,23 +1,19 @@
 import { useRouter } from 'next/router'
 
-// import { auth } from '@config/firebase-config'
-// import { useAppDispatch } from '@hooks/useType'
-// import { setAuthing } from '@store/reducers/authSlice'
+import { useAppSelector } from '@/hooks/useType'
+import { ExitIcon, HomeIcon } from '@radix-ui/react-icons'
 
+import { Separator } from '../separator'
 import { SideTooltip } from './sideTooltip'
 import { ButtonBox, Container, LogoutButton, SideButton } from './styles'
 
 export function Sidebar(): JSX.Element {
+  const { categorys } = useAppSelector((state) => {
+    return {
+      categorys: state.categorys,
+    }
+  })
   const { pathname } = useRouter()
-  // const navigate = useNavigate()
-  // const dispatch = useAppDispatch()
-
-  // const logout = (): void => {
-  //   localStorage.clear()
-  //   dispatch(setAuthing(false))
-  //   void auth.signOut()
-  //   navigate('/login')
-  // }
 
   function handleSelected(path: string): boolean {
     const pathnameArray = pathname.split('/')
@@ -32,13 +28,21 @@ export function Sidebar(): JSX.Element {
   return (
     <Container>
       <ButtonBox>
-        {routes.map((item, i) => {
+        <SideTooltip title={'Home'}>
+          <SideButton href={'/'} selected={handleSelected('/')}>
+            <HomeIcon />
+          </SideButton>
+        </SideTooltip>
+
+        <Separator />
+
+        {categorys.map((item, i) => {
           const { icon, name, path } = item
 
           return (
-            <SideTooltip key={`${icon}-${i}`} title={name}>
+            <SideTooltip key={`${name}-${i}`} title={name}>
               <SideButton href={path} selected={handleSelected(path)}>
-                <img src={`/sidebarIcons/${icon}_icon.svg`} alt={icon} />
+                {icon}
               </SideButton>
             </SideTooltip>
           )
@@ -47,47 +51,9 @@ export function Sidebar(): JSX.Element {
 
       <SideTooltip title={'Sair'}>
         <LogoutButton as='button'>
-          <img src={`/sidebarIcons/logout_icon.svg`} alt='Logout' />
+          <ExitIcon />
         </LogoutButton>
       </SideTooltip>
     </Container>
   )
 }
-
-const routes = [
-  {
-    path: '/dashboard',
-    icon: 'dashboard',
-    name: 'Dashboard',
-  },
-  {
-    path: '/report',
-    icon: 'report',
-    name: 'Relatórios',
-  },
-  {
-    path: '/culture',
-    icon: 'culture',
-    name: 'Safras',
-  },
-  {
-    path: '/properties',
-    icon: 'properties',
-    name: 'Áreas',
-  },
-  {
-    path: '/profile',
-    icon: 'profile',
-    name: 'Usuários',
-  },
-  {
-    path: '/crop',
-    icon: 'crops',
-    name: 'Culturas',
-  },
-  {
-    path: '/admin',
-    icon: 'userManagement',
-    name: 'User Management',
-  },
-]

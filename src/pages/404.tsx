@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { Header } from '@/components/header'
 
 const Container = styled.div`
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.default.contrastColor};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,9 +43,9 @@ const Container = styled.div`
 
     > a {
       align-self: center;
-      background-color: #3f3d56;
+      background-color: ${({ theme }) => theme.default.primary};
       border-radius: 0.8rem;
-      color: #fff;
+      color: ${({ theme }) => theme.default.contrastColor};
       font-size: 1.4rem;
       font-weight: 500;
       line-height: 1.8rem;
