@@ -1,15 +1,21 @@
-import { useAppSelector } from '@/hooks/useType'
+import { Hero } from '@/components/hero'
+// import { useAppSelector } from '@/hooks/useType'
+
+import { Container } from './styles'
 
 export default function Home(): JSX.Element {
-  const { categorys } = useAppSelector((state) => {
-    return {
-      categorys: state.categorys,
-    }
-  })
+  // const { categorys } = useAppSelector((state) => {
+  //   return {
+  //     categorys: state.categorys,
+  //   }
+  // })
 
   return (
-    <div>
-      <h1>Home</h1>
-    </div>
+    <Container>
+      <Hero
+        title='Redux Store'
+        description='Compre diversos tipos de produtos no melhor site do Brasil!'
+      />
+    </Container>
   )
 }

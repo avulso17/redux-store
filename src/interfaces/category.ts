@@ -3,6 +3,5 @@ export interface ICategoryState {
   icon: JSX.Element
   id: string
   name: string
-  path: string
   thumbnail: string
 }
