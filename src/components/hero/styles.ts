@@ -1,9 +1,11 @@
+import { motion } from 'framer-motion'
 import styled from 'styled-components'
 
-export const Container = styled.div`
+export const Container = styled(motion.div)`
   display: flex;
   align-items: center;
-  gap: 6.4rem;
+  gap: 16rem;
+  margin: 0 auto;
   width: fit-content;
 
   > div {
@@ -23,22 +25,21 @@ export const Container = styled.div`
       font-size: 1.6rem;
       font-weight: 300;
       line-height: 2.4rem;
-      max-width: 30rem;
+      max-width: 36rem;
       width: 100%;
     }
   }
 
   > span {
     position: relative;
-    height: 42.4rem;
-    width: 27.4rem;
+    height: 38.4rem;
+    width: fit-content;
     z-index: 0;
 
     > img {
-      border-radius: 0.8rem;
+      filter: contrast(1.2) brightness(0.8) grayscale(0.5);
       object-fit: cover;
       height: 100%;
-      width: 100%;
     }
 
     &::after {
@@ -50,8 +51,8 @@ export const Container = styled.div`
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      height: 55%;
-      width: 55%;
+      height: 19.6rem;
+      width: 19.6rem;
       z-index: -1;
     }
   }

@@ -89,6 +89,7 @@ export const MenuButton = styled.button`
   display: grid;
   place-items: center;
   padding: 0.6rem;
+  position: relative;
   transition: all ${({ theme }) => theme.transition.default};
   height: fit-content;
   width: fit-content;
@@ -110,6 +111,16 @@ export const MenuButton = styled.button`
   }
 `
 
-export const CartButton = styled(MenuButton)`
-  position: relative;
+export const CartCount = styled.span`
+  background-color: #ff0000;
+  border-radius: 999px;
+  color: ${({ theme }) => theme.default.text};
+  display: grid;
+  place-items: center;
+  font-weight: 500;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 1.8rem;
+  width: 1.8rem;
 `

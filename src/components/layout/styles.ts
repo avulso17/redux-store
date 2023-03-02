@@ -23,6 +23,6 @@ export const ChildrenContent = styled.main`
   padding: 16px;
   position: relative;
   overflow: auto;
-  height: 100%;
+  min-height: 100%;
   width: 100%;
 `

@@ -4,15 +4,15 @@ import { useState } from 'react'
 import { toast } from 'react-hot-toast'
 import { GiShoppingCart } from 'react-icons/gi'
 
+import { useAppSelector } from '@/hooks/useType'
 import {
-  GearIcon,
   HeartFilledIcon,
   MagnifyingGlassIcon,
   QuestionMarkCircledIcon,
 } from '@radix-ui/react-icons'
 
 import {
-  CartButton,
+  CartCount,
   Container,
   InputDiv,
   Logo,
@@ -25,6 +25,7 @@ import { UserMenu } from './userMenu'
 
 // TODO: Add search function
 export function Navbar(): JSX.Element {
+  const cartItens = useAppSelector((state) => state.cart.length)
   const [search, setSearch] = useState<string>('')
 
   function handleSearch(e: React.ChangeEvent<HTMLInputElement>): void {
@@ -69,13 +70,16 @@ export function Navbar(): JSX.Element {
           >
             <HeartFilledIcon />
           </MenuButton>
-          <CartButton
+          <MenuButton
             onClick={() =>
               toast('Falta regra de negócio e UI design.', { icon: '🚧' })
             }
           >
+            {cartItens > 0 && (
+              <CartCount>{cartItens < 10 ? cartItens : '9+'}</CartCount>
+            )}
             <GiShoppingCart />
-          </CartButton>
+          </MenuButton>
 
           <UserMenu />
         </RightDiv>

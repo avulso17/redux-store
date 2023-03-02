@@ -1,5 +1,5 @@
 export interface IItensState {
-  category: string
+  category?: string
   description: string
   favorite: boolean
   id: string
