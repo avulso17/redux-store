@@ -24,12 +24,6 @@ export const CartContent = styled.div`
 
 export const CartList = styled.div``
 
-export const StyledCartItem = styled.div`
-  display: flex;
-  height: fit-content;
-  width: 100%;
-`
-
 export const CartHeader = styled.div`
   display: flex;
   align-items: center;
