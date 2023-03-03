@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Container = styled.nav`
   background-color: ${({ theme }) => theme.default.contrastColor};
@@ -82,7 +82,7 @@ export const RightDiv = styled.div`
   width: fit-content;
 `
 
-export const MenuButton = styled.button`
+export const MenuButton = styled.button<{ isActive?: boolean }>`
   background-color: unset;
   border: none;
   border-radius: 8px;
@@ -109,10 +109,20 @@ export const MenuButton = styled.button`
       color: ${({ theme }) => theme.default.contrastColor};
     }
   }
+
+  ${({ isActive }) =>
+    isActive === true &&
+    css`
+      background-color: ${({ theme }) => theme.default.primary};
+
+      > svg {
+        color: ${({ theme }) => theme.default.contrastColor};
+      }
+    `}
 `
 
 export const CartCount = styled.span`
-  background-color: #ff0000;
+  background-color: ${({ theme }) => theme.colors.red};
   border-radius: 999px;
   color: ${({ theme }) => theme.default.text};
   display: grid;

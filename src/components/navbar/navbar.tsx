@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 import { useState } from 'react'
 import { toast } from 'react-hot-toast'
@@ -26,6 +27,7 @@ import { UserMenu } from './userMenu'
 // TODO: Add search function
 export function Navbar(): JSX.Element {
   const cartItens = useAppSelector((state) => state.cart.length)
+  const { pathname } = useRouter()
   const [search, setSearch] = useState<string>('')
 
   function handleSearch(e: React.ChangeEvent<HTMLInputElement>): void {
@@ -63,23 +65,21 @@ export function Navbar(): JSX.Element {
           >
             <QuestionMarkCircledIcon />
           </MenuButton>
-          <MenuButton
-            onClick={() =>
-              toast('Falta regra de negócio e UI design.', { icon: '🚧' })
-            }
-          >
-            <HeartFilledIcon />
-          </MenuButton>
-          <MenuButton
-            onClick={() =>
-              toast('Falta regra de negócio e UI design.', { icon: '🚧' })
-            }
-          >
-            {cartItens > 0 && (
-              <CartCount>{cartItens < 10 ? cartItens : '9+'}</CartCount>
-            )}
-            <GiShoppingCart />
-          </MenuButton>
+
+          <Link href='/favorites'>
+            <MenuButton isActive={pathname === '/favorites'}>
+              <HeartFilledIcon />
+            </MenuButton>
+          </Link>
+
+          <Link href='/cart'>
+            <MenuButton isActive={pathname === '/cart'}>
+              {cartItens > 0 && (
+                <CartCount>{cartItens < 10 ? cartItens : '9+'}</CartCount>
+              )}
+              <GiShoppingCart />
+            </MenuButton>
+          </Link>
 
           <UserMenu />
         </RightDiv>
