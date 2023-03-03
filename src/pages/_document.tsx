@@ -41,30 +41,36 @@ export default class MyDocument extends Document {
           <link rel='shortcut icon' href='/favicon.ico' type='image/ico' />
           <meta
             name='description'
-            content='Stoned Frogs Staking - Powered by SolaLand'
+            content='Redux Store - Powered by Felipe Mateus'
           />
           <meta property='og:type' content='website' />
-          <meta property='og:url' content='https://stonedfrogs-staking.com' />
-          <meta property='og:title' content='SolaLand - Stoned Frogs Staking' />
+          <meta
+            property='og:url'
+            content='https://redux-store-dev.vercel.app'
+          />
+          <meta
+            property='og:title'
+            content='Redux Store - Powered by Felipe Mateus'
+          />
           <meta
             property='og:description'
-            content='Stoned Frogs - Powered by SolaLand'
+            content='Redux Store - Powered by Felipe Mateus'
           />
-          <meta property='og:image' content='/frogs.png' />
+          <meta property='og:image' content='/eletronicos.png' />
           <meta property='twitter:card' content='summary_large_image' />
           <meta
             property='twitter:url'
-            content='https://stonedfrogs-staking.com'
+            content='https://redux-store-dev.vercel.app'
           />
           <meta
             property='twitter:title'
-            content='SolaLand - Stoned Frogs Staking'
+            content='Redux Store - Powered by Felipe Mateus'
           />
           <meta
             property='twitter:description'
-            content='Stoned Frogs Staking - Powered by SolaLand'
+            content='Redux Store - Powered by Felipe Mateus'
           />
-          <meta property='twitter:image' content='/frogs.png' />
+          <meta property='twitter:image' content='/eletronicos.png' />
         </Head>
         <body>
           <Main />

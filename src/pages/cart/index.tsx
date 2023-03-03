@@ -3,6 +3,7 @@ import { Separator } from '@/components/separator'
 import { useAppSelector } from '@/hooks/useType'
 import { ArchiveIcon, FileTextIcon, TrashIcon } from '@radix-ui/react-icons'
 
+import { CartItem } from './cartItem'
 import {
   CartContent,
   CartHeader,
@@ -34,7 +35,9 @@ export default function CartPage(): JSX.Element {
 
         <Separator orientation='horizontal' />
 
-        <CartList>itens</CartList>
+        <CartList>
+          <CartItem></CartItem>
+        </CartList>
       </CartContent>
 
       <ResumeSection>
