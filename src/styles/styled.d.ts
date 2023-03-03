@@ -24,6 +24,7 @@ interface IDefault {
   scroll: string
   selection: string
   text: string
+  textAlpha: string
   textContrast: string
   thumb: string
   thumbHover: string

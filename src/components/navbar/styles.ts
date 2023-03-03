@@ -10,12 +10,17 @@ export const Container = styled.nav`
   height: 100%;
   width: 100%;
 `
-export const Logo = styled.img`
-  -webkit-user-drag: none;
+export const Logo = styled.span`
+  color: ${({ theme }) => theme.default.primary};
   cursor: pointer;
-  object-fit: contain;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 3.4rem;
   height: 4rem;
-  width: 14.8rem;
+  width: fit-content;
 `
 
 export const InputDiv = styled.form`
@@ -129,8 +134,8 @@ export const CartCount = styled.span`
   place-items: center;
   font-weight: 500;
   position: absolute;
-  top: 0;
-  right: 0;
+  top: -2px;
+  right: -2px;
   height: 1.8rem;
   width: 1.8rem;
 `

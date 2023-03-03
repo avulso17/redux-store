@@ -1,28 +1,29 @@
 import type { ReactNode, CSSProperties } from 'react'
 
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 interface IButtonProps {
   children: ReactNode
   onClick?: () => void
   size?: 'full' | 'hug'
   style?: CSSProperties
+  variant?: 'colorful' | 'outlined'
 }
 export function Button({ ...props }: IButtonProps): JSX.Element {
-  const { children, size } = props
+  const { children, size, variant = 'colorful' } = props
 
   return (
-    <StyledButton size={size} {...props}>
+    <StyledButton variant={variant} size={size} {...props}>
       {children}
     </StyledButton>
   )
 }
 
-const StyledButton = styled.button<{ size?: IButtonProps['size'] }>`
-  background: ${({ theme }) => theme.default.primary};
-  border: none;
+const StyledButton = styled.button<{
+  size?: IButtonProps['size']
+  variant?: IButtonProps['variant']
+}>`
   border-radius: 0.6rem;
-  color: ${({ theme }) => theme.default.textContrast};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -41,7 +42,28 @@ const StyledButton = styled.button<{ size?: IButtonProps['size'] }>`
     width: 1.8rem;
   }
 
-  &:hover {
-    background: ${({ theme }) => theme.default.thumbHover};
-  }
+  ${({ variant }) =>
+    variant === 'colorful' &&
+    css`
+      background: ${({ theme }) => theme.default.primary};
+      border: none;
+      color: ${({ theme }) => theme.default.textContrast};
+
+      &:hover {
+        background: ${({ theme }) => theme.default.thumbHover};
+      }
+    `}
+
+  ${({ variant }) =>
+    variant === 'outlined' &&
+    css`
+      background: unset;
+      border: 1px solid ${({ theme }) => theme.default.primary};
+      color: ${({ theme }) => theme.default.primary};
+
+      &:hover {
+        background-color: ${({ theme }) => theme.default.primary};
+        color: ${({ theme }) => theme.default.textContrast};
+      }
+    `}
 `

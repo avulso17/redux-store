@@ -1,26 +1,68 @@
+import { Button } from '@/components/button'
+import { Separator } from '@/components/separator'
 import { useAppSelector } from '@/hooks/useType'
-import { ArchiveIcon } from '@radix-ui/react-icons'
+import { ArchiveIcon, FileTextIcon, TrashIcon } from '@radix-ui/react-icons'
 
-import { CartContent, Container, ResumeSection } from './styles'
+import {
+  CartContent,
+  CartHeader,
+  CartList,
+  Container,
+  ResumeSection,
+} from './styles'
 
 export default function CartPage(): JSX.Element {
-  const { cart } = useAppSelector((state) => ({
+  const { cart, itens } = useAppSelector((state) => ({
     cart: state.cart,
+    itens: state.itens.filter((item) => item.id === state.cart[0]),
   }))
 
-  console.log(cart)
+  console.log(itens)
 
   return (
     <Container>
       <CartContent>
-        <h1>itens</h1>
+        <CartHeader>
+          <ArchiveIcon />
+          <h2>Produto e frete</h2>
+
+          <button>
+            <TrashIcon />
+            REMOVER TODOS OS ITENS
+          </button>
+        </CartHeader>
+
+        <Separator orientation='horizontal' />
+
+        <CartList>itens</CartList>
       </CartContent>
 
       <ResumeSection>
-        <h2>
-          <ArchiveIcon />
-          Resumo
-        </h2>
+        <CartHeader>
+          <FileTextIcon />
+          <h2>Resumo</h2>
+        </CartHeader>
+
+        <div>
+          <p>
+            Valor dos Produtos: <b>R$ 0,00</b>
+          </p>
+
+          <Separator orientation='horizontal' />
+
+          <p>
+            Frete: <b>R$ 0,00</b>
+          </p>
+
+          <p>
+            Subtotal: <b>R$ 0,00</b>
+          </p>
+        </div>
+
+        <Button size='full'>Ir para o pagamento</Button>
+        <Button variant='outlined' size='full'>
+          Continuar comprando
+        </Button>
       </ResumeSection>
     </Container>
   )

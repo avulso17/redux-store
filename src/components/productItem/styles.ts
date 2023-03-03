@@ -9,7 +9,6 @@ export const Container = styled.div`
   outline: 2px solid transparent;
   padding: 1.2rem;
   transition: outline ${({ theme }) => theme.transition.default};
-  /* height: ; */
   width: 33.6rem;
 
   > img {
@@ -40,7 +39,7 @@ export const TitleBox = styled.div`
   }
 
   > p {
-    color: #797979;
+    color: ${({ theme }) => theme.default.textAlpha};
     font-size: 1.6rem;
     overflow: hidden;
     overflow-y: auto;

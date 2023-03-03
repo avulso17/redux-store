@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { toast } from 'react-hot-toast'
 import { GiShoppingCart } from 'react-icons/gi'
+import { SiRedux } from 'react-icons/si'
 
 import { useAppSelector } from '@/hooks/useType'
 import {
@@ -38,7 +39,10 @@ export function Navbar(): JSX.Element {
     <>
       <Container>
         <Link href={'/'}>
-          <Logo src={'/logos/zeus_logo_orange.svg'} alt='Zeus' />
+          <Logo>
+            <SiRedux />
+            store
+          </Logo>
         </Link>
 
         <InputDiv>
