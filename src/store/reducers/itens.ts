@@ -1,7 +1,6 @@
 import { v4 as uuid } from 'uuid'
 
 import type { IItensState } from '@/interfaces/itens'
-import type { PayloadAction } from '@reduxjs/toolkit'
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState: IItensState[] = [

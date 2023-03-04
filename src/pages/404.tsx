@@ -2,8 +2,6 @@ import Link from 'next/link'
 
 import styled from 'styled-components'
 
-import { Header } from '@/components/header'
-
 const Container = styled.div`
   background-color: ${({ theme }) => theme.default.contrastColor};
   display: flex;
