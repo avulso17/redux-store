@@ -16,13 +16,21 @@ export const CartContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
-  overflow-x: hidden;
-  padding: 3.2rem;
+  overflow: hidden;
+  padding: 1.6rem;
   height: 100%;
   width: 100%;
 `
 
-export const CartList = styled.div``
+export const CartList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  overflow-x: hidden;
+  padding: 0.1rem;
+  padding-right: 0.8rem;
+  width: 100%;
+`
 
 export const CartHeader = styled.div`
   display: flex;

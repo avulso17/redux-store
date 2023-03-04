@@ -59,11 +59,11 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   ::-webkit-scrollbar {
-    height: 6px;
+    height: 4px;
     width: 6px;
     background: ${({ theme }) => theme.default.scroll};
-    transform: translate3d(0,0,0);
-    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
   }
 
   ::-webkit-scrollbar-thumb {

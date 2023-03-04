@@ -1,7 +1,8 @@
 import { Button } from '@/components/button'
 import { CartItem } from '@/components/cartItem'
 import { Separator } from '@/components/separator'
-// import { useAppSelector } from '@/hooks/useType'
+import { useAppSelector } from '@/hooks/useType'
+import type { ICartItemProps } from '@/interfaces/itens'
 import { ArchiveIcon, FileTextIcon, TrashIcon } from '@radix-ui/react-icons'
 
 import {
@@ -13,10 +14,20 @@ import {
 } from './styles'
 
 export default function CartPage(): JSX.Element {
-  // const { cart, itens } = useAppSelector((state) => ({
-  //   cart: state.cart,
-  //   itens: state.itens.filter((item) => item.id === state.cart[0]),
-  // }))
+  const cart = useAppSelector((state) => {
+    const cartItens = state.cart.reduce((itens, cartItem) => {
+      const item = state.itens.find((item) => item.id === cartItem.id)
+
+      itens.push({
+        ...item,
+        quantity: cartItem.quantity,
+      })
+
+      return itens
+    }, [])
+
+    return cartItens
+  })
 
   return (
     <Container>
@@ -34,7 +45,21 @@ export default function CartPage(): JSX.Element {
         <Separator orientation='horizontal' />
 
         <CartList>
-          <CartItem></CartItem>
+          {cart.map((item: ICartItemProps) => {
+            const { id, price, photo, category, title, quantity } = item
+
+            return (
+              <CartItem
+                key={id}
+                id={id}
+                title={title}
+                category={category}
+                price={price}
+                photo={photo}
+                quantity={quantity}
+              />
+            )
+          })}
         </CartList>
       </CartContent>
 

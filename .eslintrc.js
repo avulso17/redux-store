@@ -46,6 +46,7 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 'warn',
     '@typescript-eslint/explicit-function-return-type': 'warn',
     '@typescript-eslint/strict-boolean-expressions': 'warn',
+    '@typescript-eslint/restrict-plus-operands': 'off',
     '@typescript-eslint/consistent-type-imports': [
       'warn',
       { prefer: 'type-imports' },

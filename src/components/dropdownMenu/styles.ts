@@ -81,7 +81,7 @@ export const MenuItem = styled(Item)`
   user-select: none;
 
   &[data-disabled] {
-    color: #c8c7cb;
+    color: ${({ theme }) => theme.default.textAlpha};
     pointer-events: 'none';
   }
 
@@ -113,7 +113,7 @@ export const MenuRadioItem = styled(RadioItem)`
   user-select: none;
 
   &[data-disabled] {
-    color: #c8c7cb;
+    color: ${({ theme }) => theme.default.textAlpha};
     pointer-events: 'none';
   }
 
@@ -138,7 +138,7 @@ export const MenuCheckboxItem = styled(CheckboxItem)`
   user-select: none;
 
   &[data-disabled] {
-    color: #c8c7cb;
+    color: ${({ theme }) => theme.default.textAlpha};
     pointer-events: 'none';
   }
 
@@ -179,13 +179,13 @@ export const MenuSubTrigger = styled(SubTrigger)`
   user-select: none;
 
   &[data-disabled] {
-    color: #c8c7cb;
+    color: ${({ theme }) => theme.default.textAlpha};
     pointer-events: 'none';
   }
 
   &[data-highlighted] {
     background-color: ${({ theme }) => theme.default.primary};
-    color: #fff;
+    color: ${({ theme }) => theme.default.textContrast};
   }
 `
 
@@ -229,6 +229,6 @@ export const RightSlot = styled.div`
   }
 
   [data-disabled] & {
-    color: #c8c7cb;
+    color: ${({ theme }) => theme.default.textAlpha};
   }
 `
