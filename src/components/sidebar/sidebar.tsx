@@ -1,7 +1,16 @@
 import { useRouter } from 'next/router'
 
+import { AiOutlineCar } from 'react-icons/ai'
+
 import { useAppSelector } from '@/hooks/useType'
-import { ExitIcon, HomeIcon } from '@radix-ui/react-icons'
+import {
+  BackpackIcon,
+  DesktopIcon,
+  ExitIcon,
+  HomeIcon,
+  MixIcon,
+  SpeakerLoudIcon,
+} from '@radix-ui/react-icons'
 
 import { Separator } from '../separator'
 import { SideTooltip } from './sideTooltip'
@@ -32,7 +41,7 @@ export function Sidebar(): JSX.Element {
         <Separator />
 
         {categorys.map((item, i) => {
-          const { icon, name, id } = item
+          const { name, id } = item
 
           return (
             <SideTooltip key={`${name}-${i}`} title={name}>
@@ -40,7 +49,11 @@ export function Sidebar(): JSX.Element {
                 href={`/category/${id}`}
                 selected={handleSelected(id)}
               >
-                {icon}
+                {id === 'electronics' && <DesktopIcon />}
+                {id === 'automotive' && <AiOutlineCar />}
+                {id === 'games' && <MixIcon />}
+                {id === 'office' && <BackpackIcon />}
+                {id === 'sound-and-image' && <SpeakerLoudIcon />}
               </SideButton>
             </SideTooltip>
           )

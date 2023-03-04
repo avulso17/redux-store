@@ -15,6 +15,7 @@ import {
   StyledCartItem,
 } from './styles'
 
+// TODO: FIX ONCHANGE INPUT
 export function CartItem({
   category,
   price,
@@ -62,7 +63,15 @@ export function CartItem({
             >
               <ChevronLeftIcon />
             </button>
-            <input type='number' value={String(quantity).padStart(2, '0')} />
+            <input
+              type='number'
+              value={String(quantity).padStart(2, '0')}
+              onChange={(e) => {
+                const value = Number(e.target.value)
+
+                dispatch(changeQuantity({ id, quantity: value }))
+              }}
+            />
             <button
               disabled={quantity >= 10}
               onClick={() => {
