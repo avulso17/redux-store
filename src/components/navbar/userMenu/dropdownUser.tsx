@@ -1,22 +1,29 @@
-// import { useState } from 'react'
+import { useState } from 'react'
+
+import {
+  Root,
+  Trigger,
+  Portal,
+  RadioGroup,
+  Sub,
+} from '@radix-ui/react-dropdown-menu'
+import {
+  ChevronRightIcon,
+  DotFilledIcon,
+  MoonIcon,
+  SunIcon,
+} from '@radix-ui/react-icons'
 
 import {
   MenuArrow,
-  // MenuCheckboxItem,
   MenuContent,
-  // MenuGroup,
   MenuItem,
-  // MenuItemIndicator,
+  MenuItemIndicator,
   MenuLabel,
-  MenuPortal,
-  // MenuRadioGroup,
-  // MenuRadioItem,
-  MenuRoot,
+  MenuRadioItem,
   MenuSeparator,
-  MenuSub,
   MenuSubContent,
   MenuSubTrigger,
-  MenuTrigger,
   RightSlot,
 } from './styles'
 
@@ -27,22 +34,19 @@ interface IDropdownMenuProps {
   sideOffset?: number
 }
 
-// TODO: unfinished
-export function DropdownMenu({
+export function DropdownUser({
   align = 'center',
   children,
   sideOffset = 15,
   loop = false,
 }: IDropdownMenuProps): JSX.Element {
-  // const [bookmarksChecked, setBookmarksChecked] = useState(true)
-  // const [urlsChecked, setUrlsChecked] = useState(false)
-  // const [person, setPerson] = useState('pedro')
+  const [theme, setTheme] = useState<string>('light')
 
   return (
-    <MenuRoot>
-      <MenuTrigger asChild>{children}</MenuTrigger>
+    <Root>
+      <Trigger asChild>{children}</Trigger>
 
-      <MenuPortal>
+      <Portal>
         <MenuContent align={align} loop={loop} sideOffset={sideOffset}>
           <MenuLabel />
           <MenuItem>
@@ -55,12 +59,15 @@ export function DropdownMenu({
             New Private Window <RightSlot>⇧+⌘+N</RightSlot>
           </MenuItem>
 
-          <MenuSub>
+          <Sub>
             <MenuSubTrigger>
-              More Tools <RightSlot>{'>'}</RightSlot>
+              More Tools{' '}
+              <RightSlot>
+                <ChevronRightIcon />
+              </RightSlot>
             </MenuSubTrigger>
 
-            <MenuPortal>
+            <Portal>
               <MenuSubContent loop={loop} sideOffset={2} alignOffset={-5}>
                 <MenuItem>
                   New Tab <RightSlot>⌘+T</RightSlot>
@@ -70,8 +77,37 @@ export function DropdownMenu({
                 <MenuSeparator />
                 <MenuItem>Developer Tools</MenuItem>
               </MenuSubContent>
-            </MenuPortal>
-          </MenuSub>
+            </Portal>
+          </Sub>
+
+          <MenuSeparator />
+
+          <MenuLabel>Theme</MenuLabel>
+          <RadioGroup
+            value={theme}
+            onValueChange={(value) => {
+              setTheme(value)
+            }}
+          >
+            <MenuRadioItem value='light'>
+              <MenuItemIndicator>
+                <DotFilledIcon />
+              </MenuItemIndicator>
+              Light
+              <RightSlot>
+                <SunIcon />
+              </RightSlot>
+            </MenuRadioItem>
+            <MenuRadioItem value='dark'>
+              <MenuItemIndicator>
+                <DotFilledIcon />
+              </MenuItemIndicator>
+              Dark
+              <RightSlot>
+                <MoonIcon />
+              </RightSlot>
+            </MenuRadioItem>
+          </RadioGroup>
 
           {/* <MenuSeparator /> */}
 
@@ -87,7 +123,7 @@ export function DropdownMenu({
 
           <MenuArrow />
         </MenuContent>
-      </MenuPortal>
-    </MenuRoot>
+      </Portal>
+    </Root>
   )
 }

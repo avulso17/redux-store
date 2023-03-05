@@ -1,4 +1,23 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+
+import {
+  slideDownAndFade,
+  slideLeftAndFade,
+  slideRightAndFade,
+  slideUpAndFade,
+} from '@/styles/keyframes'
+import {
+  Content,
+  Label,
+  Item,
+  ItemIndicator,
+  RadioItem,
+  CheckboxItem,
+  Separator,
+  Arrow,
+  SubTrigger,
+  SubContent,
+} from '@radix-ui/react-dropdown-menu'
 
 export const Container = styled.div`
   background-color: ${({ theme }) => theme.default.bgColor};
@@ -19,6 +38,7 @@ export const DropdownButton = styled.button`
   place-items: center;
   margin: auto 0;
   margin-left: 4px;
+  outline: 0 solid transparent;
   transition: background-color ${({ theme }) => theme.transition.default};
   height: 24px;
   width: 24px;
@@ -31,6 +51,10 @@ export const DropdownButton = styled.button`
 
   &:hover {
     background-color: ${({ theme }) => theme.default.hoverAlpha};
+  }
+
+  &:focus {
+    outline: 2px solid ${({ theme }) => theme.default.hoverAlpha};
   }
 `
 
@@ -79,5 +103,129 @@ export const UserContent = styled.div`
       height: 14px;
       width: 12px;
     }
+  }
+`
+
+//  ----------------------------------------------
+// DROPDOWN MENU STYLES
+//  ----------------------------------------------
+
+const MenuContentStyles = css`
+  animation-duration: 400ms;
+  animation-timing-function: ${({ theme }) => theme.transition.radix};
+  background-color: ${({ theme }) => theme.default.contrastColor};
+  border-radius: 0.6rem;
+  box-shadow: 0px 10px 38px -10px rgba(22, 23, 24, 0.35),
+    0px 10px 20px -15px rgba(22, 23, 24, 0.2);
+  padding: 0.4rem;
+  min-width: 22rem;
+  will-change: transform, opacity;
+
+  &[data-state='open'] {
+    &[data-side='top'] {
+      animation-name: ${slideDownAndFade};
+    }
+
+    &[data-side='right'] {
+      animation-name: ${slideLeftAndFade};
+    }
+
+    &[data-side='bottom'] {
+      animation-name: ${slideUpAndFade};
+    }
+
+    &[data-side='left'] {
+      animation-name: ${slideRightAndFade};
+    }
+  }
+`
+
+const menuItemStyles = css`
+  all: unset;
+  align-items: center;
+  border-radius: 0.4rem;
+  color: ${({ theme }) => theme.default.text};
+  display: flex;
+  font-size: 1.2rem;
+  line-height: 1;
+  padding: 0 0.4rem;
+  padding-left: 2.4rem;
+  position: relative;
+  height: 2.5rem;
+  user-select: none;
+
+  &[data-disabled] {
+    color: ${({ theme }) => theme.default.textAlpha};
+    pointer-events: 'none';
+  }
+
+  &[data-highlighted] {
+    background-color: ${({ theme }) => theme.default.primary};
+    color: ${({ theme }) => theme.default.textContrast};
+  }
+`
+
+export const MenuContent = styled(Content)`
+  ${MenuContentStyles}
+`
+
+export const MenuSubContent = styled(SubContent)`
+  ${MenuContentStyles}
+`
+
+export const MenuSubTrigger = styled(SubTrigger)`
+  ${menuItemStyles}
+`
+
+export const MenuItem = styled(Item)`
+  ${menuItemStyles}
+`
+
+export const MenuRadioItem = styled(RadioItem)`
+  ${menuItemStyles}
+`
+
+export const MenuCheckboxItem = styled(CheckboxItem)`
+  ${menuItemStyles}
+`
+
+export const MenuArrow = styled(Arrow)`
+  fill: ${({ theme }) => theme.default.contrastColor};
+`
+
+export const MenuLabel = styled(Label)`
+  color: ${({ theme }) => theme.default.textAlpha};
+  font-size: 1.2rem;
+  line-height: 2.4rem;
+  padding-left: 2.4rem;
+`
+
+export const MenuItemIndicator = styled(ItemIndicator)`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  width: 2.5rem;
+`
+
+export const MenuSeparator = styled(Separator)`
+  background-color: ${({ theme }) => theme.default.hoverAlpha};
+  min-height: 0.1rem;
+  height: 0.1rem;
+  margin: 0.5rem;
+`
+
+export const RightSlot = styled.div`
+  margin-left: auto;
+  padding-left: 20px;
+  color: ${({ theme }) => theme.default.text};
+
+  [data-highlighted] > & {
+    color: ${({ theme }) => theme.default.textContrast};
+  }
+
+  [data-disabled] & {
+    color: ${({ theme }) => theme.default.textAlpha};
   }
 `
