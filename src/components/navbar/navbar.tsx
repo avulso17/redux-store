@@ -49,7 +49,7 @@ export function Navbar(): JSX.Element {
         <Link href={'/'}>
           <Logo>
             <SiRedux />
-            store
+            <b>store</b>
           </Logo>
         </Link>
 

@@ -8,10 +8,22 @@ export const Container = styled(motion.div)`
   margin: 0 auto;
   width: fit-content;
 
+  @media ${({ theme }) => theme.breakpoint.tablet} {
+    flex-direction: column;
+    gap: 2.8rem;
+    padding-top: 1.6rem;
+  }
+
   > div {
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
+
+    @media ${({ theme }) => theme.breakpoint.tablet} {
+      gap: 1rem;
+      order: 2;
+      text-align: center;
+    }
 
     > h1 {
       color: ${({ theme }) => theme.default.primary};
@@ -27,6 +39,10 @@ export const Container = styled(motion.div)`
       line-height: 2.4rem;
       max-width: 36rem;
       width: 100%;
+
+      @media ${({ theme }) => theme.breakpoint.tablet} {
+        max-width: 28rem;
+      }
     }
   }
 
@@ -35,6 +51,11 @@ export const Container = styled(motion.div)`
     height: 38.4rem;
     width: fit-content;
     z-index: 0;
+
+    @media ${({ theme }) => theme.breakpoint.tablet} {
+      order: 1;
+      height: 19.6rem;
+    }
 
     > img {
       filter: contrast(1.2) brightness(0.8) grayscale(0.5);
@@ -54,6 +75,12 @@ export const Container = styled(motion.div)`
       height: 19.6rem;
       width: 19.6rem;
       z-index: -1;
+
+      @media ${({ theme }) => theme.breakpoint.tablet} {
+        filter: blur(38px);
+        height: 10.6rem;
+        width: 10.6rem;
+      }
     }
   }
 `

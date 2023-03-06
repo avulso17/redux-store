@@ -83,7 +83,7 @@ export default function CartPage(): JSX.Element {
             }}
           >
             <TrashIcon />
-            REMOVER TODOS OS ITENS
+            REMOVER TODOS <span>OS ITENS</span>
           </button>
         </CartHeader>
 

@@ -20,6 +20,10 @@ export const Container = styled.aside`
   padding: 1.6rem 1.2rem;
   height: 100%;
   width: 100%;
+
+  @media ${({ theme }) => theme.breakpoint.mobile} {
+    display: none;
+  }
 `
 export const ButtonBox = styled.div`
   display: flex;

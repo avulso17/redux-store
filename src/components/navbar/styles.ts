@@ -9,6 +9,10 @@ export const Container = styled.nav`
   padding: 0.8rem 1.2rem;
   height: 100%;
   width: 100%;
+
+  @media ${({ theme }) => theme.breakpoint.mobile} {
+    gap: 1.6rem;
+  }
 `
 export const Logo = styled.span`
   color: ${({ theme }) => theme.default.primary};
@@ -21,6 +25,12 @@ export const Logo = styled.span`
   line-height: 3.4rem;
   height: 4rem;
   width: fit-content;
+
+  @media ${({ theme }) => theme.breakpoint.mobile} {
+    > b {
+      display: none;
+    }
+  }
 `
 
 export const InputDiv = styled.form`
@@ -31,6 +41,10 @@ export const InputDiv = styled.form`
   min-width: 17.2rem;
   width: 100%;
   max-width: 42.4rem;
+
+  @media ${({ theme }) => theme.breakpoint.mobile} {
+    max-width: none;
+  }
 `
 
 export const SearchButton = styled.button`
@@ -85,6 +99,12 @@ export const RightDiv = styled.div`
   gap: 1.4rem;
   height: fit-content;
   width: fit-content;
+
+  @media ${({ theme }) => theme.breakpoint.mobile} {
+    > :nth-child(-n + 2) {
+      display: none;
+    }
+  }
 `
 
 export const MenuButton = styled.button<{ isActive?: boolean }>`

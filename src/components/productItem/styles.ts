@@ -11,11 +11,19 @@ export const Container = styled.div`
   transition: outline ${({ theme }) => theme.transition.default};
   width: 33.6rem;
 
+  @media ${({ theme }) => theme.breakpoint.mobile} {
+    width: 100%;
+  }
+
   > img {
     background-color: #fff;
     border-radius: 0.4rem;
     object-fit: contain;
     height: 20rem;
+
+    @media ${({ theme }) => theme.breakpoint.mobile} {
+      height: 25rem;
+    }
   }
 
   &:hover {
