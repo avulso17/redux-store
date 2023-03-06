@@ -8,6 +8,19 @@ export const Container = styled.div`
   padding: 1.6rem;
   height: 100%;
   width: 100%;
+
+  @media ${({ theme }) => theme.breakpoint.tablet} {
+    flex-direction: column;
+    height: auto;
+  }
+
+  @media ${({ theme }) => theme.breakpoint.mobile} {
+    border-radius: 0;
+  }
+
+  @media ${({ theme }) => theme.breakpoint.smallMobile} {
+    padding: 1.6rem 0;
+  }
 `
 
 export const CartContent = styled.div`
@@ -20,6 +33,10 @@ export const CartContent = styled.div`
   padding: 1.6rem;
   height: 100%;
   width: 100%;
+
+  @media ${({ theme }) => theme.breakpoint.smallMobile} {
+    border-radius: unset;
+  }
 `
 
 export const CartHeader = styled.div`
@@ -66,6 +83,14 @@ export const CartHeader = styled.div`
       width: 1.6rem;
     }
 
+    > span {
+      margin-left: -0.4rem;
+
+      @media ${({ theme }) => theme.breakpoint.smallMobile} {
+        display: none;
+      }
+    }
+
     &:hover {
       background-color: ${({ theme }) => theme.default.primary};
       color: ${({ theme }) => theme.default.textContrast};
@@ -81,6 +106,10 @@ export const CartList = styled.div`
   padding: 0.1rem;
   padding-right: 0.8rem;
   width: 100%;
+
+  @media ${({ theme }) => theme.breakpoint.tablet} {
+    padding-right: unset;
+  }
 `
 
 export const CartNoItems = styled.div`
@@ -118,6 +147,14 @@ export const ResumeSection = styled.div`
   height: fit-content;
   min-width: 31.2rem;
   width: 31.2rem;
+
+  @media ${({ theme }) => theme.breakpoint.tablet} {
+    width: 100%;
+  }
+
+  @media ${({ theme }) => theme.breakpoint.smallMobile} {
+    border-radius: unset;
+  }
 
   > button {
     text-transform: uppercase;

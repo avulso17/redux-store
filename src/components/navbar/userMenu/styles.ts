@@ -24,10 +24,19 @@ export const Container = styled.div`
   border-radius: 8px;
   display: flex;
   justify-content: space-between;
-  gap: 10px;
-  padding: 4px;
-  height: 40px;
-  min-width: 188px;
+  gap: 1rem;
+  padding: 0.4rem;
+  height: 4rem;
+  min-width: 18.8rem;
+
+  @media ${({ theme }) => theme.breakpoint.mobile} {
+    /* all: unset;
+    width: fit-content; */
+
+    /* > div:nth-child(n + 2) {
+      display: none;
+    } */
+  }
 `
 
 export const DropdownButton = styled.button`

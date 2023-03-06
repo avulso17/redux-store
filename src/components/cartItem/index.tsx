@@ -12,6 +12,8 @@ import {
   CartItemActions,
   CartItemInfo,
   CartItemPrice,
+  LeftSide,
+  RightSide,
   StyledCartItem,
 } from './styles'
 
@@ -39,47 +41,51 @@ export function CartItem({
 
   return (
     <StyledCartItem>
-      <img src={photo} alt={title} />
+      <LeftSide>
+        <img src={photo} alt={title} />
 
-      <CartItemInfo>
-        <h3>{category ?? <Skeleton />}</h3>
-        <h2>{title ?? <Skeleton />}</h2>
-        <p>
-          Parcelado no cartão, à vista ou PIX:
-          <b> R$ {price?.toFixed(2) ?? '00,00'}</b>
-        </p>
-      </CartItemInfo>
+        <CartItemInfo>
+          <h3>{category ?? <Skeleton />}</h3>
+          <h2>{title ?? <Skeleton />}</h2>
+          <p>
+            Parcelado no cartão, à vista ou PIX:
+            <b> R$ {price?.toFixed(2) ?? '00,00'}</b>
+          </p>
+        </CartItemInfo>
+      </LeftSide>
 
-      <div>
+      <RightSide>
         <CartItemActions>
-          <p>Quant.</p>
-
           <div>
-            <button
-              disabled={quantity <= 1}
-              onClick={() => {
-                handleQuantity(id, -1)
-              }}
-            >
-              <ChevronLeftIcon />
-            </button>
-            <input
-              type='number'
-              value={String(quantity).padStart(2, '0')}
-              onChange={(e) => {
-                const value = Number(e.target.value)
+            <p>Quant.</p>
 
-                dispatch(changeQuantity({ id, quantity: value }))
-              }}
-            />
-            <button
-              disabled={quantity >= 10}
-              onClick={() => {
-                handleQuantity(id, +1)
-              }}
-            >
-              <ChevronRightIcon />
-            </button>
+            <div>
+              <button
+                disabled={quantity <= 1}
+                onClick={() => {
+                  handleQuantity(id, -1)
+                }}
+              >
+                <ChevronLeftIcon />
+              </button>
+              <input
+                type='number'
+                value={String(quantity).padStart(2, '0')}
+                onChange={(e) => {
+                  const value = Number(e.target.value)
+
+                  dispatch(changeQuantity({ id, quantity: value }))
+                }}
+              />
+              <button
+                disabled={quantity >= 10}
+                onClick={() => {
+                  handleQuantity(id, +1)
+                }}
+              >
+                <ChevronRightIcon />
+              </button>
+            </div>
           </div>
 
           <button
@@ -88,7 +94,7 @@ export function CartItem({
             }}
           >
             <TrashIcon />
-            Remover
+            <span>Remover</span>
           </button>
         </CartItemActions>
 
@@ -96,7 +102,7 @@ export function CartItem({
           <p>Preço à vista no PIX:</p>
           <b>R$ {subtotal?.toFixed(2) ?? <Skeleton />}</b>
         </CartItemPrice>
-      </div>
+      </RightSide>
     </StyledCartItem>
   )
 }

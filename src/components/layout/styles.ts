@@ -12,17 +12,29 @@ export const Container = styled(motion.div)`
   overflow: hidden;
   height: 100vh;
   width: 100vw;
+
+  @media ${({ theme }) => theme.breakpoint.mobile} {
+    grid-template-areas:
+      ' nav'
+      ' content';
+    grid-template-rows: 56px 1fr;
+    grid-template-columns: 1fr;
+  }
 `
 
 export const ChildrenContent = styled.main`
   background-color: unset;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 1.6rem;
   grid-area: content;
-  padding: 16px;
+  padding: 1.6rem;
   position: relative;
   overflow: auto;
   min-height: 100%;
   width: 100%;
+
+  @media ${({ theme }) => theme.breakpoint.mobile} {
+    padding: 0;
+  }
 `

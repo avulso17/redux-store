@@ -15,11 +15,7 @@ export function UserMenu(): JSX.Element {
 
       <UserContent>
         <span>
-          <h2>
-            {'Felipe Mateus' ?? (
-              <Skeleton baseColor='#fff' highlightColor='#BAE9FF' />
-            )}
-          </h2>
+          <h2>{'Felipe Mateus' ?? <Skeleton />}</h2>
         </span>
 
         <div>
