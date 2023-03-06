@@ -111,5 +111,3 @@ export const SideButton = styled(Link)<{ selected?: boolean }>`
       }
     `}
 `
-
-export const LogoutButton = styled(SideButton)``

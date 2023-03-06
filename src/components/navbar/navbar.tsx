@@ -1,12 +1,13 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-import { useState } from 'react'
+import { useEffect } from 'react'
 import { toast } from 'react-hot-toast'
 import { GiShoppingCart } from 'react-icons/gi'
 import { SiRedux } from 'react-icons/si'
 
-import { useAppSelector } from '@/hooks/useType'
+import { useAppDispatch, useAppSelector } from '@/hooks/useType'
+import { changeSearch, resetSearch } from '@/store/reducers/search'
 import {
   HeartFilledIcon,
   MagnifyingGlassIcon,
@@ -27,13 +28,20 @@ import { UserMenu } from './userMenu'
 
 // TODO: Add search function
 export function Navbar(): JSX.Element {
-  const cartItens = useAppSelector((state) => state.cart.length)
+  const dispatch = useAppDispatch()
   const { pathname } = useRouter()
-  const [search, setSearch] = useState<string>('')
+  const { cartItens, search } = useAppSelector((state) => ({
+    cartItens: state.cart.length,
+    search: state.search,
+  }))
 
   function handleSearch(e: React.ChangeEvent<HTMLInputElement>): void {
-    setSearch(e.target.value)
+    dispatch(changeSearch(e.target.value))
   }
+
+  useEffect(() => {
+    dispatch(resetSearch())
+  }, [pathname, dispatch])
 
   return (
     <>

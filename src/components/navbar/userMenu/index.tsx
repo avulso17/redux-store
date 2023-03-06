@@ -1,17 +1,17 @@
 import { Avatar } from '@/components/avatar/avatar'
-import { DropdownMenu } from '@/components/dropdownMenu'
 import { Skeleton } from '@/components/skeleton/skeleton'
 
+import { DropdownUser } from './dropdownUser'
 import { Container, DropdownButton, UserContent } from './styles'
 
 export function UserMenu(): JSX.Element {
   return (
     <Container>
-      <DropdownMenu>
+      <DropdownUser>
         <DropdownButton aria-label='User options'>
           <img src='/navbarIcons/arrow_dropdown_icon.svg' alt='↓' />
         </DropdownButton>
-      </DropdownMenu>
+      </DropdownUser>
 
       <UserContent>
         <span>

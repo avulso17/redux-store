@@ -1,5 +1,8 @@
+import Link from 'next/link'
+
 import { useState } from 'react'
 import { toast } from 'react-hot-toast'
+import { GiShoppingCart } from 'react-icons/gi'
 
 import { AlertDialog } from '@/components/alertDialog'
 import { Button } from '@/components/button'
@@ -14,6 +17,7 @@ import {
   CartContent,
   CartHeader,
   CartList,
+  CartNoItems,
   Container,
   ResumeSection,
 } from './styles'
@@ -24,16 +28,19 @@ export default function CartPage(): JSX.Element {
   const frete = 20
   const { cart, total } = useAppSelector((state) => {
     let total = 0
+    const regExp = new RegExp(state.search, 'i')
 
     const cartItens = state.cart.reduce((itens, cartItem) => {
       const item = state.itens.find((item) => item.id === cartItem.id)
 
       total += (item?.price ?? 0) * cartItem.quantity
 
-      itens.push({
-        ...item,
-        quantity: cartItem.quantity,
-      })
+      if (item?.title.match(regExp) != null) {
+        itens.push({
+          ...item,
+          quantity: cartItem.quantity,
+        })
+      }
 
       return itens
     }, [])
@@ -100,7 +107,16 @@ export default function CartPage(): JSX.Element {
               )
             })
           ) : (
-            <p>Carrinho vazio!</p>
+            <CartNoItems>
+              <b>O seu carrinho está vazio.</b>
+              <p>Deseja olhar outros produtos similares?</p>
+              <Link href={'/'}>
+                <Button>
+                  <GiShoppingCart />
+                  Continuar comprando
+                </Button>
+              </Link>
+            </CartNoItems>
           )}
         </CartList>
       </CartContent>

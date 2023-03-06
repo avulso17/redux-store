@@ -6,7 +6,6 @@ import { useAppSelector } from '@/hooks/useType'
 import {
   BackpackIcon,
   DesktopIcon,
-  ExitIcon,
   HomeIcon,
   MixIcon,
   SpeakerLoudIcon,
@@ -14,7 +13,7 @@ import {
 
 import { Separator } from '../separator'
 import { SideTooltip } from './sideTooltip'
-import { ButtonBox, Container, LogoutButton, SideButton } from './styles'
+import { ButtonBox, Container, SideButton } from './styles'
 
 export function Sidebar(): JSX.Element {
   const router = useRouter()
@@ -59,12 +58,6 @@ export function Sidebar(): JSX.Element {
           )
         })}
       </ButtonBox>
-
-      <SideTooltip title={'Sair'}>
-        <LogoutButton as='button'>
-          <ExitIcon />
-        </LogoutButton>
-      </SideTooltip>
     </Container>
   )
 }

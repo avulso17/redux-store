@@ -22,16 +22,6 @@ export const CartContent = styled.div`
   width: 100%;
 `
 
-export const CartList = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
-  overflow-x: hidden;
-  padding: 0.1rem;
-  padding-right: 0.8rem;
-  width: 100%;
-`
-
 export const CartHeader = styled.div`
   display: flex;
   align-items: center;
@@ -80,6 +70,41 @@ export const CartHeader = styled.div`
       background-color: ${({ theme }) => theme.default.primary};
       color: ${({ theme }) => theme.default.textContrast};
     }
+  }
+`
+
+export const CartList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  overflow-x: hidden;
+  padding: 0.1rem;
+  padding-right: 0.8rem;
+  width: 100%;
+`
+
+export const CartNoItems = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 3.2rem;
+  width: 100%;
+
+  > b {
+    font-size: 2.4rem;
+    line-height: 3.4rem;
+  }
+
+  > p {
+    color: ${({ theme }) => theme.default.textAlpha};
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+  }
+
+  button {
+    text-transform: uppercase;
+    margin-top: 1.6rem;
   }
 `
 
