@@ -10,6 +10,7 @@ import {
 import {
   ChevronRightIcon,
   DotFilledIcon,
+  ExitIcon,
   MoonIcon,
   SunIcon,
 } from '@radix-ui/react-icons'
@@ -108,6 +109,15 @@ export function DropdownUser({
               </RightSlot>
             </MenuRadioItem>
           </RadioGroup>
+
+          <MenuSeparator />
+
+          <MenuItem>
+            Sair
+            <RightSlot>
+              <ExitIcon />
+            </RightSlot>
+          </MenuItem>
 
           {/* <MenuSeparator /> */}
 
