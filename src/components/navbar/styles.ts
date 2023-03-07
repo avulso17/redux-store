@@ -158,4 +158,8 @@ export const CartCount = styled.span`
   right: -2px;
   height: 1.8rem;
   width: 1.8rem;
+
+  @media (prefers-color-scheme: light) {
+    color: #fff;
+  }
 `
