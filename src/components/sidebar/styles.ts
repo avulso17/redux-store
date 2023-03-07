@@ -22,7 +22,6 @@ export const Container = styled.aside`
   width: 100%;
 
   @media ${({ theme }) => theme.breakpoint.mobile} {
-    /* display: none; */
     flex-direction: row;
   }
 `
@@ -66,6 +65,10 @@ export const SideTooltip = styled(Content)`
   user-select: none;
   height: 4.8rem;
   will-change: transform, opacity;
+
+  @media ${({ theme }) => theme.breakpoint.mobile} {
+    display: none;
+  }
 
   &[data-state='delayed-open'] {
     &[data-side='top'] {

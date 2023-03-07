@@ -1,14 +1,15 @@
-import { useState } from 'react'
+import type { ReactNode } from 'react'
 
+// import { useDarkMode } from 'usehooks-ts'
+
+import { useTheme } from '@/contexts/reactThemeContext'
 import {
   Root,
   Trigger,
   Portal,
   RadioGroup,
-  Sub,
 } from '@radix-ui/react-dropdown-menu'
 import {
-  ChevronRightIcon,
   DotFilledIcon,
   ExitIcon,
   MoonIcon,
@@ -23,32 +24,41 @@ import {
   MenuLabel,
   MenuRadioItem,
   MenuSeparator,
-  MenuSubContent,
-  MenuSubTrigger,
   RightSlot,
 } from './styles'
 
 interface IDropdownMenuProps {
   align?: 'start' | 'center' | 'end'
-  children: React.ReactNode
+  children?: ReactNode
   loop?: boolean
+  onOpenChange?: (open: boolean) => void
+  open?: boolean
   sideOffset?: number
+  trigger?: ReactNode
 }
 
 export function DropdownUser({
   align = 'center',
   children,
-  sideOffset = 15,
+  open,
+  onOpenChange,
+  sideOffset = 4,
   loop = false,
 }: IDropdownMenuProps): JSX.Element {
-  const [theme, setTheme] = useState<string>('light')
+  // const { isDarkMode, enable, disable } = useDarkMode()
+  const { theme, setTheme } = useTheme()
 
   return (
-    <Root>
+    <Root open={open} onOpenChange={onOpenChange}>
       <Trigger asChild>{children}</Trigger>
 
       <Portal>
-        <MenuContent align={align} loop={loop} sideOffset={sideOffset}>
+        <MenuContent
+          align={align}
+          loop={loop}
+          sideOffset={sideOffset}
+          collisionPadding={16}
+        >
           <MenuLabel />
           <MenuItem>
             New Tab <RightSlot>⌘+T</RightSlot>
@@ -60,37 +70,11 @@ export function DropdownUser({
             New Private Window <RightSlot>⇧+⌘+N</RightSlot>
           </MenuItem>
 
-          <Sub>
-            <MenuSubTrigger>
-              More Tools{' '}
-              <RightSlot>
-                <ChevronRightIcon />
-              </RightSlot>
-            </MenuSubTrigger>
-
-            <Portal>
-              <MenuSubContent loop={loop} sideOffset={2} alignOffset={-5}>
-                <MenuItem>
-                  New Tab <RightSlot>⌘+T</RightSlot>
-                </MenuItem>
-                <MenuItem>Create Shortcut…</MenuItem>
-                <MenuItem>Name Window…</MenuItem>
-                <MenuSeparator />
-                <MenuItem>Developer Tools</MenuItem>
-              </MenuSubContent>
-            </Portal>
-          </Sub>
-
           <MenuSeparator />
 
           <MenuLabel>Theme</MenuLabel>
-          <RadioGroup
-            value={theme}
-            onValueChange={(value) => {
-              setTheme(value)
-            }}
-          >
-            <MenuRadioItem value='light'>
+          <RadioGroup value={theme === 'dark' ? 'dark' : 'light'}>
+            <MenuRadioItem onClick={() => setTheme('light')} value='light'>
               <MenuItemIndicator>
                 <DotFilledIcon />
               </MenuItemIndicator>
@@ -99,7 +83,7 @@ export function DropdownUser({
                 <SunIcon />
               </RightSlot>
             </MenuRadioItem>
-            <MenuRadioItem value='dark'>
+            <MenuRadioItem onClick={() => setTheme('dark')} value='dark'>
               <MenuItemIndicator>
                 <DotFilledIcon />
               </MenuItemIndicator>
@@ -118,18 +102,6 @@ export function DropdownUser({
               <ExitIcon />
             </RightSlot>
           </MenuItem>
-
-          {/* <MenuSeparator /> */}
-
-          {/* <MenuCheckboxItem>
-            <MenuItemIndicator />
-          </MenuCheckboxItem> */}
-
-          {/* <MenuRadioGroup>
-            <MenuRadioItem value='value'>
-              <MenuItemIndicator />
-            </MenuRadioItem>
-          </MenuRadioGroup> */}
 
           <MenuArrow />
         </MenuContent>

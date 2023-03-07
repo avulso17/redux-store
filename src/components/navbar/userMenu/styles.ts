@@ -29,14 +29,8 @@ export const Container = styled.div`
   height: 4rem;
   min-width: 18.8rem;
 
-  @media ${({ theme }) => theme.breakpoint.mobile} {
-    display: none;
-    /* all: unset;
-    width: fit-content; */
-
-    /* > div:nth-child(n + 2) {
-      display: none;
-    } */
+  @media ${({ theme }) => theme.breakpoint.tablet} {
+    min-width: unset;
   }
 `
 
@@ -44,6 +38,7 @@ export const DropdownButton = styled.button`
   background-color: unset;
   border: none;
   border-radius: 4px;
+  color: ${({ theme }) => theme.default.primary};
   display: grid;
   place-items: center;
   margin: auto 0;
