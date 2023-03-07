@@ -30,6 +30,7 @@ export const Container = styled.div`
   min-width: 18.8rem;
 
   @media ${({ theme }) => theme.breakpoint.mobile} {
+    display: none;
     /* all: unset;
     width: fit-content; */
 

@@ -22,7 +22,8 @@ export const Container = styled.aside`
   width: 100%;
 
   @media ${({ theme }) => theme.breakpoint.mobile} {
-    display: none;
+    /* display: none; */
+    flex-direction: row;
   }
 `
 export const ButtonBox = styled.div`
@@ -31,6 +32,20 @@ export const ButtonBox = styled.div`
   align-items: center;
   gap: 1.6rem;
   height: fit-content;
+
+  @media ${({ theme }) => theme.breakpoint.mobile} {
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+
+    > a:nth-child(1) {
+      display: none;
+    }
+
+    > div:nth-child(2) {
+      display: none;
+    }
+  }
 `
 
 export const SideTooltip = styled(Content)`
