@@ -15,9 +15,10 @@ export const Container = styled(motion.div)`
 
   @media ${({ theme }) => theme.breakpoint.mobile} {
     grid-template-areas:
-      ' nav'
-      ' content';
-    grid-template-rows: 56px 1fr;
+      'nav'
+      'content'
+      'sidebar';
+    grid-template-rows: 56px 1fr 72px;
     grid-template-columns: 1fr;
   }
 `
