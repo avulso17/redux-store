@@ -11,6 +11,7 @@ export const Container = styled(motion.div)`
   grid-template-columns: 72px 1fr;
   overflow: hidden;
   height: 100vh;
+  height: 100svh;
   width: 100vw;
 
   @media ${({ theme }) => theme.breakpoint.mobile} {
@@ -18,7 +19,7 @@ export const Container = styled(motion.div)`
       'nav'
       'content'
       'sidebar';
-    grid-template-rows: 56px 1fr 72px;
+    grid-template-rows: 56px 1fr 64px;
     grid-template-columns: 1fr;
   }
 `

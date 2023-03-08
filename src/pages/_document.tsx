@@ -48,10 +48,7 @@ export default class MyDocument extends Document {
             property='og:url'
             content='https://redux-store-dev.vercel.app'
           />
-          <meta
-            property='og:title'
-            content='Redux Store - Powered by Felipe Mateus'
-          />
+          <meta property='og:title' content='Redux Store' />
           <meta
             property='og:description'
             content='Redux Store - Powered by Felipe Mateus'
@@ -62,10 +59,7 @@ export default class MyDocument extends Document {
             property='twitter:url'
             content='https://redux-store-dev.vercel.app'
           />
-          <meta
-            property='twitter:title'
-            content='Redux Store - Powered by Felipe Mateus'
-          />
+          <meta property='twitter:title' content='Redux Store' />
           <meta
             property='twitter:description'
             content='Redux Store - Powered by Felipe Mateus'

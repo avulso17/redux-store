@@ -7,6 +7,7 @@ export const Container = styled.nav`
   grid-area: nav;
   gap: 3.2rem;
   padding: 0.8rem 1.2rem;
+  position: relative;
   height: 100%;
   width: 100%;
 
@@ -43,20 +44,17 @@ export const InputDiv = styled.form`
   max-width: 42.4rem;
 
   @media ${({ theme }) => theme.breakpoint.mobile} {
+    gap: 1.2rem;
     max-width: none;
   }
 `
 
-export const SearchButton = styled.button`
+const SearchButtonStyled = css`
   background-color: unset;
   border: none;
   border-radius: 999px;
   padding: 0;
-  position: absolute;
-  top: 50%;
-  left: 10px;
   padding: 0.3rem 0.4rem;
-  transform: translateY(-50%);
   transition: all ${({ theme }) => theme.transition.default};
   height: fit-content;
   width: fit-content;
@@ -71,6 +69,38 @@ export const SearchButton = styled.button`
   &:hover {
     background-color: ${({ theme }) => theme.default.hoverAlpha};
   }
+`
+
+export const SearchButton = styled.button`
+  ${SearchButtonStyled}
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+`
+
+export const MobileSearchButton = styled.button`
+  ${SearchButtonStyled}
+`
+
+export const CloseSearchButton = styled.button`
+  ${SearchButtonStyled}
+`
+
+export const MobileSearchContainer = styled.div`
+  background-color: ${({ theme }) => theme.default.contrastColor};
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.8rem 1.2rem;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
 `
 
 export const StyledInput = styled.input`
@@ -91,6 +121,10 @@ export const StyledInput = styled.input`
     outline: none;
     box-shadow: 0 0 0 2px ${({ theme }) => theme.default.primary};
   }
+
+  @media ${({ theme }) => theme.breakpoint.mobile} {
+    padding-left: 1.8rem;
+  }
 `
 
 export const RightDiv = styled.div`
@@ -101,7 +135,7 @@ export const RightDiv = styled.div`
   width: fit-content;
 
   @media ${({ theme }) => theme.breakpoint.mobile} {
-    > :nth-child(-n + 2) {
+    > :nth-child(-n + 1) {
       display: none;
     }
   }
@@ -149,7 +183,7 @@ export const MenuButton = styled.button<{ isActive?: boolean }>`
 export const CartCount = styled.span`
   background-color: ${({ theme }) => theme.colors.red};
   border-radius: 999px;
-  color: ${({ theme }) => theme.default.text};
+  color: #fff;
   display: grid;
   place-items: center;
   font-weight: 500;
@@ -158,8 +192,4 @@ export const CartCount = styled.span`
   right: -2px;
   height: 1.8rem;
   width: 1.8rem;
-
-  @media (prefers-color-scheme: light) {
-    color: #fff;
-  }
 `

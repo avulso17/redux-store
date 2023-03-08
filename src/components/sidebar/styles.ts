@@ -23,6 +23,7 @@ export const Container = styled.aside`
 
   @media ${({ theme }) => theme.breakpoint.mobile} {
     flex-direction: row;
+    padding: 0.8rem 1.2rem;
   }
 `
 export const ButtonBox = styled.div`
