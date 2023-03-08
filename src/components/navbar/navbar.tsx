@@ -2,17 +2,12 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 import { useEffect } from 'react'
-import { toast } from 'react-hot-toast'
 import { GiShoppingCart } from 'react-icons/gi'
 import { SiRedux } from 'react-icons/si'
 
 import { useAppDispatch, useAppSelector } from '@/hooks/useType'
 import { changeSearch, resetSearch } from '@/store/reducers/search'
-import {
-  HeartFilledIcon,
-  MagnifyingGlassIcon,
-  QuestionMarkCircledIcon,
-} from '@radix-ui/react-icons'
+import { HeartFilledIcon, MagnifyingGlassIcon } from '@radix-ui/react-icons'
 
 import {
   CartCount,
@@ -70,14 +65,6 @@ export function Navbar(): JSX.Element {
         </InputDiv>
 
         <RightDiv>
-          <MenuButton
-            onClick={() =>
-              toast('Falta regra de negócio e UI design.', { icon: '🚧' })
-            }
-          >
-            <QuestionMarkCircledIcon />
-          </MenuButton>
-
           <Link href='/favorites'>
             <MenuButton isActive={pathname === '/favorites'}>
               <HeartFilledIcon />

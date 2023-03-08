@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-
+import { IoLanguageOutline } from 'react-icons/io5'
 // import { useDarkMode } from 'usehooks-ts'
 
 import { useTheme } from '@/contexts/reactThemeContext'
@@ -10,9 +10,13 @@ import {
   RadioGroup,
 } from '@radix-ui/react-dropdown-menu'
 import {
+  AvatarIcon,
   DotFilledIcon,
   ExitIcon,
+  GearIcon,
+  InfoCircledIcon,
   MoonIcon,
+  QuestionMarkCircledIcon,
   SunIcon,
 } from '@radix-ui/react-icons'
 
@@ -59,15 +63,25 @@ export function DropdownUser({
           sideOffset={sideOffset}
           collisionPadding={16}
         >
-          <MenuLabel />
           <MenuItem>
-            New Tab <RightSlot>⌘+T</RightSlot>
+            Seu perfil
+            <RightSlot>
+              <AvatarIcon />
+            </RightSlot>
           </MenuItem>
+
           <MenuItem>
-            New Window <RightSlot>⌘+N</RightSlot>
+            Idioma: Português
+            <RightSlot>
+              <IoLanguageOutline fontSize={'1.5rem'} />
+            </RightSlot>
           </MenuItem>
-          <MenuItem disabled>
-            New Private Window <RightSlot>⇧+⌘+N</RightSlot>
+
+          <MenuItem>
+            Sair
+            <RightSlot>
+              <ExitIcon />
+            </RightSlot>
           </MenuItem>
 
           <MenuSeparator />
@@ -96,10 +110,26 @@ export function DropdownUser({
 
           <MenuSeparator />
 
-          <MenuItem>
-            Sair
+          <MenuItem disabled>
+            Configurações
             <RightSlot>
-              <ExitIcon />
+              <GearIcon />
+            </RightSlot>
+          </MenuItem>
+
+          <MenuSeparator />
+
+          <MenuItem>
+            Ajuda
+            <RightSlot>
+              <QuestionMarkCircledIcon />
+            </RightSlot>
+          </MenuItem>
+
+          <MenuItem>
+            Info
+            <RightSlot>
+              <InfoCircledIcon />
             </RightSlot>
           </MenuItem>
 

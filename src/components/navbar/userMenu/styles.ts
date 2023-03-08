@@ -42,16 +42,16 @@ export const DropdownButton = styled.button`
   display: grid;
   place-items: center;
   margin: auto 0;
-  margin-left: 4px;
+  margin-left: 0.4rem;
   outline: 0 solid transparent;
   transition: background-color ${({ theme }) => theme.transition.default};
-  height: 24px;
-  width: 24px;
+  height: 2.4rem;
+  width: 2.4rem;
 
   > img {
     object-fit: contain;
-    height: 5px;
-    width: 10px;
+    height: 0.5rem;
+    width: 1rem;
   }
 
   &:hover {
@@ -68,12 +68,12 @@ export const UserContent = styled.div`
   flex-direction: column;
   align-items: flex-end;
   width: 100%;
-  max-width: 98px;
+  max-width: 9.8rem;
 
   > span {
     display: flex;
     align-items: center;
-    height: 16px;
+    height: 1.6rem;
     width: 100%;
 
     > h2 {
@@ -85,7 +85,7 @@ export const UserContent = styled.div`
       text-overflow: ellipsis;
       white-space: nowrap;
       height: fit-content;
-      width: 98px;
+      width: 9.8rem;
     }
   }
 
@@ -93,8 +93,8 @@ export const UserContent = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: 4px;
-    height: 16px;
+    gap: 0.4rem;
+    height: 1.6rem;
     width: 100%;
 
     > p {
@@ -105,8 +105,8 @@ export const UserContent = styled.div`
 
     > img {
       object-fit: contain;
-      height: 14px;
-      width: 12px;
+      height: 1.4rem;
+      width: 1.2rem;
     }
   }
 `
@@ -148,7 +148,7 @@ const MenuContentStyles = css`
 const menuItemStyles = css`
   all: unset;
   align-items: center;
-  border-radius: 0.4rem;
+  border-radius: 4px;
   color: ${({ theme }) => theme.default.text};
   display: flex;
   font-size: 1.2rem;
@@ -223,14 +223,14 @@ export const MenuSeparator = styled(Separator)`
 
 export const RightSlot = styled.div`
   margin-left: auto;
-  padding-left: 20px;
+  padding-left: 2rem;
   color: ${({ theme }) => theme.default.text};
 
   [data-highlighted] > & {
     color: ${({ theme }) => theme.default.textContrast};
   }
 
-  [data-disabled] & {
+  [data-disabled] > & {
     color: ${({ theme }) => theme.default.textAlpha};
   }
 `
