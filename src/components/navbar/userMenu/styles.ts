@@ -232,5 +232,9 @@ export const RightSlot = styled.div`
 
   [data-disabled] > & {
     color: ${({ theme }) => theme.default.textAlpha};
+
+    > svg {
+      color: ${({ theme }) => theme.default.textAlpha};
+    }
   }
 `
