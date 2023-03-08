@@ -19,7 +19,7 @@ export const Container = styled(motion.div)`
       'nav'
       'content'
       'sidebar';
-    grid-template-rows: 56px 1fr 72px;
+    grid-template-rows: 56px 1fr 64px;
     grid-template-columns: 1fr;
   }
 `
