@@ -26,7 +26,7 @@ export function ProductItem({ ...props }: IItensState): JSX.Element {
 
   return (
     <Container>
-      <img src={photo} alt='title' />
+      <img src={photo} alt={title} />
 
       <TitleBox>
         <h2>{title}</h2>
@@ -42,11 +42,12 @@ export function ProductItem({ ...props }: IItensState): JSX.Element {
               handleCart()
             }}
             size='full'
+            disabled={hasItemInCart}
           >
             {hasItemInCart ? (
               <>
                 <GiShoppingCart />
-                Remove from cart
+                Added to cart
               </>
             ) : (
               <>

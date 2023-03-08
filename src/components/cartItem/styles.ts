@@ -26,8 +26,6 @@ export const LeftSide = styled.div`
     background-color: #fff;
     border-radius: 0.4rem;
     object-fit: contain;
-    height: 8.8rem;
-    width: 8.8rem;
   }
 `
 
