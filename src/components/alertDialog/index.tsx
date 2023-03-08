@@ -1,15 +1,10 @@
 import type { ReactNode } from 'react'
 
-import {
-  Root,
-  Trigger,
-  Portal,
-  Cancel,
-  Action,
-} from '@radix-ui/react-alert-dialog'
+import { Root, Trigger, Portal } from '@radix-ui/react-alert-dialog'
 
-import { Button } from '../button'
 import {
+  DialogAction,
+  DialogCancel,
   DialogContent,
   DialogDescription,
   DialogOverlay,
@@ -38,7 +33,7 @@ export function AlertDialog({
 }: IDialogProps): JSX.Element {
   return (
     <Root open={open} onOpenChange={onOpenChange}>
-      <Trigger asChild>{children}</Trigger>
+      {children !== undefined && <Trigger asChild>{children}</Trigger>}
 
       <Portal>
         <DialogOverlay />
@@ -51,19 +46,15 @@ export function AlertDialog({
           )}
 
           <Flex>
-            <Cancel asChild>
-              <Button variant='outlined'>Cancelar</Button>
-            </Cancel>
+            <DialogCancel>Cancelar</DialogCancel>
 
-            <Action asChild>
-              <Button
-                onClick={() => {
-                  actionFn()
-                }}
-              >
-                Sim, tenho certeza
-              </Button>
-            </Action>
+            <DialogAction
+              onClick={() => {
+                actionFn()
+              }}
+            >
+              Sim, tenho certeza
+            </DialogAction>
           </Flex>
         </DialogContent>
       </Portal>

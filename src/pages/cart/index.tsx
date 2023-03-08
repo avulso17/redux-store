@@ -26,7 +26,7 @@ export default function CartPage(): JSX.Element {
   const [modalOpen, setModalOpen] = useState<boolean>(false)
   const dispatch = useAppDispatch()
   const frete = 20
-  const { cart, total } = useAppSelector((state) => {
+  const { cartItens, cartLength, total } = useAppSelector((state) => {
     let total = 0
     const regExp = new RegExp(state.search, 'i')
 
@@ -45,21 +45,24 @@ export default function CartPage(): JSX.Element {
       return itens
     }, [])
 
+    const cartLength = state.cart.length
+
     return {
-      cart: cartItens,
+      cartItens,
       total,
+      cartLength,
     }
   })
   const subtotal = total + frete
 
   function removeAllCartItens(): void {
-    cart.forEach((item: ICartItemProps) => {
+    cartItens.forEach((item: ICartItemProps) => {
       dispatch(changeCart(item.id))
     })
   }
 
   function handleAlertDialog(): void {
-    if (cart.length > 0) {
+    if (cartItens.length > 0) {
       removeAllCartItens()
     }
   }
@@ -73,12 +76,17 @@ export default function CartPage(): JSX.Element {
 
           <button
             onClick={() => {
-              if (cart.length > 0) {
+              if (cartItens.length > 0) {
                 setModalOpen(!modalOpen)
               }
 
-              if (cart.length === 0) {
+              if (cartItens.length === 0 && cartLength === 0) {
                 toast('Carrinho vazio!', { icon: '🤷‍♂️' })
+              }
+            }}
+            ref={(ref) => {
+              if (ref != null) {
+                ref.style.setProperty('margin-left', 'auto', 'important')
               }
             }}
           >
@@ -90,8 +98,9 @@ export default function CartPage(): JSX.Element {
         <Separator orientation='horizontal' />
 
         <CartList>
-          {cart.length > 0 ? (
-            cart.map((item: ICartItemProps) => {
+          {cartItens.length > 0 &&
+            cartLength > 0 &&
+            cartItens.map((item: ICartItemProps) => {
               const { id, price, photo, category, title, quantity } = item
 
               return (
@@ -105,8 +114,9 @@ export default function CartPage(): JSX.Element {
                   quantity={quantity}
                 />
               )
-            })
-          ) : (
+            })}
+
+          {cartItens.length === 0 && cartLength === 0 && (
             <CartNoItems>
               <b>O seu carrinho está vazio.</b>
               <p>Deseja olhar outros produtos similares?</p>
@@ -116,6 +126,13 @@ export default function CartPage(): JSX.Element {
                   Continuar comprando
                 </Button>
               </Link>
+            </CartNoItems>
+          )}
+
+          {cartItens.length === 0 && cartLength > 0 && (
+            <CartNoItems>
+              <b>Lamentamos, nenhum produto foi encontrado.</b>
+              <p>Tente novamente com outro termo para busca...</p>
             </CartNoItems>
           )}
         </CartList>

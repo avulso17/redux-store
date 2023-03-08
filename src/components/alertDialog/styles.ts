@@ -6,6 +6,8 @@ import {
   Content,
   Title,
   Description,
+  Cancel,
+  Action,
 } from '@radix-ui/react-alert-dialog'
 
 export const DialogOverlay = styled(Overlay)`
@@ -57,4 +59,85 @@ export const Flex = styled.div`
   justify-content: flex-end;
   gap: 1.6rem;
   width: 100%;
+`
+
+export const DialogCancel = styled(Cancel)`
+  background: unset;
+  border: 1px solid ${({ theme }) => theme.default.primary};
+  border-radius: 0.6rem;
+  color: ${({ theme }) => theme.default.primary};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 2.4rem;
+  padding: 1.2rem 1.6rem;
+  transition: all ${({ theme }) => theme.transition.default};
+  height: fit-content;
+  width: fit-content;
+
+  > svg {
+    color: inherit;
+    height: 1.8rem;
+    width: 1.8rem;
+  }
+
+  &:hover {
+    background-color: ${({ theme }) => theme.default.primary};
+    color: ${({ theme }) => theme.default.textContrast};
+  }
+
+  &:disabled {
+    filter: grayscale(1);
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  @media ${({ theme }) => theme.breakpoint.mobile} {
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    padding: 1rem 1.4rem;
+  }
+`
+
+export const DialogAction = styled(Action)`
+  background: ${({ theme }) => theme.default.primary};
+  border: none;
+  border-radius: 0.6rem;
+  color: ${({ theme }) => theme.default.textContrast};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 2.4rem;
+  padding: 1.2rem 1.6rem;
+  transition: all ${({ theme }) => theme.transition.default};
+  height: fit-content;
+  width: fit-content;
+
+  > svg {
+    color: inherit;
+    height: 1.8rem;
+    width: 1.8rem;
+  }
+
+  &:hover {
+    background: ${({ theme }) => theme.default.thumbHover};
+  }
+
+  &:disabled {
+    filter: brightness(0.6);
+    opacity: 0.8;
+    pointer-events: none;
+  }
+
+  @media ${({ theme }) => theme.breakpoint.mobile} {
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    padding: 1rem 1.4rem;
+  }
 `
