@@ -10,7 +10,7 @@ export const Container = styled(motion.div)`
   grid-template-rows: 56px 1fr;
   grid-template-columns: 72px 1fr;
   overflow: hidden;
-  height: 100vh;
+  height: 100dvh;
   width: 100vw;
 
   @media ${({ theme }) => theme.breakpoint.mobile} {
