@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components'
 
 interface IButtonProps {
   children: ReactNode
+  disabled?: boolean
   onClick?: () => void
   size?: 'full' | 'hug'
   style?: CSSProperties
@@ -42,6 +43,12 @@ const StyledButton = styled.button<{
     width: 1.8rem;
   }
 
+  @media ${({ theme }) => theme.breakpoint.mobile} {
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    padding: 1rem 1.4rem;
+  }
+
   ${({ variant }) =>
     variant === 'colorful' &&
     css`
@@ -51,6 +58,12 @@ const StyledButton = styled.button<{
 
       &:hover {
         background: ${({ theme }) => theme.default.thumbHover};
+      }
+
+      &:disabled {
+        filter: brightness(0.6);
+        opacity: 0.8;
+        pointer-events: none;
       }
     `}
 
@@ -64,6 +77,12 @@ const StyledButton = styled.button<{
       &:hover {
         background-color: ${({ theme }) => theme.default.primary};
         color: ${({ theme }) => theme.default.textContrast};
+      }
+
+      &:disabled {
+        filter: grayscale(1);
+        opacity: 0.6;
+        pointer-events: none;
       }
     `}
 `

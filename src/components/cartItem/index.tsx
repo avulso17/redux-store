@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 import { useAppDispatch } from '@/hooks/useType'
 import type { ICartItemProps } from '@/interfaces/itens'
 import { changeCart, changeQuantity } from '@/store/reducers/cart'
@@ -42,7 +44,7 @@ export function CartItem({
   return (
     <StyledCartItem>
       <LeftSide>
-        <img src={photo} alt={title} />
+        <Image src={photo} alt={title} height={88} width={88} />
 
         <CartItemInfo>
           <h3>{category ?? <Skeleton />}</h3>
