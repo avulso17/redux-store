@@ -1,6 +1,7 @@
 import type { AppProps } from 'next/app'
+// import dynamic from 'next/dynamic'
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { Toaster } from 'react-hot-toast'
 import { Provider } from 'react-redux'
 
@@ -8,7 +9,7 @@ import { Provider } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 // import { useDarkMode, useReadLocalStorage } from 'usehooks-ts'
 
-import { Layout } from '@/components/layout/layout'
+import { Layout } from '@/components/layout'
 import { ThemeContext } from '@/contexts/reactThemeContext'
 // import { usePersistedState } from '@/hooks/usePersistedState'
 import store from '@/store'
@@ -21,7 +22,12 @@ import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
 import '@fontsource/roboto/900.css'
 
+// const Scene = dynamic(async () => await import('@/components/three/scene'), {
+//   ssr: true,
+// })
+
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
+  const ref = useRef()
   // const preferredTheme = useReadLocalStorage('usehooks-ts-dark-mode') as boolean
   // const [theme, setTheme] = usePersistedState<'light' | 'dark'>(
   //   'preferred-theme',
@@ -37,7 +43,7 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
         <ThemeProvider theme={theme === 'dark' ? dark : light}>
           <GlobalStyle />
 
-          <Layout>
+          <Layout forwardedRef={ref}>
             <Component {...pageProps} />
           </Layout>
 

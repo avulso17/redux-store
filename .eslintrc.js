@@ -39,6 +39,7 @@ module.exports = {
     '@next/next/no-img-element': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
+    '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/triple-slash-reference': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
@@ -105,6 +106,20 @@ module.exports = {
       },
     ],
     'prettier/prettier': 'error',
+    'react/no-unknown-property': [
+      'warn',
+      {
+        ignore: [
+          'args',
+          'position',
+          'color',
+          'material',
+          'visible',
+          'intensity',
+          'map',
+        ],
+      },
+    ],
     'react/jsx-filename-extension': [
       1,
       {
