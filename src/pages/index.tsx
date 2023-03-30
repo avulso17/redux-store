@@ -1,6 +1,7 @@
 // import { Hero } from '@/components/hero'
 import { Earth3D } from '@/components/three/3D/earth'
-import { Sphere3D } from '@/components/three/3D/sphere'
+// import { Room3D } from '@/components/three/3D/room'
+// import { Sphere3D } from '@/components/three/3D/sphere'
 import Scene from '@/components/three/scene'
 
 import { Container } from './styles'
@@ -14,7 +15,8 @@ export default function Home(): JSX.Element {
       /> */}
       <Scene>
         {/* <Sphere3D position={[2.5, 0, 0]} /> */}
-        <Earth3D position={[0, 0, 0]} />
+        <Earth3D />
+        {/* <Room3D position={[0, 0, 0]} /> */}
       </Scene>
     </Container>
   )
