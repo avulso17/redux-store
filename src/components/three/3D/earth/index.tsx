@@ -12,7 +12,11 @@ export function Earth3D(props: any): JSX.Element {
 
   // const sphereGeometry = useLoader(BufferGeometryLoader, '/sphere.json')
 
-  const earth = useLoader(TextureLoader, '/texture/galaxy/earth_nightmap.jpg')
+  const [earthMap, earthNormal, earthDisplacement] = useLoader(TextureLoader, [
+    '/texture/galaxy/earth_daymap.jpg',
+    '/texture/galaxy/earth_normal.jpg',
+    '/texture/galaxy/earth_dis.jpg',
+  ])
   const clouds = useLoader(TextureLoader, '/texture/galaxy/earth_clouds.jpg')
   const moon = useLoader(TextureLoader, '/texture/galaxy/moon.jpg')
 
@@ -39,12 +43,17 @@ export function Earth3D(props: any): JSX.Element {
 
       <mesh {...props} ref={earthRef}>
         <sphereBufferGeometry args={[2, 64, 64]} />
-        <meshStandardMaterial map={earth} displacementScale={0.2} />
+        <meshStandardMaterial
+          map={earthMap}
+          normalMap={earthNormal}
+          displacementMap={earthDisplacement}
+          displacementScale={-0.015}
+        />
       </mesh>
 
-      <mesh {...props} ref={cloudsRef}>
+      <mesh visible {...props} ref={cloudsRef}>
         <sphereBufferGeometry args={[2.02, 64, 64]} />
-        <meshStandardMaterial alphaMap={clouds} opacity={0.5} transparent />
+        <meshStandardMaterial alphaMap={clouds} opacity={0.75} transparent />
       </mesh>
 
       <mesh position={[3.5, 1.2, 0]} ref={moonRef}>

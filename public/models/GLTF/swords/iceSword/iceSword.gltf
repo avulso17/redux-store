@@ -1,0 +1,186 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v3.3.32",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "IceSword_Mesh_IceSword_Mat_0",
+            "scale" : [
+                0.025953860953450203,
+                0.025953860953450203,
+                0.025953860953450203
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "alphaMode" : "BLEND",
+            "doubleSided" : true,
+            "emissiveFactor" : [
+                1,
+                1,
+                1
+            ],
+            "emissiveTexture" : {
+                "index" : 0
+            },
+            "name" : "IceSword_Mat",
+            "normalTexture" : {
+                "index" : 1
+            },
+            "occlusionTexture" : {
+                "index" : 2
+            },
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 3
+                },
+                "metallicFactor" : 0,
+                "metallicRoughnessTexture" : {
+                    "index" : 2
+                }
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "IceSword_Mesh_IceSword_Mat_0",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        },
+        {
+            "sampler" : 0,
+            "source" : 1
+        },
+        {
+            "sampler" : 0,
+            "source" : 2
+        },
+        {
+            "sampler" : 0,
+            "source" : 3
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/png",
+            "name" : "IceSword_Mat_emissive",
+            "uri" : "textures/IceSword_Mat_emissive.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "IceSword_Mat_normal",
+            "uri" : "textures/IceSword_Mat_normal.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "IceSword_Mat_metallicRoughness",
+            "uri" : "textures/IceSword_Mat_metallicRoughness.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "IceSword_Mat_baseColor",
+            "uri" : "textures/IceSword_Mat_baseColor.png"
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 5570,
+            "max" : [
+                11.905088424682617,
+                328.68365478515625,
+                66.76422119140625
+            ],
+            "min" : [
+                -11.931926727294922,
+                -169.89695739746094,
+                -68.21185302734375
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 5570,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 5570,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 16428,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 66840,
+            "byteOffset" : 0,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 66840,
+            "byteOffset" : 66840,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 44560,
+            "byteOffset" : 133680,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 32856,
+            "byteOffset" : 178240,
+            "target" : 34963
+        }
+    ],
+    "samplers" : [
+        {
+            "magFilter" : 9729,
+            "minFilter" : 9987
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 211096,
+            "uri" : "IceSword.bin"
+        }
+    ]
+}
