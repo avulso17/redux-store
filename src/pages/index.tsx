@@ -1,21 +1,23 @@
-import { Hero } from '@/components/hero'
-// import { useAppSelector } from '@/hooks/useType'
+// import { Hero } from '@/components/hero'
+import { Earth3D } from '@/components/three/3D/earth'
+// import { Room3D } from '@/components/three/3D/room'
+// import { Sphere3D } from '@/components/three/3D/sphere'
+import Scene from '@/components/three/scene'
 
 import { Container } from './styles'
 
 export default function Home(): JSX.Element {
-  // const { categorys } = useAppSelector((state) => {
-  //   return {
-  //     categorys: state.categorys,
-  //   }
-  // })
-
   return (
     <Container>
-      <Hero
+      {/* <Hero
         title='Redux Store'
         description='Compre diversos tipos de produtos no melhor site do Brasil!'
-      />
+      /> */}
+      <Scene>
+        {/* <Sphere3D position={[2.5, 0, 0]} /> */}
+        <Earth3D />
+        {/* <Room3D position={[0, 0, 0]} /> */}
+      </Scene>
     </Container>
   )
 }
