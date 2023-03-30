@@ -4,7 +4,7 @@ import { OrbitControls, Preload } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 
 interface ISceneProps {
-  children: JSX.Element
+  children: JSX.Element[] | JSX.Element
   eventPrefix?: 'offset' | 'client' | 'page' | 'layer' | 'screen'
   eventSource?: HTMLElement | MutableRefObject<HTMLElement>
 }

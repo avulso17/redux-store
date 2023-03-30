@@ -117,6 +117,7 @@ module.exports = {
           'visible',
           'intensity',
           'map',
+          'displacementScale',
         ],
       },
     ],
