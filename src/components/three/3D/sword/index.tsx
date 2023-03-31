@@ -11,7 +11,6 @@ export function Swords3D({
   sword = 'blood',
 }: ISword3DProps): JSX.Element {
   const groupRef = useRef<Group>(null!)
-
   const { nodes, materials, scene } = useLoader(
     GLTFLoader,
     `/models/GLTF/swords/${sword}Sword/${sword}Sword.gltf`

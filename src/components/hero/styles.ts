@@ -4,7 +4,8 @@ import styled from 'styled-components'
 export const Container = styled(motion.div)`
   display: flex;
   align-items: center;
-  gap: 16rem;
+  gap: 16em;
+  pointer-events: none;
   margin: 0 auto;
   width: fit-content;
 
@@ -80,6 +81,45 @@ export const Container = styled(motion.div)`
         filter: blur(38px);
         height: 10.6rem;
         width: 10.6rem;
+      }
+    }
+  }
+
+  #canvas-container {
+    position: relative;
+    margin-left: -3.2rem;
+    height: 40rem;
+    width: 35rem;
+
+    @media ${({ theme }) => theme.breakpoint.tablet} {
+      order: 1;
+      margin-left: 0;
+      margin-bottom: -3.2rem;
+    }
+
+    > div:has(canvas) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
+
+    &::after {
+      content: '';
+      background-color: ${({ theme }) => theme.default.primary};
+      border-radius: 100%;
+      filter: blur(72px);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 19.6rem;
+      width: 19.6rem;
+
+      @media ${({ theme }) => theme.breakpoint.tablet} {
+        filter: blur(42px);
+        height: 16.6rem;
+        width: 16.6rem;
       }
     }
   }

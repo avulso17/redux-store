@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 import type { ReactNode } from 'react'
 import { IoLanguageOutline } from 'react-icons/io5'
 // import { useDarkMode } from 'usehooks-ts'
@@ -17,6 +19,7 @@ import {
   InfoCircledIcon,
   MoonIcon,
   QuestionMarkCircledIcon,
+  RocketIcon,
   SunIcon,
 } from '@radix-ui/react-icons'
 
@@ -115,6 +118,15 @@ export function DropdownUser({
             <RightSlot>
               <GearIcon />
             </RightSlot>
+          </MenuItem>
+
+          <MenuItem asChild>
+            <Link href={'/playground'}>
+              Playground
+              <RightSlot>
+                <RocketIcon />
+              </RightSlot>
+            </Link>
           </MenuItem>
 
           <MenuSeparator />
