@@ -10,8 +10,6 @@ export function Earth3D(props: any): JSX.Element {
   const cloudsRef = useRef<Mesh>(null!)
   const moonRef = useRef<Mesh>(null!)
 
-  // const sphereGeometry = useLoader(BufferGeometryLoader, '/sphere.json')
-
   const [earthMap, earthNormal, earthDisplacement] = useLoader(TextureLoader, [
     '/texture/galaxy/earth_daymap.jpg',
     '/texture/galaxy/earth_normal.jpg',

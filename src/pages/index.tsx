@@ -15,7 +15,7 @@ export default function Home(): JSX.Element {
         description='Compre diversos tipos de produtos no melhor site do Brasil!'
       /> */}
       <Scene>
-        <Swords3D />
+        <Swords3D sword='pointy' />
         {/* <Sphere3D position={[2.5, 0, 0]} /> */}
         {/* <Earth3D /> */}
         {/* <Room3D position={[0, 0, 0]} /> */}
