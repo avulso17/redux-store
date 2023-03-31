@@ -3,7 +3,7 @@ import { useRef } from 'react'
 import type { Mesh } from 'three'
 
 import { useTexture } from '@react-three/drei'
-import { useFrame } from '@react-three/fiber'
+// import { useFrame } from '@react-three/fiber'
 
 export function Room3D(props: any): JSX.Element {
   const floorRef = useRef<Mesh>(null!)
@@ -25,12 +25,12 @@ export function Room3D(props: any): JSX.Element {
     aoMap: '/texture/concrete/concrete_ao.jpg',
   })
 
-  useFrame(({ clock }) => {
-    const a = clock.getElapsedTime()
-    // floorRef.current.rotation.y = a / 30
-    // cloudsRef.current.rotation.y = a / 20
-    // moonRef.current.rotation.y = a / 5
-  })
+  // useFrame(({ clock }) => {
+  //   const a = clock.getElapsedTime()
+  //   // floorRef.current.rotation.y = a / 30
+  //   // cloudsRef.current.rotation.y = a / 20
+  //   // moonRef.current.rotation.y = a / 5
+  // })
 
   return (
     <>

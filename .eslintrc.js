@@ -107,7 +107,7 @@ module.exports = {
     ],
     'prettier/prettier': 'error',
     'react/no-unknown-property': [
-      'warn',
+      'off',
       {
         ignore: [
           'args',
@@ -125,6 +125,8 @@ module.exports = {
           'depthWrite',
           'side',
           'attach',
+          'normalMap',
+          'displacementMap',
         ],
       },
     ],

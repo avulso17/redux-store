@@ -4,10 +4,10 @@ import type { Mesh } from 'three'
 
 import { useTexture } from '@react-three/drei'
 
-interface ISphere3DProps {
-  // materialProps?: ReturnType<typeof useTexture>
-  props?: any
-}
+// interface ISphere3DProps {
+//   // materialProps?: ReturnType<typeof useTexture>
+//   props?: any
+// }
 
 export function Sphere3D(props: any): JSX.Element {
   const materialProps = useTexture({

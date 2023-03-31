@@ -1,0 +1,182 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v3.3.32",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "SpaceSword_Mesh_PointySword_Mat_0",
+            "scale" : [
+                0.025953860953450203,
+                0.025953860953450203,
+                0.025953860953450203
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "alphaMode" : "BLEND",
+            "doubleSided" : true,
+            "emissiveFactor" : [
+                1,
+                1,
+                1
+            ],
+            "emissiveTexture" : {
+                "index" : 0
+            },
+            "name" : "PointySword_Mat",
+            "normalTexture" : {
+                "index" : 1
+            },
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 2
+                },
+                "metallicRoughnessTexture" : {
+                    "index" : 3
+                }
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "SpaceSword_Mesh_PointySword_Mat_0",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        },
+        {
+            "sampler" : 0,
+            "source" : 1
+        },
+        {
+            "sampler" : 0,
+            "source" : 2
+        },
+        {
+            "sampler" : 0,
+            "source" : 3
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "PointySword_Mat_emissive",
+            "uri" : "textures/PointySword_Mat_emissive.jpg"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "PointySword_Mat_normal",
+            "uri" : "textures/PointySword_Mat_normal.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "PointySword_Mat_baseColor",
+            "uri" : "textures/PointySword_Mat_baseColor.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "PointySword_Mat_metallicRoughness",
+            "uri" : "textures/PointySword_Mat_metallicRoughness.png"
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 30740,
+            "max" : [
+                8.466440200805664,
+                387.7192687988281,
+                35.429466247558594
+            ],
+            "min" : [
+                -8.342545509338379,
+                -171.0897674560547,
+                -35.183250427246094
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 30740,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 30740,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 45924,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 368880,
+            "byteOffset" : 0,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 368880,
+            "byteOffset" : 368880,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 245920,
+            "byteOffset" : 737760,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 91848,
+            "byteOffset" : 983680,
+            "target" : 34963
+        }
+    ],
+    "samplers" : [
+        {
+            "magFilter" : 9729,
+            "minFilter" : 9987
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 1075528,
+            "uri" : "pointySword.bin"
+        }
+    ]
+}
