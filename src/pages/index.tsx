@@ -2,12 +2,18 @@
 // import { Earth3D } from '@/components/three/3D/earth'
 // import { Room3D } from '@/components/three/3D/room'
 // import { Sphere3D } from '@/components/three/3D/sphere'
+import { useState } from 'react'
+
+import { Button } from '@/components/button'
 import { Swords3D } from '@/components/three/3D/sword'
 import Scene from '@/components/three/scene'
+import type { swordOptions } from '@/interfaces/sword'
 
-import { Container } from './styles'
+import { ButtonGroup, Container } from './styles'
 
 export default function Home(): JSX.Element {
+  const [currentSword, setCurrentSword] = useState<swordOptions>('lava')
+
   return (
     <Container>
       {/* <Hero
@@ -15,11 +21,65 @@ export default function Home(): JSX.Element {
         description='Compre diversos tipos de produtos no melhor site do Brasil!'
       /> */}
       <Scene>
-        <Swords3D sword='pointy' />
+        <Swords3D sword={currentSword} />
         {/* <Sphere3D position={[2.5, 0, 0]} /> */}
         {/* <Earth3D /> */}
         {/* <Room3D position={[0, 0, 0]} /> */}
       </Scene>
+
+      <ButtonGroup>
+        <h2>Choose your sword:</h2>
+
+        <div>
+          <Button
+            onClick={() => {
+              setCurrentSword('lava')
+            }}
+          >
+            Lava
+          </Button>
+
+          <Button
+            onClick={() => {
+              setCurrentSword('ice')
+            }}
+          >
+            Ice
+          </Button>
+
+          <Button
+            onClick={() => {
+              setCurrentSword('sun')
+            }}
+          >
+            Sun
+          </Button>
+
+          <Button
+            onClick={() => {
+              setCurrentSword('meteor')
+            }}
+          >
+            Meteor
+          </Button>
+
+          <Button
+            onClick={() => {
+              setCurrentSword('pointy')
+            }}
+          >
+            Pointy
+          </Button>
+
+          <Button
+            onClick={() => {
+              setCurrentSword('thin')
+            }}
+          >
+            Thin
+          </Button>
+        </div>
+      </ButtonGroup>
     </Container>
   )
 }

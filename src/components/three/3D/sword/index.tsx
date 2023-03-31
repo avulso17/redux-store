@@ -3,21 +3,8 @@ import { useMemo, useRef } from 'react'
 import type { Mesh, Group } from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
+import type { ISword3DProps } from '@/interfaces/sword'
 import { useFrame, useLoader } from '@react-three/fiber'
-
-type swordOptions =
-  | 'blood'
-  | 'ice'
-  | 'lava'
-  | 'meteor'
-  | 'pointy'
-  | 'sun'
-  | 'thin'
-
-interface ISword3DProps {
-  props?: any
-  sword?: swordOptions
-}
 
 export function Swords3D({
   props,
