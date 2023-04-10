@@ -1,9 +1,8 @@
 import type { CSSProperties, MutableRefObject, ReactNode } from 'react'
-// import { forwardRef, useImperativeHandle } from 'react'
 
 import { Header } from '../header'
-import { Navbar } from '../navbar/navbar'
-import { Sidebar } from '../sidebar/sidebar'
+import { Navbar } from '../navbar'
+import { Sidebar } from '../sidebar'
 import { ChildrenContent, Container } from './styles'
 
 interface ILayoutProps {
@@ -26,26 +25,3 @@ export function Layout({ children, ...props }: ILayoutProps): JSX.Element {
     </>
   )
 }
-
-// export const Layout = forwardRef(
-//   ({ children, forwardedRef, ...props }: ILayoutProps, ref) => {
-//     useImperativeHandle(ref, () => forwardedRef.current)
-
-//     return (
-//       <>
-//         <Header title='Redux Store' />
-
-//         <Container initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-//           <Navbar />
-//           <Sidebar />
-
-//           <ChildrenContent {...props} ref={forwardedRef}>
-//             {children}
-//           </ChildrenContent>
-//         </Container>
-//       </>
-//     )
-//   }
-// )
-
-// Layout.displayName = 'Layout'
