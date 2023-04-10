@@ -27,9 +27,10 @@ export const FormContainer = styled.form`
 export const StyledBox = styled.div`
   background-color: ${({ theme }) => theme.default.contrastColor};
   border-radius: 0.8rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 2.4rem;
   overflow: hidden;
   padding: 3.2rem;
   position: relative;
@@ -45,11 +46,14 @@ export const StyledBox = styled.div`
     height: 0.8rem;
   }
 
-  > div {
-    display: flex;
-    justify-content: space-between;
-    gap: 0.8rem;
-    margin-top: 0.8rem;
-    width: 100%;
+  > span {
+    font-size: 1.4rem;
+    font-weight: 300;
+    margin: 0 auto;
+
+    > a {
+      color: ${({ theme }) => theme.default.primary};
+      font-weight: 500;
+    }
   }
 `
