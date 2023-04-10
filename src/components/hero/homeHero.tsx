@@ -19,7 +19,7 @@ export function HomeHero(): JSX.Element {
 
           <Iphone3D />
 
-          <OrbitControls enableZoom />
+          <OrbitControls enableZoom enableRotate />
         </Scene>
       </div>
     </Container>
