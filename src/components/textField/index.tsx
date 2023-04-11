@@ -1,83 +1,60 @@
+import type { HTMLInputTypeAttribute, Ref } from 'react'
 import { forwardRef } from 'react'
-
-import type { CSSProperties } from 'styled-components'
 
 import { StyledInput, Container, StyledLabel } from './styles'
 
-// interface ITextFieldProps {
-//   id: string
-//   label: string | null
-//   placeholder?: string
-//   ref?: React.Ref<HTMLInputElement>
-//   required?: boolean
-//   width?: string
-// }
-
-// export function TextField({
-//   id,
-//   required = false,
-//   label = null,
-//   placeholder = 'Text Field',
-//   ref,
-//   ...props
-// }: ITextFieldProps): JSX.Element {
-//   return (
-//     <Container>
-//       {label != null && (
-//         <StyledLabel htmlFor={id}>
-//           {label} {required && '*'}
-//         </StyledLabel>
-//       )}
-
-//       <StyledInput
-//         {...props}
-//         id={id}
-//         type='text'
-//         placeholder={placeholder}
-//         required={required}
-//         ref={ref}
-//       />
-//     </Container>
-//   )
-// }
-
-type TextFieldProps = React.ComponentProps<typeof StyledInput> & {
-  label?: string | null
+export interface ITextFieldProps {
+  error?: boolean
+  forwardedRef?: Ref<HTMLInputElement>
+  id: string
+  label: string | null
+  placeholder?: string
+  ref?: Ref<HTMLInputElement>
   required?: boolean
-  style?: CSSProperties
   success?: boolean
+  type?: HTMLInputTypeAttribute
+  variant?: 'small' | 'medium'
   warning?: boolean
+  width?: 'full' | 'auto'
 }
 
-const TextField = forwardRef<
-  React.ElementRef<typeof StyledInput>,
-  TextFieldProps
->((props, forwardedRef) => {
-  const {
-    // warning = false,
-    // success = false,
-    label = null,
-    required = false,
-    id,
-    ...textFieldProps
-  } = props
+const TextField = forwardRef<HTMLInputElement, ITextFieldProps>(
+  (
+    {
+      error,
+      id,
+      label = null,
+      placeholder = 'Text Field',
+      forwardedRef,
+      required = false,
+      type = 'text',
+      variant = 'medium',
+      ...props
+    },
+    ref
+  ) => {
+    return (
+      <Container>
+        {label != null && (
+          <StyledLabel htmlFor={id}>
+            {label} {required && '*'}
+          </StyledLabel>
+        )}
 
-  return (
-    <Container>
-      {label != null && (
-        <StyledLabel htmlFor={id}>
-          {label} {required && '*'}
-        </StyledLabel>
-      )}
-      <StyledInput
-        size='medium'
-        id={id}
-        ref={forwardedRef}
-        {...textFieldProps}
-      />
-    </Container>
-  )
-})
+        <StyledInput
+          {...props}
+          id={id}
+          type={type}
+          placeholder={placeholder}
+          required={required}
+          error={error}
+          variant={variant}
+          ref={forwardedRef ?? ref}
+        />
+      </Container>
+    )
+  }
+)
 
 TextField.displayName = 'TextField'
 

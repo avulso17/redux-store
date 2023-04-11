@@ -2,16 +2,9 @@ import styled, { css } from 'styled-components'
 
 import { Label } from '@radix-ui/react-label'
 
-interface IStyledTextFieldProps {
-  error?: boolean
-  size?: 'small' | 'medium'
-  success?: boolean
-  variant?: string
-  warning?: boolean
-  width?: 'full' | 'auto'
-}
+import type { ITextFieldProps } from '.'
 
-export const Container = styled.div<{ width?: IStyledTextFieldProps['width'] }>`
+export const Container = styled.div<{ width?: ITextFieldProps['width'] }>`
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
@@ -25,7 +18,11 @@ export const StyledLabel = styled(Label)`
 `
 
 export const StyledInput = styled.input<{
-  size: IStyledTextFieldProps['size']
+  error?: ITextFieldProps['error']
+  success?: ITextFieldProps['success']
+  variant: ITextFieldProps['variant']
+  warning?: ITextFieldProps['warning']
+  width?: ITextFieldProps['width']
 }>`
   background-color: ${({ theme }) => theme.default.bgColor};
   color: ${({ theme }) => theme.default.text};
@@ -44,8 +41,8 @@ export const StyledInput = styled.input<{
     box-shadow: 0 0 0 2px ${({ theme }) => theme.default.primary};
   }
 
-  ${({ size }) => {
-    if (size === 'small') {
+  ${({ variant }) => {
+    if (variant === 'small') {
       return css`
         font-size: 1.2rem;
         line-height: 2.4rem;
@@ -53,7 +50,7 @@ export const StyledInput = styled.input<{
       `
     }
 
-    if (size === 'medium') {
+    if (variant === 'medium') {
       return css`
         font-size: 1.6rem;
         line-height: 3.2rem;
@@ -61,4 +58,22 @@ export const StyledInput = styled.input<{
       `
     }
   }}
+
+  ${({ error }) =>
+    error === true &&
+    css`
+      box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.red} !important;
+    `}
+
+    ${({ success }) =>
+    success === true &&
+    css`
+      box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.blueDark} !important;
+    `}
+
+    ${({ warning }) =>
+    warning === true &&
+    css`
+      box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.orange} !important;
+    `}
 `

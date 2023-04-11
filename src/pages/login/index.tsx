@@ -11,9 +11,8 @@ import { Container, FormContainer, StyledBox } from './styles'
 // TODO: Add error messages
 // TODO: Add loading state
 // TODO: Add success state
-// TODO: improve input ref, styles and component
 export default function LoginPage(): JSX.Element {
-  const { register } = useForm()
+  const { register, handleSubmit } = useForm()
 
   return (
     <Container>
