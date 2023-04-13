@@ -9,7 +9,7 @@ import {
   TrashIcon,
 } from '@radix-ui/react-icons'
 
-import { Skeleton } from '../skeleton/skeleton'
+import { Skeleton } from '../skeleton'
 import {
   CartItemActions,
   CartItemInfo,
