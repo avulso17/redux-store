@@ -1,10 +1,11 @@
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 import type { ReactNode } from 'react'
 import { IoLanguageOutline } from 'react-icons/io5'
-// import { useDarkMode } from 'usehooks-ts'
 
 import { useTheme } from '@/contexts/reactThemeContext'
+import type { IUser } from '@/interfaces/auth'
 import {
   Root,
   Trigger,
@@ -14,6 +15,7 @@ import {
 import {
   AvatarIcon,
   DotFilledIcon,
+  EnterIcon,
   ExitIcon,
   GearIcon,
   InfoCircledIcon,
@@ -42,6 +44,7 @@ interface IDropdownMenuProps {
   open?: boolean
   sideOffset?: number
   trigger?: ReactNode
+  user?: IUser
 }
 
 export function DropdownUser({
@@ -51,9 +54,15 @@ export function DropdownUser({
   onOpenChange,
   sideOffset = 4,
   loop = false,
+  user,
 }: IDropdownMenuProps): JSX.Element {
   // const { isDarkMode, enable, disable } = useDarkMode()
+  const router = useRouter()
   const { theme, setTheme } = useTheme()
+
+  function handleRedirectUserPage(): void {
+    void router.push(`/${user != null ? 'profile' : 'login'}`)
+  }
 
   return (
     <Root open={open} onOpenChange={onOpenChange}>
@@ -66,10 +75,14 @@ export function DropdownUser({
           sideOffset={sideOffset}
           collisionPadding={16}
         >
-          <MenuItem>
-            Seu perfil
+          <MenuItem
+            onClick={() => {
+              handleRedirectUserPage()
+            }}
+          >
+            {user != null ? 'Seu perfil' : 'Login'}
             <RightSlot>
-              <AvatarIcon />
+              {user != null ? <AvatarIcon /> : <EnterIcon />}
             </RightSlot>
           </MenuItem>
 
@@ -80,12 +93,14 @@ export function DropdownUser({
             </RightSlot>
           </MenuItem>
 
-          <MenuItem>
-            Sair
-            <RightSlot>
-              <ExitIcon />
-            </RightSlot>
-          </MenuItem>
+          {user != null && (
+            <MenuItem>
+              Sair
+              <RightSlot>
+                <ExitIcon />
+              </RightSlot>
+            </MenuItem>
+          )}
 
           <MenuSeparator />
 

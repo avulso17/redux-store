@@ -1,7 +1,8 @@
 import { useWindowSize } from 'usehooks-ts'
 
-import { Avatar } from '@/components/avatar/avatar'
-import { Skeleton } from '@/components/skeleton/skeleton'
+import { Avatar } from '@/components/avatar'
+import { Skeleton } from '@/components/skeleton'
+import { useAppSelector } from '@/hooks/useType'
 import { HamburgerMenuIcon } from '@radix-ui/react-icons'
 
 import { DropdownUser } from './dropdownUser'
@@ -9,6 +10,9 @@ import { Container, DropdownButton, UserContent } from './styles'
 
 export function UserMenu(): JSX.Element {
   const { width } = useWindowSize()
+  const { user } = useAppSelector((state) => ({
+    user: state.auth.user,
+  }))
 
   return (
     <Container>
@@ -25,7 +29,7 @@ export function UserMenu(): JSX.Element {
       {width > 768 && (
         <UserContent>
           <span>
-            <h2>{'Felipe Mateus' ?? <Skeleton />}</h2>
+            <h2>{user?.name ?? <Skeleton />}</h2>
           </span>
 
           <div>
@@ -35,7 +39,7 @@ export function UserMenu(): JSX.Element {
         </UserContent>
       )}
 
-      <Avatar size='3.2' src={'/imgs/me.jpeg'} alt={'Luis Felipe'} />
+      <Avatar size='3.2' src={user?.avatar_url} alt={user?.name} />
     </Container>
   )
 }

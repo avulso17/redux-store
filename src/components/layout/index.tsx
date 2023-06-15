@@ -1,9 +1,8 @@
 import type { CSSProperties, MutableRefObject, ReactNode } from 'react'
-// import { forwardRef, useImperativeHandle } from 'react'
 
 import { Header } from '../header'
-import { Navbar } from '../navbar/navbar'
-import { Sidebar } from '../sidebar/sidebar'
+import { Navbar } from '../navbar'
+import { Sidebar } from '../sidebar'
 import { ChildrenContent, Container } from './styles'
 
 interface ILayoutProps {

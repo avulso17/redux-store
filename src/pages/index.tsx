@@ -1,11 +1,14 @@
-import { HomeHero } from '@/components/hero/homeHero'
+import { Hero } from '@/components/hero'
 
 import { Container } from './styles'
 
 export default function Home(): JSX.Element {
   return (
     <Container>
-      <HomeHero />
+      <Hero
+        title='Redux Store'
+        description='Compre diversos tipos de produtos no melhor site do Brasil!'
+      />
     </Container>
   )
 }

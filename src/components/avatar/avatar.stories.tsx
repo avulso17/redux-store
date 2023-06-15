@@ -1,7 +1,7 @@
 import type { StoryObj, Meta } from '@storybook/react'
 
-import type { IAvatarProps } from './avatar'
-import { Avatar } from './avatar'
+import type { IAvatarProps } from './'
+import { Avatar } from './'
 
 const meta: Meta<IAvatarProps> = {
   title: 'Components/Avatar',
