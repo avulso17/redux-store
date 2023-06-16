@@ -1,8 +1,8 @@
 import Image from 'next/image'
 
 import { useAppDispatch } from '@/hooks/useType'
-import type { ICartItemProps } from '@/interfaces/itens'
 import { changeCart, changeQuantity } from '@/store/reducers/cart'
+import type { ICartItemProps } from '@/types/itens'
 import {
   ChevronLeftIcon,
   ChevronRightIcon,

@@ -9,8 +9,8 @@ import { Button } from '@/components/button'
 import { CartItem } from '@/components/cartItem'
 import { Separator } from '@/components/separator'
 import { useAppDispatch, useAppSelector } from '@/hooks/useType'
-import type { ICartItemProps } from '@/interfaces/itens'
 import { changeCart } from '@/store/reducers/cart'
+import type { ICartItemProps } from '@/types/itens'
 import { ArchiveIcon, FileTextIcon, TrashIcon } from '@radix-ui/react-icons'
 
 import {

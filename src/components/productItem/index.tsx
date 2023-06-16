@@ -1,9 +1,9 @@
 import { GiShoppingCart } from 'react-icons/gi'
 
 import { useAppDispatch, useAppSelector } from '@/hooks/useType'
-import type { IItensState } from '@/interfaces/itens'
 import { changeCart } from '@/store/reducers/cart'
 import { toggleFavorite } from '@/store/reducers/itens'
+import type { IItensState } from '@/types/itens'
 import { HeartFilledIcon, HeartIcon, PlusIcon } from '@radix-ui/react-icons'
 
 import { Button } from '../button'

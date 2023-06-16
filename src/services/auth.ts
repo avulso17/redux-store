@@ -1,9 +1,6 @@
 import { v4 as uuid } from 'uuid'
 
-import type {
-  ISignInRequestData,
-  ISignInRequestReturn,
-} from '@/interfaces/auth'
+import type { ISignInRequestData, ISignInRequestReturn } from '@/types/auth'
 const delay: (ms?: number) => Promise<unknown> = async (ms = 750) =>
   await new Promise((resolve) => setTimeout(resolve, ms))
 

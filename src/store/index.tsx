@@ -1,23 +1,23 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import authSlice from './reducers/auth'
-import cartSlice from './reducers/cart'
-import categorysSlice from './reducers/categorys'
-import itensSlice from './reducers/itens'
-import searchSlice from './reducers/search'
-import themeSlice from './reducers/theme'
+import auth from './reducers/auth'
+import cart from './reducers/cart'
+import categorys from './reducers/categorys'
+import itens from './reducers/itens'
+import search from './reducers/search'
+import theme from './reducers/theme'
 
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
 
 const store = configureStore({
   reducer: {
-    auth: authSlice,
-    cart: cartSlice,
-    categorys: categorysSlice,
-    itens: itensSlice,
-    search: searchSlice,
-    theme: themeSlice,
+    auth,
+    cart,
+    categorys,
+    itens,
+    search,
+    theme,
   },
 })
 
