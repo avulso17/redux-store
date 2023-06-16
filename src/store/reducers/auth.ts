@@ -2,8 +2,8 @@ import Router from 'next/router'
 
 import { setCookie } from 'nookies'
 
-import type { IAuthSliceType, ISignInData } from '@/interfaces/auth'
 import { signInRequest } from '@/services/auth'
+import type { IAuthSliceType, ISignInData } from '@/types/auth'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 const initialState: IAuthSliceType = {

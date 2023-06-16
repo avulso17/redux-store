@@ -1,4 +1,4 @@
-import type { ICategoryState } from '@/interfaces/category'
+import type { ICategoryState } from '@/types/category'
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState: ICategoryState[] = [

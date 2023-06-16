@@ -2,10 +2,11 @@ import { useRouter } from 'next/router'
 
 import type { ReactNode } from 'react'
 import { IoLanguageOutline } from 'react-icons/io5'
-// import { useDarkMode } from 'usehooks-ts'
 
-import { useTheme } from '@/contexts/reactThemeContext'
-import type { IUser } from '@/interfaces/auth'
+import { useAppDispatch, useAppSelector } from '@/hooks/useType'
+import { toggleTheme } from '@/store/reducers/theme'
+import type { IUser } from '@/types/auth'
+import type { ThemeType } from '@/types/theme'
 import {
   Root,
   Trigger,
@@ -55,12 +56,15 @@ export function DropdownUser({
   loop = false,
   user,
 }: IDropdownMenuProps): JSX.Element {
-  // const { isDarkMode, enable, disable } = useDarkMode()
+  const theme = useAppSelector(({ theme }) => theme)
+  const dispatch = useAppDispatch()
   const router = useRouter()
-  const { theme, setTheme } = useTheme()
-
   function handleRedirectUserPage(): void {
     void router.push(`/${user != null ? 'profile' : 'login'}`)
+  }
+
+  const handleTheme = (theme: ThemeType): void => {
+    void dispatch(toggleTheme(theme))
   }
 
   return (
@@ -104,8 +108,13 @@ export function DropdownUser({
           <MenuSeparator />
 
           <MenuLabel>Theme</MenuLabel>
-          <RadioGroup value={theme === 'dark' ? 'dark' : 'light'}>
-            <MenuRadioItem onClick={() => setTheme('light')} value='light'>
+          <RadioGroup
+            value={theme}
+            onValueChange={(theme) => {
+              handleTheme(theme as ThemeType)
+            }}
+          >
+            <MenuRadioItem value='light'>
               <MenuItemIndicator>
                 <DotFilledIcon />
               </MenuItemIndicator>
@@ -114,7 +123,8 @@ export function DropdownUser({
                 <SunIcon />
               </RightSlot>
             </MenuRadioItem>
-            <MenuRadioItem onClick={() => setTheme('dark')} value='dark'>
+
+            <MenuRadioItem value='dark'>
               <MenuItemIndicator>
                 <DotFilledIcon />
               </MenuItemIndicator>

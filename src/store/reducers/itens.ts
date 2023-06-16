@@ -1,6 +1,6 @@
 import { v4 as uuid } from 'uuid'
 
-import type { IItensState } from '@/interfaces/itens'
+import type { IItensState } from '@/types/itens'
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState: IItensState[] = [

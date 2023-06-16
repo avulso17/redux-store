@@ -29,7 +29,8 @@ export function UserMenu(): JSX.Element {
       {width > 768 && (
         <UserContent>
           <span>
-            <h2>{user?.name ?? <Skeleton />}</h2>
+            {/* <h2>{user?.name ?? <Skeleton />}</h2> */}
+            <h2>{'Felipe Mateus' ?? <Skeleton />}</h2>
           </span>
 
           <div>
@@ -39,7 +40,8 @@ export function UserMenu(): JSX.Element {
         </UserContent>
       )}
 
-      <Avatar size='3.2' src={user?.avatar_url} alt={user?.name} />
+      {/* <Avatar size='3.2' src={user?.avatar_url} alt={user?.name} /> */}
+      <Avatar size='3.2' src={user?.avatar_url} alt={'Felipe Mateus'} />
     </Container>
   )
 }
