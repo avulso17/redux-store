@@ -1,18 +1,17 @@
-import type { HTMLInputTypeAttribute, Ref } from 'react'
 import { forwardRef } from 'react'
 
 import { StyledInput, Container, StyledLabel } from './styles'
 
 export interface ITextFieldProps {
   error?: boolean
-  forwardedRef?: Ref<HTMLInputElement>
+  forwardedRef?: React.Ref<HTMLInputElement>
   id: string
   label: string | null
   placeholder?: string
-  ref?: Ref<HTMLInputElement>
+  ref?: React.Ref<HTMLInputElement>
   required?: boolean
   success?: boolean
-  type?: HTMLInputTypeAttribute
+  type?: React.HTMLInputTypeAttribute
   variant?: 'small' | 'medium'
   warning?: boolean
   width?: 'full' | 'auto'

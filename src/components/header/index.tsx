@@ -1,9 +1,7 @@
 import Head from 'next/head'
 
-import type { ReactNode } from 'react'
-
 interface IHeaderProps {
-  children?: ReactNode
+  children?: React.ReactNode
   title?: string
 }
 

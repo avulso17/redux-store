@@ -1,13 +1,11 @@
-import type { ReactNode, CSSProperties } from 'react'
-
 import styled, { css } from 'styled-components'
 
 interface IButtonProps {
-  children: ReactNode
+  children: React.ReactNode
   disabled?: boolean
   onClick?: () => void
   size?: 'full' | 'hug'
-  style?: CSSProperties
+  style?: React.CSSProperties
   variant?: 'colorful' | 'outlined'
 }
 export function Button({ ...props }: IButtonProps): JSX.Element {

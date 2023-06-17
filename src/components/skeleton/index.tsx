@@ -1,4 +1,3 @@
-import type { PropsWithChildren } from 'react'
 import SkeletonLoading, { SkeletonTheme } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
@@ -11,7 +10,7 @@ interface ISkeletonLoading {
   highlightColor?: string
   style?: React.CSSProperties
   width?: number | string
-  wrapper?: React.FunctionComponent<PropsWithChildren<unknown>>
+  wrapper?: React.FunctionComponent<React.PropsWithChildren<unknown>>
 }
 
 export function Skeleton({

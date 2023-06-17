@@ -1,7 +1,7 @@
 // import { useEffect, useLayoutEffect } from 'react'
 import { Toaster } from 'react-hot-toast'
 
-import { ThemeProvider } from 'styled-components'
+import { ThemeProvider as StyledProvider } from 'styled-components'
 
 import { useAppSelector } from '@/hooks/useType'
 // import { toggleTheme } from '@/store/reducers/theme'
@@ -10,7 +10,7 @@ import { darkTheme, lightTheme } from '@/styles/theme'
 // const useBrowserLayoutEffect =
 //   typeof document === 'undefined' ? useEffect : useLayoutEffect
 
-export const ThemeProviderWrapper = ({
+export const ThemeProvider = ({
   children,
 }: {
   children: React.ReactNode
@@ -23,7 +23,7 @@ export const ThemeProviderWrapper = ({
   // }, [colorMode])
 
   return (
-    <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
+    <StyledProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
       {children}
 
       <Toaster
@@ -37,6 +37,6 @@ export const ThemeProviderWrapper = ({
           },
         }}
       />
-    </ThemeProvider>
+    </StyledProvider>
   )
 }

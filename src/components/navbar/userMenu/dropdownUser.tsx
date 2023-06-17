@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router'
 
-import type { ReactNode } from 'react'
 import { IoLanguageOutline } from 'react-icons/io5'
 
 import { useAppDispatch, useAppSelector } from '@/hooks/useType'
@@ -38,12 +37,12 @@ import {
 
 interface IDropdownMenuProps {
   align?: 'start' | 'center' | 'end'
-  children?: ReactNode
+  children?: React.ReactNode
   loop?: boolean
   onOpenChange?: (open: boolean) => void
   open?: boolean
   sideOffset?: number
-  trigger?: ReactNode
+  trigger?: React.ReactNode
   user?: IUser
 }
 

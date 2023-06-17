@@ -1,5 +1,3 @@
-import type { ReactNode } from 'react'
-
 import { Root, Trigger, Portal } from '@radix-ui/react-alert-dialog'
 
 import {
@@ -14,7 +12,7 @@ import {
 
 interface IDialogProps {
   actionFn?: () => void
-  children?: ReactNode
+  children?: React.ReactNode
   description?: string
   onOpenChange?: (open: boolean) => void
   open?: boolean

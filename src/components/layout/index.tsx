@@ -1,14 +1,11 @@
-import type { CSSProperties, MutableRefObject, ReactNode } from 'react'
-
 import { Header } from '../header'
 import { Navbar } from '../navbar'
 import { Sidebar } from '../sidebar'
 import { ChildrenContent, Container } from './styles'
 
 interface ILayoutProps {
-  children?: ReactNode
-  forwardedRef: MutableRefObject<undefined>
-  style?: CSSProperties
+  children?: React.ReactNode
+  style?: React.CSSProperties
 }
 
 export function Layout({ children, ...props }: ILayoutProps): JSX.Element {
