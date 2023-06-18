@@ -6,7 +6,7 @@ import { toggleFavorite } from '@/store/reducers/itens'
 import type { IItensState } from '@/types/itens'
 import { HeartFilledIcon, HeartIcon, PlusIcon } from '@radix-ui/react-icons'
 
-import { Button } from '../button'
+import { Button } from '../designSystem/button'
 import { Container, ItemInfo, TitleBox } from './styles'
 
 export function ProductItem({ ...props }: IItensState): JSX.Element {
