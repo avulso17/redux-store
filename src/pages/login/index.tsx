@@ -2,8 +2,8 @@ import Link from 'next/link'
 
 import { useForm } from 'react-hook-form'
 
-import { Button } from '@/components/button'
-import { TextField } from '@/components/textField'
+import { Button } from '@/components/designSystem/button'
+import { TextField } from '@/components/designSystem/textField'
 
 import { Container, FormContainer, StyledBox } from './styles'
 
@@ -12,7 +12,7 @@ import { Container, FormContainer, StyledBox } from './styles'
 // TODO: Add loading state
 // TODO: Add success state
 export default function LoginPage(): JSX.Element {
-  const { register, handleSubmit } = useForm()
+  const { register } = useForm()
 
   return (
     <Container>
