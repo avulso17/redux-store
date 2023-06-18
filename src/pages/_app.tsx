@@ -2,8 +2,8 @@ import type { AppProps } from 'next/app'
 
 import { Provider } from 'react-redux'
 
-import { Layout } from '@/components/layout'
 import { ThemeProvider } from '@/components/UI'
+import { Layout } from '@/components/UI/layout'
 import store from '@/store'
 import { GlobalStyle } from '@/styles/global'
 

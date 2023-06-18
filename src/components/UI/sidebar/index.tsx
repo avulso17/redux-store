@@ -11,7 +11,7 @@ import {
   SpeakerLoudIcon,
 } from '@radix-ui/react-icons'
 
-import { Separator } from '../separator'
+import { Separator } from '../../designSystem/separator'
 import { SideTooltip } from './sideTooltip'
 import { ButtonBox, Container, SideButton } from './styles'
 

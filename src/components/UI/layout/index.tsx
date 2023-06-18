@@ -1,4 +1,5 @@
-import { Header } from '../header'
+import { Header } from '@/SEO/header'
+
 import { Navbar } from '../navbar'
 import { Sidebar } from '../sidebar'
 import { ChildrenContent, Container } from './styles'

@@ -1,7 +1,7 @@
 import { useWindowSize } from 'usehooks-ts'
 
-import { Avatar } from '@/components/avatar'
-import { Skeleton } from '@/components/skeleton'
+import { Avatar } from '@/components/designSystem/avatar'
+import { Skeleton } from '@/components/designSystem/skeleton'
 import { useAppSelector } from '@/hooks/useType'
 import { HamburgerMenuIcon } from '@radix-ui/react-icons'
 
