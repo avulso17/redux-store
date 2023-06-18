@@ -17,6 +17,7 @@ export const ThemeProvider = ({
 
   useBrowserLayoutEffect(() => {
     const preferredTheme = localStorage.getItem('preferredTheme')
+    if (preferredTheme === null) return
     if (preferredTheme === theme) return
     void dispatch(toggleTheme(preferredTheme))
   }, [])
