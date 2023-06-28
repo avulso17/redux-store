@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { GiShoppingCart } from 'react-icons/gi'
 
 import { useAppDispatch, useAppSelector } from '@/hooks/useType'
@@ -9,18 +10,20 @@ import { HeartFilledIcon, HeartIcon, PlusIcon } from '@radix-ui/react-icons'
 import { Button } from '../designSystem/button'
 import { Container, ItemInfo, TitleBox } from './styles'
 
-export function ProductItem({ ...props }: IItensState): JSX.Element {
+export const ProductItem = memo(function ProductItem({
+  ...props
+}: IItensState): JSX.Element {
   const { description, favorite, photo, price, title, id } = props
   const dispatch = useAppDispatch()
-  const hasItemInCart = useAppSelector((state) =>
-    state.cart.some((item) => item.id === id)
+  const hasItemInCart = useAppSelector(({ cart }) =>
+    cart.some((item) => item.id === id)
   )
 
-  function handleFavorite(): void {
+  const handleFavorite = (): void => {
     dispatch(toggleFavorite(id))
   }
 
-  function handleCart(): void {
+  const handleCart = (): void => {
     dispatch(changeCart(id))
   }
 
@@ -68,4 +71,4 @@ export function ProductItem({ ...props }: IItensState): JSX.Element {
       </ItemInfo>
     </Container>
   )
-}
+})

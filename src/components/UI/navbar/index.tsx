@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useMemo, memo } from 'react'
 import { GiShoppingCart } from 'react-icons/gi'
 import { SiRedux } from 'react-icons/si'
 
@@ -30,7 +30,7 @@ import {
 } from './styles'
 import { UserMenu } from './userMenu'
 
-export function Navbar(): JSX.Element {
+export const Navbar = memo(function Navbar(): JSX.Element {
   const dispatch = useAppDispatch()
   const { pathname } = useRouter()
   const { width } = useWindowSize()
@@ -40,46 +40,56 @@ export function Navbar(): JSX.Element {
     search: state.search,
   }))
 
-  function handleSearch(e: React.ChangeEvent<HTMLInputElement>): void {
-    dispatch(changeSearch(e.target.value))
-  }
-
   useEffect(() => {
     dispatch(resetSearch())
   }, [pathname, dispatch])
+
+  const memoReduxLogo = useMemo(() => <SiRedux />, [])
+  const memoSearchIcon = useMemo(() => <MagnifyingGlassIcon />, [])
+  const memoCloseSearchIcon = useMemo(() => <Cross1Icon />, [])
+  const memoFavoritesIcon = useMemo(() => <HeartFilledIcon />, [])
+  const memoCartIcon = useMemo(() => <GiShoppingCart />, [])
+
+  const memoizedSearchInput = useMemo(() => {
+    function handleSearch(e: React.ChangeEvent<HTMLInputElement>): void {
+      dispatch(changeSearch(e.target.value))
+    }
+
+    return (
+      <StyledInput
+        autoComplete='off'
+        placeholder='O que voce procura?'
+        type='text'
+        name='search'
+        value={search}
+        onChange={(e) => {
+          handleSearch(e)
+        }}
+      />
+    )
+  }, [dispatch, search])
 
   return (
     <>
       <Container>
         <Link href={'/'}>
           <Logo>
-            <SiRedux />
+            {memoReduxLogo}
             <b>store</b>
           </Logo>
         </Link>
 
         {width > 768 && (
           <InputDiv>
-            <SearchButton type='submit'>
-              <MagnifyingGlassIcon />
-            </SearchButton>
-            <StyledInput
-              autoComplete='off'
-              placeholder='O que voce procura?'
-              type='text'
-              name='search'
-              value={search}
-              onChange={(e) => {
-                handleSearch(e)
-              }}
-            />
+            <SearchButton type='submit'>{memoSearchIcon}</SearchButton>
+            {memoizedSearchInput}
           </InputDiv>
         )}
 
         <RightDiv>
           <Link href='/favorites'>
             <MenuButton isActive={pathname === '/favorites'}>
-              <HeartFilledIcon />
+              {memoFavoritesIcon}
             </MenuButton>
           </Link>
 
@@ -90,20 +100,11 @@ export function Navbar(): JSX.Element {
                   setSearchOpen(false)
                 }}
               >
-                <Cross1Icon />
+                {memoCloseSearchIcon}
               </CloseSearchButton>
 
               <InputDiv>
-                <StyledInput
-                  autoComplete='off'
-                  placeholder='O que voce procura?'
-                  type='text'
-                  name='search'
-                  value={search}
-                  onChange={(e) => {
-                    handleSearch(e)
-                  }}
-                />
+                {memoizedSearchInput}
 
                 <MobileSearchButton type='submit'>
                   <MagnifyingGlassIcon />
@@ -118,7 +119,7 @@ export function Navbar(): JSX.Element {
                 setSearchOpen(!searchOpen)
               }}
             >
-              <MagnifyingGlassIcon />
+              {memoSearchIcon}
             </MobileSearchButton>
           )}
 
@@ -127,7 +128,7 @@ export function Navbar(): JSX.Element {
               {cartItens > 0 && (
                 <CartCount>{cartItens < 10 ? cartItens : '9+'}</CartCount>
               )}
-              <GiShoppingCart />
+              {memoCartIcon}
             </MenuButton>
           </Link>
 
@@ -136,4 +137,4 @@ export function Navbar(): JSX.Element {
       </Container>
     </>
   )
-}
+})

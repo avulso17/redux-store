@@ -1,3 +1,5 @@
+import { memo } from 'react'
+
 import { useWindowSize } from 'usehooks-ts'
 
 import { Avatar } from '@/components/designSystem/avatar'
@@ -8,10 +10,10 @@ import { HamburgerMenuIcon } from '@radix-ui/react-icons'
 import { DropdownUser } from './dropdownUser'
 import { Container, DropdownButton, UserContent } from './styles'
 
-export function UserMenu(): JSX.Element {
+export const UserMenu = memo(function UserMenu(): JSX.Element {
   const { width } = useWindowSize()
-  const { user } = useAppSelector((state) => ({
-    user: state.auth.user,
+  const { user } = useAppSelector(({ auth }) => ({
+    user: auth.user,
   }))
 
   return (
@@ -44,4 +46,4 @@ export function UserMenu(): JSX.Element {
       <Avatar size='3.2' src={user?.avatar_url} alt={'Felipe Mateus'} />
     </Container>
   )
-}
+})

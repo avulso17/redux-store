@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import { Toaster } from 'react-hot-toast'
 
 import { ThemeProvider as StyledProvider } from 'styled-components'
@@ -15,15 +16,18 @@ export const ThemeProvider = ({
   const dispatch = useAppDispatch()
   const theme = useAppSelector(({ theme }) => theme)
 
+  const currentTheme = useMemo(() => {
+    return theme === 'dark' ? darkTheme : lightTheme
+  }, [theme])
+
   useBrowserLayoutEffect(() => {
     const preferredTheme = localStorage.getItem('preferredTheme')
-    if (preferredTheme === null) return
-    if (preferredTheme === theme) return
+    if (preferredTheme === null || preferredTheme === theme) return
     void dispatch(toggleTheme(preferredTheme))
   }, [])
 
   return (
-    <StyledProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
+    <StyledProvider theme={currentTheme}>
       {children}
 
       <Toaster
