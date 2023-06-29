@@ -112,6 +112,7 @@ export const SideButton = styled(Link)<{ selected?: boolean }>`
 
   &:hover {
     background-color: ${({ theme }) => theme.default.primary};
+    color: ${({ theme }) => theme.default.contrastColor};
 
     > svg {
       color: ${({ theme }) => theme.default.contrastColor};
@@ -120,6 +121,7 @@ export const SideButton = styled(Link)<{ selected?: boolean }>`
 
   &:focus-visible {
     background-color: ${({ theme }) => theme.default.primary};
+    color: ${({ theme }) => theme.default.contrastColor};
 
     > svg {
       color: ${({ theme }) => theme.default.contrastColor};
@@ -130,6 +132,7 @@ export const SideButton = styled(Link)<{ selected?: boolean }>`
     selected === true &&
     css`
       background-color: ${({ theme }) => theme.default.primary};
+      color: ${({ theme }) => theme.default.contrastColor};
 
       > svg {
         color: ${({ theme }) => theme.default.contrastColor};

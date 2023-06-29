@@ -3,11 +3,11 @@ import { useRouter } from 'next/router'
 import { useMemo } from 'react'
 import { AiOutlineCar } from 'react-icons/ai'
 
+import { LordIcon } from '@/components/designSystem/lordIcon'
 import { useSelector } from '@/hooks/redux'
 import {
   BackpackIcon,
   DesktopIcon,
-  HomeIcon,
   MixIcon,
   SpeakerLoudIcon,
 } from '@radix-ui/react-icons'
@@ -21,11 +21,22 @@ export function Sidebar(): JSX.Element {
   const { id } = router.query as { id: string }
   const categorys = useSelector(({ categorys }) => categorys)
 
-  const handleSelected = (path: string): boolean => {
+  const handleSelected = (path: string | undefined): boolean => {
     return path === id
   }
 
-  const memoHomeIcon = useMemo(() => <HomeIcon />, [])
+  const memoHomeIcon = useMemo(
+    () => (
+      <LordIcon
+        src='/icons/outline/animated/home-icon.json'
+        trigger='hover'
+        target='.home-button'
+        className='current-color'
+        size={22}
+      />
+    ),
+    []
+  )
   const memoEletronicsIcon = useMemo(() => <DesktopIcon />, [])
   const memoAutomotiveIcon = useMemo(() => <AiOutlineCar />, [])
   const memoGamesIcon = useMemo(() => <MixIcon />, [])
@@ -44,7 +55,11 @@ export function Sidebar(): JSX.Element {
     <Container>
       <ButtonBox>
         <SideTooltip title={'Home'}>
-          <SideButton href={'/'} selected={handleSelected('/')}>
+          <SideButton
+            className='home-button'
+            href={'/'}
+            selected={handleSelected(undefined)}
+          >
             {memoHomeIcon}
           </SideButton>
         </SideTooltip>
