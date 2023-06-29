@@ -4,7 +4,7 @@ import { useWindowSize } from 'usehooks-ts'
 
 import { Avatar } from '@/components/designSystem/avatar'
 import { Skeleton } from '@/components/designSystem/skeleton'
-import { useAppSelector } from '@/hooks/useType'
+import { useSelector } from '@/hooks/redux'
 import { HamburgerMenuIcon } from '@radix-ui/react-icons'
 
 import { DropdownUser } from './dropdownUser'
@@ -12,7 +12,7 @@ import { Container, DropdownButton, UserContent } from './styles'
 
 export const UserMenu = memo(function UserMenu(): JSX.Element {
   const { width } = useWindowSize()
-  const { user } = useAppSelector(({ auth }) => ({
+  const { user } = useSelector(({ auth }) => ({
     user: auth.user,
   }))
 

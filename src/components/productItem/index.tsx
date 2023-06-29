@@ -1,7 +1,7 @@
 import { memo } from 'react'
 import { GiShoppingCart } from 'react-icons/gi'
 
-import { useAppDispatch, useAppSelector } from '@/hooks/useType'
+import { useDispatch, useSelector } from '@/hooks/redux'
 import { changeCart } from '@/store/reducers/cart'
 import { toggleFavorite } from '@/store/reducers/itens'
 import type { IItensState } from '@/types/itens'
@@ -14,17 +14,17 @@ export const ProductItem = memo(function ProductItem({
   ...props
 }: IItensState): JSX.Element {
   const { description, favorite, photo, price, title, id } = props
-  const dispatch = useAppDispatch()
-  const hasItemInCart = useAppSelector(({ cart }) =>
+  const dispatch = useDispatch()
+  const hasItemInCart = useSelector(({ cart }) =>
     cart.some((item) => item.id === id)
   )
 
   const handleFavorite = (): void => {
-    dispatch(toggleFavorite(id))
+    void dispatch(toggleFavorite(id))
   }
 
   const handleCart = (): void => {
-    dispatch(changeCart(id))
+    void dispatch(changeCart(id))
   }
 
   return (

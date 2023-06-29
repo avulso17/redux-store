@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { useMemo } from 'react'
 import { AiOutlineCar } from 'react-icons/ai'
 
-import { useAppSelector } from '@/hooks/useType'
+import { useSelector } from '@/hooks/redux'
 import {
   BackpackIcon,
   DesktopIcon,
@@ -19,9 +19,9 @@ import { ButtonBox, Container, SideButton } from './styles'
 export function Sidebar(): JSX.Element {
   const router = useRouter()
   const { id } = router.query as { id: string }
-  const categorys = useAppSelector(({ categorys }) => categorys)
+  const categorys = useSelector(({ categorys }) => categorys)
 
-  function handleSelected(path: string): boolean {
+  const handleSelected = (path: string): boolean => {
     return path === id
   }
 
@@ -31,6 +31,14 @@ export function Sidebar(): JSX.Element {
   const memoGamesIcon = useMemo(() => <MixIcon />, [])
   const memoOfficeIcon = useMemo(() => <BackpackIcon />, [])
   const memoSoundAndImageIcon = useMemo(() => <SpeakerLoudIcon />, [])
+
+  const categoryIcons = {
+    electronics: memoEletronicsIcon,
+    automotive: memoAutomotiveIcon,
+    games: memoGamesIcon,
+    office: memoOfficeIcon,
+    'sound-and-image': memoSoundAndImageIcon,
+  }
 
   return (
     <Container>
@@ -43,20 +51,18 @@ export function Sidebar(): JSX.Element {
 
         <Separator />
 
-        {categorys.map((item) => {
+        {categorys.map((item, i) => {
           const { name, id } = item
+          const icon = categoryIcons[id as keyof typeof categoryIcons]
+          const key = `${name}-${i}`
 
           return (
-            <SideTooltip key={`${name}-${id}`} title={name}>
+            <SideTooltip key={key} title={name}>
               <SideButton
                 href={`/category/${id}`}
                 selected={handleSelected(id)}
               >
-                {id === 'electronics' && [memoEletronicsIcon]}
-                {id === 'automotive' && [memoAutomotiveIcon]}
-                {id === 'games' && [memoGamesIcon]}
-                {id === 'office' && [memoOfficeIcon]}
-                {id === 'sound-and-image' && [memoSoundAndImageIcon]}
+                {icon}
               </SideButton>
             </SideTooltip>
           )

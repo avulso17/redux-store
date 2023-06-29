@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 
 import { IoLanguageOutline } from 'react-icons/io5'
 
-import { useAppDispatch, useAppSelector } from '@/hooks/useType'
+import { useDispatch, useSelector } from '@/hooks/redux'
 import { toggleTheme } from '@/store/reducers/theme'
 import type { IUser } from '@/types/auth'
 import type { ThemeType } from '@/types/theme'
@@ -55,8 +55,8 @@ export function DropdownUser({
   loop = false,
   user,
 }: IDropdownMenuProps): JSX.Element {
-  const theme = useAppSelector(({ theme }) => theme)
-  const dispatch = useAppDispatch()
+  const theme = useSelector(({ theme }) => theme)
+  const dispatch = useDispatch()
   const router = useRouter()
   function handleRedirectUserPage(): void {
     void router.push(`/${user != null ? 'profile' : 'login'}`)

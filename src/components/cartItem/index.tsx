@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import { useAppDispatch } from '@/hooks/useType'
+import { useDispatch } from '@/hooks/redux'
 import { changeCart, changeQuantity } from '@/store/reducers/cart'
 import type { ICartItemProps } from '@/types/itens'
 import {
@@ -28,7 +28,7 @@ export function CartItem({
   id,
   quantity,
 }: ICartItemProps): JSX.Element {
-  const dispatch = useAppDispatch()
+  const dispatch = useDispatch()
   const subtotal = price * quantity
 
   function handleCart(): void {

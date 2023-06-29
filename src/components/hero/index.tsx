@@ -1,4 +1,4 @@
-import { Container } from './styles'
+import { Container, ImageContainer, TitleSection } from './styles'
 
 interface IHeroProps {
   description: string
@@ -12,15 +12,15 @@ export function Hero({
   image = '/imgs/mobile_illustration.png',
 }: IHeroProps): JSX.Element {
   return (
-    <Container initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-      <div>
+    <Container role='banner' initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+      <TitleSection>
         <h1>{title}</h1>
         <p>{description}</p>
-      </div>
+      </TitleSection>
 
-      <span>
+      <ImageContainer>
         <img src={image} alt='Hero Illustration' />
-      </span>
+      </ImageContainer>
     </Container>
   )
 }

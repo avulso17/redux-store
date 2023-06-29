@@ -8,7 +8,7 @@ import { CartItem } from '@/components/cartItem'
 import { AlertDialog } from '@/components/designSystem/alertDialog'
 import { Button } from '@/components/designSystem/button'
 import { Separator } from '@/components/designSystem/separator'
-import { useAppDispatch, useAppSelector } from '@/hooks/useType'
+import { useDispatch, useSelector } from '@/hooks/redux'
 import { changeCart } from '@/store/reducers/cart'
 import type { ICartItemProps } from '@/types/itens'
 import { ArchiveIcon, FileTextIcon, TrashIcon } from '@radix-ui/react-icons'
@@ -24,9 +24,9 @@ import {
 
 export default function CartPage(): JSX.Element {
   const [modalOpen, setModalOpen] = useState<boolean>(false)
-  const dispatch = useAppDispatch()
+  const dispatch = useDispatch()
   const frete = 20
-  const { cartItens, cartLength, total } = useAppSelector((state) => {
+  const { cartItens, cartLength, total } = useSelector((state) => {
     let total = 0
     const regExp = new RegExp(state.search, 'i')
 

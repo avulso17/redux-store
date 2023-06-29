@@ -7,7 +7,7 @@ import { SiRedux } from 'react-icons/si'
 
 import { useWindowSize } from 'usehooks-ts'
 
-import { useAppDispatch, useAppSelector } from '@/hooks/useType'
+import { useDispatch, useSelector } from '@/hooks/redux'
 import { changeSearch, resetSearch } from '@/store/reducers/search'
 import {
   Cross1Icon,
@@ -31,11 +31,11 @@ import {
 import { UserMenu } from './userMenu'
 
 export const Navbar = memo(function Navbar(): JSX.Element {
-  const dispatch = useAppDispatch()
+  const dispatch = useDispatch()
   const { pathname } = useRouter()
   const { width } = useWindowSize()
   const [searchOpen, setSearchOpen] = useState<boolean>(false)
-  const { cartItens, search } = useAppSelector((state) => ({
+  const { cartItens, search } = useSelector((state) => ({
     cartItens: state.cart.length,
     search: state.search,
   }))

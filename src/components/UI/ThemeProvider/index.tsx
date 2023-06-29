@@ -3,8 +3,8 @@ import { Toaster } from 'react-hot-toast'
 
 import { ThemeProvider as StyledProvider } from 'styled-components'
 
+import { useDispatch, useSelector } from '@/hooks/redux'
 import { useBrowserLayoutEffect } from '@/hooks/useBrowserLayoutEffect'
-import { useAppDispatch, useAppSelector } from '@/hooks/useType'
 import { toggleTheme } from '@/store/reducers/theme'
 import { darkTheme, lightTheme } from '@/styles/theme'
 
@@ -13,8 +13,8 @@ export const ThemeProvider = ({
 }: {
   children: React.ReactNode
 }): JSX.Element => {
-  const dispatch = useAppDispatch()
-  const theme = useAppSelector(({ theme }) => theme)
+  const dispatch = useDispatch()
+  const theme = useSelector(({ theme }) => theme)
 
   const currentTheme = useMemo(() => {
     return theme === 'dark' ? darkTheme : lightTheme
