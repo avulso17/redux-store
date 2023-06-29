@@ -52,11 +52,6 @@ module.exports = {
       'warn',
       { prefer: 'type-imports' },
     ],
-    '@typescript-eslint/consistent-indexed-object-style': [
-      'error',
-      'index-signature',
-    ],
-
     '@typescript-eslint/no-invalid-void-type': 'off',
     '@typescript-eslint/no-use-before-define': ['error'],
     '@typescript-eslint/naming-convention': [
