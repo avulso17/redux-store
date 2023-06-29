@@ -17,7 +17,7 @@ export const Container = styled.aside`
   justify-content: space-between;
   background-color: ${({ theme }) => theme.default.contrastColor};
   grid-area: sidebar;
-  padding: 1.6rem 1.2rem;
+  padding: 1.2rem;
   height: 100%;
   width: 100%;
 
@@ -30,7 +30,7 @@ export const ButtonBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.6rem;
+  gap: 1.2rem;
   height: fit-content;
 
   @media ${({ theme }) => theme.breakpoint.mobile} {
@@ -58,13 +58,13 @@ export const SideTooltip = styled(Content)`
   color: ${({ theme }) => theme.default.textContrast};
   display: flex;
   align-items: center;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 500;
   line-height: 1;
-  padding: 1rem 1.2rem;
-  padding-left: 1.8rem;
+  padding: 1rem;
+  padding-left: 1.4rem;
   user-select: none;
-  height: 4.8rem;
+  height: 3.8rem;
   will-change: transform, opacity;
 
   @media ${({ theme }) => theme.breakpoint.mobile} {
@@ -92,20 +92,22 @@ export const SideButton = styled(Link)<{ selected?: boolean }>`
   border: unset;
   border-radius: 8px;
   color: ${({ theme }) => theme.default.primary};
+  display: grid;
+  place-items: center;
   padding: 0.8rem;
   position: relative;
   outline: none;
   transition: all 200ms ease;
-  height: 4.8rem;
-  width: 4.8rem;
+  height: 3.8rem;
+  width: 3.8rem;
   z-index: 10;
 
   > svg {
     color: inherit;
     transition: all 200ms ease;
     object-fit: contain;
-    height: 3.2rem;
-    width: 3.2rem;
+    height: 2rem;
+    width: 2rem;
   }
 
   &:hover {

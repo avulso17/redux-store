@@ -72,8 +72,8 @@ const baseConfig: IBaseConfig = {
 
     // aliases
     headerHeight: '4.375rem',
-    navHeight: '3.5rem',
-    sideMenuWidth: '4.5rem',
+    navHeight: '6.4rem',
+    sidebarWidth: '6.2rem',
   },
   radii: {
     xs: '4px',

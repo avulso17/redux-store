@@ -59,7 +59,7 @@ interface ISizes {
   lg: string
   md: string
   navHeight: string
-  sideMenuWidth: string
+  sidebarWidth: string
   sm: string
   xl: string
   xs: string

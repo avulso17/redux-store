@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components'
 export const Container = styled.nav`
   background-color: ${({ theme }) => theme.default.contrastColor};
   display: flex;
+  align-items: center;
   justify-content: space-between;
   grid-area: nav;
   gap: 3.2rem;
@@ -20,10 +21,11 @@ export const Logo = styled.span`
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-  font-size: 3.2rem;
+  gap: 0.6rem;
+  font-size: 2.8rem;
   font-weight: 700;
   line-height: 3.4rem;
+  margin-left: 0.6rem;
   height: 4rem;
   width: fit-content;
 
