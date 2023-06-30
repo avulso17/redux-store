@@ -52,6 +52,18 @@ export const DropdownButton = styled.button`
     object-fit: contain;
     height: 0.5rem;
     width: 1rem;
+
+    @media ${({ theme }) => theme.breakpoint.mobile} {
+      display: none;
+    }
+  }
+
+  > svg {
+    display: none;
+
+    @media ${({ theme }) => theme.breakpoint.mobile} {
+      display: block;
+    }
   }
 
   &:hover {
@@ -108,6 +120,10 @@ export const UserContent = styled.div`
       height: 1.4rem;
       width: 1.2rem;
     }
+  }
+
+  @media ${({ theme }) => theme.breakpoint.mobile} {
+    display: none;
   }
 `
 

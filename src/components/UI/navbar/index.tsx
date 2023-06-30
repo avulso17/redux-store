@@ -5,8 +5,6 @@ import { useEffect, useState, useMemo, memo } from 'react'
 import { GiShoppingCart } from 'react-icons/gi'
 import { SiRedux } from 'react-icons/si'
 
-import { useWindowSize } from 'usehooks-ts'
-
 import { useDispatch, useSelector } from '@/hooks/redux'
 import { changeSearch, resetSearch } from '@/store/reducers/search'
 import {
@@ -33,7 +31,6 @@ import { UserMenu } from './userMenu'
 export const Navbar = memo(function Navbar(): JSX.Element {
   const dispatch = useDispatch()
   const { pathname } = useRouter()
-  const { width } = useWindowSize()
   const [searchOpen, setSearchOpen] = useState<boolean>(false)
   const { cartItens, search } = useSelector((state) => ({
     cartItens: state.cart.length,
@@ -79,12 +76,10 @@ export const Navbar = memo(function Navbar(): JSX.Element {
           </Logo>
         </Link>
 
-        {width > 768 && (
-          <InputDiv>
-            <SearchButton type='submit'>{memoSearchIcon}</SearchButton>
-            {memoizedSearchInput}
-          </InputDiv>
-        )}
+        <InputDiv className='input-div-web'>
+          <SearchButton type='submit'>{memoSearchIcon}</SearchButton>
+          {memoizedSearchInput}
+        </InputDiv>
 
         <RightDiv>
           <Link href='/favorites'>
@@ -93,7 +88,7 @@ export const Navbar = memo(function Navbar(): JSX.Element {
             </MenuButton>
           </Link>
 
-          {width < 768 && searchOpen && (
+          {searchOpen && (
             <MobileSearchContainer>
               <CloseSearchButton
                 onClick={() => {
@@ -113,15 +108,13 @@ export const Navbar = memo(function Navbar(): JSX.Element {
             </MobileSearchContainer>
           )}
 
-          {width < 768 && (
-            <MobileSearchButton
-              onClick={() => {
-                setSearchOpen(!searchOpen)
-              }}
-            >
-              {memoSearchIcon}
-            </MobileSearchButton>
-          )}
+          <MobileSearchButton
+            onClick={() => {
+              setSearchOpen(!searchOpen)
+            }}
+          >
+            {memoSearchIcon}
+          </MobileSearchButton>
 
           <Link href='/cart'>
             <MenuButton isActive={pathname === '/cart'}>
