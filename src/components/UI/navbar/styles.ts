@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components'
 export const Container = styled.nav`
   background-color: ${({ theme }) => theme.default.contrastColor};
   display: flex;
+  align-items: center;
   justify-content: space-between;
   grid-area: nav;
   gap: 3.2rem;
@@ -13,6 +14,10 @@ export const Container = styled.nav`
 
   @media ${({ theme }) => theme.breakpoint.mobile} {
     gap: 1.6rem;
+
+    > .input-div-web {
+      display: none;
+    }
   }
 `
 export const Logo = styled.span`
@@ -20,10 +25,11 @@ export const Logo = styled.span`
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-  font-size: 3.2rem;
+  gap: 0.6rem;
+  font-size: 2.8rem;
   font-weight: 700;
   line-height: 3.4rem;
+  margin-left: 0.6rem;
   height: 4rem;
   width: fit-content;
 
@@ -49,7 +55,7 @@ export const InputDiv = styled.form`
   }
 `
 
-const SearchButtonStyled = css`
+const SearchButtonStyles = css`
   background-color: unset;
   border: none;
   border-radius: 999px;
@@ -72,7 +78,7 @@ const SearchButtonStyled = css`
 `
 
 export const SearchButton = styled.button`
-  ${SearchButtonStyled}
+  ${SearchButtonStyles}
   position: absolute;
   top: 50%;
   left: 10px;
@@ -80,16 +86,21 @@ export const SearchButton = styled.button`
 `
 
 export const MobileSearchButton = styled.button`
-  ${SearchButtonStyled}
+  ${SearchButtonStyles}
+  display: none;
+
+  @media ${({ theme }) => theme.breakpoint.mobile} {
+    display: block;
+  }
 `
 
 export const CloseSearchButton = styled.button`
-  ${SearchButtonStyled}
+  ${SearchButtonStyles}
 `
 
 export const MobileSearchContainer = styled.div`
   background-color: ${({ theme }) => theme.default.contrastColor};
-  display: flex;
+  display: none;
   align-items: center;
   gap: 1.2rem;
   position: absolute;
@@ -101,6 +112,10 @@ export const MobileSearchContainer = styled.div`
   height: 100%;
   width: 100%;
   z-index: 10;
+
+  @media ${({ theme }) => theme.breakpoint.mobile} {
+    display: flex;
+  }
 `
 
 export const StyledInput = styled.input`

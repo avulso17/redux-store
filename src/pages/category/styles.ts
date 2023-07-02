@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { rotateR } from '@/styles/keyframes'
+
 export const Container = styled.div`
   background-color: ${({ theme }) => theme.default.contrastColor};
   border-radius: 0.8rem;
@@ -44,4 +46,19 @@ export const ItensTable = styled.div`
   justify-content: center;
   gap: 5rem;
   width: 100%;
+`
+
+export const LoadingContainer = styled.div`
+  background-color: ${({ theme }) => theme.default.contrastColor};
+  border-radius: 0.8rem;
+  display: grid;
+  place-items: center;
+  height: 100%;
+  width: 100%;
+
+  > svg {
+    color: ${({ theme }) => theme.default.primary};
+    font-size: 8.2rem;
+    animation: ${rotateR} 2.5s linear infinite;
+  }
 `

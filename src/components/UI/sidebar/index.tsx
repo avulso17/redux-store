@@ -1,14 +1,15 @@
 import { useRouter } from 'next/router'
 
+import { useMemo } from 'react'
 import { AiOutlineCar } from 'react-icons/ai'
 
-import { useAppSelector } from '@/hooks/useType'
+import { useSelector } from '@/hooks/redux'
 import {
   BackpackIcon,
   DesktopIcon,
-  HomeIcon,
   MixIcon,
   SpeakerLoudIcon,
+  HomeIcon,
 } from '@radix-ui/react-icons'
 
 import { Separator } from '../../designSystem/separator'
@@ -18,22 +19,49 @@ import { ButtonBox, Container, SideButton } from './styles'
 export function Sidebar(): JSX.Element {
   const router = useRouter()
   const { id } = router.query as { id: string }
-  const { categorys } = useAppSelector((state) => {
-    return {
-      categorys: state.categorys,
-    }
-  })
+  const categorys = useSelector(({ categorys }) => categorys)
 
-  function handleSelected(path: string): boolean {
+  const handleSelected = (path: string | undefined): boolean => {
     return path === id
+  }
+
+  // const memoHomeIcon = useMemo(
+  //   () => (
+  //     <LordIcon
+  //       src='/icons/outline/animated/home-icon.json'
+  //       trigger='hover'
+  //       target='.home-button'
+  //       className='current-color'
+  //       size={22}
+  //     />
+  //   ),
+  //   []
+  // )
+  const memoHomeIcon = useMemo(() => <HomeIcon />, [])
+  const memoEletronicsIcon = useMemo(() => <DesktopIcon />, [])
+  const memoAutomotiveIcon = useMemo(() => <AiOutlineCar />, [])
+  const memoGamesIcon = useMemo(() => <MixIcon />, [])
+  const memoOfficeIcon = useMemo(() => <BackpackIcon />, [])
+  const memoSoundAndImageIcon = useMemo(() => <SpeakerLoudIcon />, [])
+
+  const categoryIcons = {
+    electronics: memoEletronicsIcon,
+    automotive: memoAutomotiveIcon,
+    games: memoGamesIcon,
+    office: memoOfficeIcon,
+    'sound-and-image': memoSoundAndImageIcon,
   }
 
   return (
     <Container>
       <ButtonBox>
         <SideTooltip title={'Home'}>
-          <SideButton href={'/'} selected={handleSelected('/')}>
-            <HomeIcon />
+          <SideButton
+            className='home-button'
+            href={'/'}
+            selected={handleSelected(undefined)}
+          >
+            {memoHomeIcon}
           </SideButton>
         </SideTooltip>
 
@@ -41,18 +69,16 @@ export function Sidebar(): JSX.Element {
 
         {categorys.map((item, i) => {
           const { name, id } = item
+          const icon = categoryIcons[id as keyof typeof categoryIcons]
+          const key = `${name}-${i}`
 
           return (
-            <SideTooltip key={`${name}-${i}`} title={name}>
+            <SideTooltip key={key} title={name}>
               <SideButton
                 href={`/category/${id}`}
                 selected={handleSelected(id)}
               >
-                {id === 'electronics' && <DesktopIcon />}
-                {id === 'automotive' && <AiOutlineCar />}
-                {id === 'games' && <MixIcon />}
-                {id === 'office' && <BackpackIcon />}
-                {id === 'sound-and-image' && <SpeakerLoudIcon />}
+                {icon}
               </SideButton>
             </SideTooltip>
           )

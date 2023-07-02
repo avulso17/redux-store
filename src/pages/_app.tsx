@@ -7,13 +7,15 @@ import { Layout } from '@/components/UI/layout'
 import store from '@/store'
 import { GlobalStyle } from '@/styles/global'
 
+// import '../../lottie.config.js'
+
 import '@fontsource/roboto'
 import '@fontsource/roboto/300.css'
 import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
 import '@fontsource/roboto/900.css'
 
-export default function App({ Component, pageProps }: AppProps): JSX.Element {
+function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <Provider store={store}>
       <ThemeProvider>
@@ -26,3 +28,5 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
     </Provider>
   )
 }
+
+export default App

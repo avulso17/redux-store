@@ -32,8 +32,7 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     isAuth: (state) => {
-      // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
-      state.isAuth = !!state.user
+      state.isAuth = !(state.user == null) // talvez apareça algum bug: estava -> !!state.user
     },
     user: ({ user }, { payload }) => {
       user = payload

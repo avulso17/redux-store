@@ -72,3 +72,21 @@ export const opacityShow = keyframes`
     opacity: 1;
   }
 `
+
+export const rotateR = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`
+
+export const rotateL = keyframes`
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+`

@@ -1,16 +1,22 @@
 import { useRouter } from 'next/router'
 
+import { SiRedux } from 'react-icons/si'
+
 import { Hero } from '@/components/hero'
 import { ProductItem } from '@/components/productItem'
-import { useAppSelector } from '@/hooks/useType'
+import { useSelector } from '@/hooks/redux'
 
-import Error404Page from '../404'
-import { Container, HeroContainer, ItensTable } from './styles'
+import {
+  Container,
+  HeroContainer,
+  ItensTable,
+  LoadingContainer,
+} from './styles'
 
 export default function CategoryPage(): JSX.Element {
   const router = useRouter()
   const { id } = router.query as { id: string }
-  const { category, itens } = useAppSelector((state) => {
+  const { category, itens } = useSelector((state) => {
     const regexp = new RegExp(state.search, 'i')
 
     return {
@@ -20,10 +26,11 @@ export default function CategoryPage(): JSX.Element {
       ),
     }
   })
+  const hasCategory = category !== undefined
 
   return (
     <>
-      {category !== undefined ? (
+      {hasCategory ? (
         <Container>
           <HeroContainer>
             <Hero
@@ -56,7 +63,9 @@ export default function CategoryPage(): JSX.Element {
           </ItensTable>
         </Container>
       ) : (
-        <Error404Page />
+        <LoadingContainer>
+          <SiRedux />
+        </LoadingContainer>
       )}
     </>
   )
