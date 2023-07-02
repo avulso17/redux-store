@@ -3,7 +3,7 @@ import type { DefaultTheme as IDefaultTheme } from 'styled-components'
 import { colors } from './colors'
 import type { IBaseConfig } from './styled'
 
-const baseConfig: IBaseConfig = {
+export const baseConfig: IBaseConfig = {
   space: {
     auto: 'auto',
     1: '0.25rem',

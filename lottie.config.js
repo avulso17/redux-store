@@ -1,4 +1,4 @@
 import { defineElement } from 'lord-icon-element'
-import Lottie from 'lottie-web'
+import lottie from 'lottie-web'
 
-defineElement(Lottie.loadAnimation)
+defineElement(lottie.loadAnimation)

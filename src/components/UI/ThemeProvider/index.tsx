@@ -26,6 +26,10 @@ export const ThemeProvider = ({
     void dispatch(toggleTheme(preferredTheme))
   }, [])
 
+  // useIsomorphicLayoutEffect(() => {
+  //   defineElement(lottie.loadAnimation)
+  // }, [])
+
   return (
     <StyledProvider theme={currentTheme}>
       {children}

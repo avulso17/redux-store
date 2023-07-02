@@ -3,13 +3,13 @@ import { useRouter } from 'next/router'
 import { useMemo } from 'react'
 import { AiOutlineCar } from 'react-icons/ai'
 
-import { LordIcon } from '@/components/designSystem/lordIcon'
 import { useSelector } from '@/hooks/redux'
 import {
   BackpackIcon,
   DesktopIcon,
   MixIcon,
   SpeakerLoudIcon,
+  HomeIcon,
 } from '@radix-ui/react-icons'
 
 import { Separator } from '../../designSystem/separator'
@@ -25,18 +25,19 @@ export function Sidebar(): JSX.Element {
     return path === id
   }
 
-  const memoHomeIcon = useMemo(
-    () => (
-      <LordIcon
-        src='/icons/outline/animated/home-icon.json'
-        trigger='hover'
-        target='.home-button'
-        className='current-color'
-        size={22}
-      />
-    ),
-    []
-  )
+  // const memoHomeIcon = useMemo(
+  //   () => (
+  //     <LordIcon
+  //       src='/icons/outline/animated/home-icon.json'
+  //       trigger='hover'
+  //       target='.home-button'
+  //       className='current-color'
+  //       size={22}
+  //     />
+  //   ),
+  //   []
+  // )
+  const memoHomeIcon = useMemo(() => <HomeIcon />, [])
   const memoEletronicsIcon = useMemo(() => <DesktopIcon />, [])
   const memoAutomotiveIcon = useMemo(() => <AiOutlineCar />, [])
   const memoGamesIcon = useMemo(() => <MixIcon />, [])
