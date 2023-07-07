@@ -17,6 +17,7 @@ export default function CategoryPage(): JSX.Element {
   const router = useRouter()
   const { id } = router.query as { id: string }
   const { category, itens } = useSelector((state) => {
+    // TODO: Refactor/improve this regExp
     const regexp = new RegExp(state.search, 'i')
 
     return {

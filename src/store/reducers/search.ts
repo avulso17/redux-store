@@ -6,7 +6,7 @@ const searchSlice = createSlice({
   name: 'search',
   initialState,
   reducers: {
-    changeSearch: (state, { payload }) => payload,
+    changeSearch: (_state, { payload }) => payload,
     resetSearch: () => initialState,
   },
 })
