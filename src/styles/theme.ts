@@ -4,6 +4,20 @@ import { colors } from './colors'
 import type { IBaseConfig } from './styled'
 
 export const baseConfig: IBaseConfig = {
+  colors: {
+    ...colors,
+    orange: '#FF7F2F',
+    gray: '#7D868C ',
+    black: '#111820',
+    blueDark: '#003B49',
+    blueNeutral: '#50748A',
+    blueMiddle: '#0055B8',
+    blueLight: '#61B4E4',
+    greenDark: '#42683C',
+    greenLight: '#7A9C49',
+    red: '#EB0029',
+    red_dark: '#703331',
+  },
   space: {
     auto: 'auto',
     1: '0.25rem',
@@ -44,7 +58,7 @@ export const baseConfig: IBaseConfig = {
     '6xl': '3.75rem',
   },
   fonts: {
-    montserrat: 'Montserrat, sans-serif',
+    inter: '"Inter Variable", sans-serif',
     roboto: 'Roboto, sans-serif',
   },
   lineHeights: {
@@ -99,67 +113,37 @@ export const baseConfig: IBaseConfig = {
 }
 
 export const lightTheme: IDefaultTheme = {
-  colors: {
-    ...colors,
-    orange: '#FF7F2F',
-    gray: '#7D868C ',
-    black: '#111820',
-    blueDark: '#003B49',
-    blueNeutral: '#50748A',
-    blueMiddle: '#0055B8',
-    blueLight: '#61B4E4',
-    greenDark: '#42683C',
-    greenLight: '#7A9C49',
-    red: '#EB0029',
-    red_dark: '#703331',
-  },
-  default: {
+  ...baseConfig,
+  aliases: {
     bgColor: '#ebf9f0',
     contrastColor: '#fff',
-    forecastGradient:
-      'linear-gradient(257.83deg, #BAE9FF 2.16%, #FFFFFF 99.55%)',
     hoverAlpha: 'rgba(80, 200, 120, 0.1)',
-    primary: '#50c878',
+    primary: '#038464',
+    secondary: '#04FFC9',
     scroll: 'unset',
-    selection: '#E76D1D',
+    selection: '#038464',
     text: '#333333',
     textAlpha: 'rgba(0, 0, 0, 0.5)',
     textContrast: '#FFFFFF',
     thumb: '#50c878',
     thumbHover: '#339152',
   },
-  ...baseConfig,
 }
 
 export const darkTheme: IDefaultTheme = {
-  colors: {
-    ...colors,
-    orange: '#50c878',
-    gray: '#7D868C ',
-    black: '#111820',
-    blueDark: '#003B49',
-    blueNeutral: '#50748A',
-    blueMiddle: '#0055B8',
-    blueLight: '#61B4E4',
-    greenDark: '#42683C',
-    greenLight: '#7A9C49',
-    red: '#EB0029',
-    red_dark: '#703331',
-  },
-  default: {
-    bgColor: '#2A2A2A',
-    contrastColor: '#202020',
-    forecastGradient:
-      'linear-gradient(257.83deg, #BAE9FF 2.16%, #FFFFFF 99.55%)',
-    hoverAlpha: 'rgba(80, 200, 120, 0.1)',
-    primary: '#50c878',
+  ...baseConfig,
+  aliases: {
+    bgColor: '#17171B',
+    contrastColor: '#6d6d6d',
+    hoverAlpha: 'rgba(3, 132, 100, 0.1)',
+    primary: '#038464',
+    secondary: '#04FFC9',
     scroll: 'unset',
-    selection: '#339152',
-    text: '#E0E1E2',
-    textAlpha: '#797979',
-    textContrast: '#202020',
+    selection: '#038464',
+    text: '#ffffff',
+    textAlpha: '#6D6D6D',
+    textContrast: '#DEDEDE',
     thumb: '#50c878',
     thumbHover: '#339152',
   },
-  ...baseConfig,
 }

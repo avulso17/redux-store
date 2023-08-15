@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { rotateR } from '@/styles/keyframes'
 
 export const Container = styled.div`
-  background-color: ${({ theme }) => theme.default.contrastColor};
+  background-color: ${({ theme }) => theme.aliases.contrastColor};
   border-radius: 0.8rem;
   display: flex;
   flex-direction: column;
@@ -13,7 +13,7 @@ export const Container = styled.div`
 `
 
 export const HeroContainer = styled.div`
-  background-color: ${({ theme }) => theme.default.bgColor};
+  background-color: ${({ theme }) => theme.aliases.bgColor};
   border-radius: 0.6rem;
   padding: 1.6rem 0;
   position: relative;
@@ -23,7 +23,7 @@ export const HeroContainer = styled.div`
 
   &::after {
     content: '';
-    background-color: ${({ theme }) => theme.default.bgColor};
+    background-color: ${({ theme }) => theme.aliases.bgColor};
     background-image: url('/imgs/carbon_hexagonal_background.png');
     background-repeat: no-repeat;
     background-position: center;
@@ -49,7 +49,7 @@ export const ItensTable = styled.div`
 `
 
 export const LoadingContainer = styled.div`
-  background-color: ${({ theme }) => theme.default.contrastColor};
+  background-color: ${({ theme }) => theme.aliases.contrastColor};
   border-radius: 0.8rem;
   display: grid;
   place-items: center;
@@ -57,7 +57,7 @@ export const LoadingContainer = styled.div`
   width: 100%;
 
   > svg {
-    color: ${({ theme }) => theme.default.primary};
+    color: ${({ theme }) => theme.aliases.primary};
     font-size: 8.2rem;
     animation: ${rotateR} 2.5s linear infinite;
   }

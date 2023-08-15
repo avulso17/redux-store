@@ -1,13 +1,16 @@
+import Link from 'next/link'
+
 import styled, { css } from 'styled-components'
 
 export const Container = styled.nav`
-  background-color: ${({ theme }) => theme.default.contrastColor};
+  background-color: ${({ theme }) => theme.aliases.bgColor};
+  border-bottom: 1px solid ${({ theme }) => theme.aliases.contrastColor};
   display: flex;
   align-items: center;
   justify-content: space-between;
   grid-area: nav;
   gap: 3.2rem;
-  padding: 0.8rem 1.2rem;
+  padding: 0.8rem 1.6rem;
   position: relative;
   height: 100%;
   width: 100%;
@@ -20,23 +23,13 @@ export const Container = styled.nav`
     }
   }
 `
-export const Logo = styled.span`
-  color: ${({ theme }) => theme.default.primary};
+export const Logo = styled(Link)`
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-size: 2.8rem;
-  font-weight: 700;
-  line-height: 3.4rem;
-  margin-left: 0.6rem;
-  height: 4rem;
-  width: fit-content;
 
-  @media ${({ theme }) => theme.breakpoint.mobile} {
-    > b {
-      display: none;
-    }
+  > img {
+    object-fit: contain;
+    height: 4rem;
+    width: 4rem;
   }
 `
 
@@ -66,14 +59,14 @@ const SearchButtonStyles = css`
   width: fit-content;
 
   > svg {
-    color: ${({ theme }) => theme.default.primary};
+    color: ${({ theme }) => theme.aliases.primary};
     object-fit: contain;
     height: 2.4rem;
     width: 2.4rem;
   }
 
   &:hover {
-    background-color: ${({ theme }) => theme.default.hoverAlpha};
+    background-color: ${({ theme }) => theme.aliases.hoverAlpha};
   }
 `
 
@@ -99,7 +92,7 @@ export const CloseSearchButton = styled.button`
 `
 
 export const MobileSearchContainer = styled.div`
-  background-color: ${({ theme }) => theme.default.contrastColor};
+  background-color: ${({ theme }) => theme.aliases.contrastColor};
   display: none;
   align-items: center;
   gap: 1.2rem;
@@ -119,22 +112,23 @@ export const MobileSearchContainer = styled.div`
 `
 
 export const StyledInput = styled.input`
-  background-color: ${({ theme }) => theme.default.bgColor};
-  border: none;
+  background-color: ${({ theme }) => theme.aliases.bgColor};
+  border: 1px solid ${({ theme }) => theme.aliases.contrastColor};
   border-radius: 8px;
-  color: ${({ theme }) => theme.default.text};
+  color: ${({ theme }) => theme.aliases.text};
   font-size: 1.6rem;
-  font-weight: 500;
+  font-family: ${({ theme }) => theme.fonts.inter};
+  font-weight: 300;
   line-height: 3.2rem;
   padding: 0.8rem;
   padding-left: 5rem;
-  transition: all 200ms ease;
+  transition: border-color 250ms ease;
   height: 4rem;
   width: 100%;
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 2px ${({ theme }) => theme.default.primary};
+    border-color: ${({ theme }) => theme.aliases.primary};
   }
 
   @media ${({ theme }) => theme.breakpoint.mobile} {
@@ -169,7 +163,7 @@ export const MenuButton = styled.button<{ isActive?: boolean }>`
   width: fit-content;
 
   > svg {
-    color: ${({ theme }) => theme.default.primary};
+    color: ${({ theme }) => theme.aliases.primary};
     object-fit: contain;
     transition: all ${({ theme }) => theme.transition.default};
     height: 2.8rem;
@@ -177,20 +171,20 @@ export const MenuButton = styled.button<{ isActive?: boolean }>`
   }
 
   &:hover {
-    background-color: ${({ theme }) => theme.default.primary};
+    background-color: ${({ theme }) => theme.aliases.primary};
 
     > svg {
-      color: ${({ theme }) => theme.default.contrastColor};
+      color: ${({ theme }) => theme.aliases.contrastColor};
     }
   }
 
   ${({ isActive }) =>
     isActive === true &&
     css`
-      background-color: ${({ theme }) => theme.default.primary};
+      background-color: ${({ theme }) => theme.aliases.primary};
 
       > svg {
-        color: ${({ theme }) => theme.default.contrastColor};
+        color: ${({ theme }) => theme.aliases.contrastColor};
       }
     `}
 `

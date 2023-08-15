@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const StyledCartItem = styled.div`
-  background-color: ${({ theme }) => theme.default.contrastColor};
+  background-color: ${({ theme }) => theme.aliases.contrastColor};
   border-radius: 0.8rem;
   display: flex;
   align-items: center;
@@ -60,7 +60,7 @@ export const CartItemInfo = styled.div`
   width: 100%;
 
   > h3 {
-    color: ${({ theme }) => theme.default.textAlpha};
+    color: ${({ theme }) => theme.aliases.textAlpha};
     font-size: 1.2rem;
     font-weight: 400;
     line-height: 1.8rem;
@@ -71,7 +71,7 @@ export const CartItemInfo = styled.div`
   }
 
   > h2 {
-    color: ${({ theme }) => theme.default.text};
+    color: ${({ theme }) => theme.aliases.text};
     font-size: 1.4rem;
     font-weight: 700;
     line-height: 1.8rem;
@@ -82,7 +82,7 @@ export const CartItemInfo = styled.div`
   }
 
   > p {
-    color: ${({ theme }) => theme.default.textAlpha};
+    color: ${({ theme }) => theme.aliases.textAlpha};
     font-size: 1.2rem;
     line-height: 1.6rem;
     font-weight: 400;
@@ -141,13 +141,13 @@ export const CartItemActions = styled.div`
         width: 2.8rem;
 
         > svg {
-          color: ${({ theme }) => theme.default.primary};
+          color: ${({ theme }) => theme.aliases.primary};
           height: 1.8rem;
           width: 1.8rem;
         }
 
         &:hover {
-          background-color: ${({ theme }) => theme.default.hoverAlpha};
+          background-color: ${({ theme }) => theme.aliases.hoverAlpha};
         }
 
         &:disabled {
@@ -161,7 +161,7 @@ export const CartItemActions = styled.div`
         background-color: unset;
         border: none;
         border-radius: 0.4rem;
-        color: ${({ theme }) => theme.default.text};
+        color: ${({ theme }) => theme.aliases.text};
         font-size: 1;
         font-weight: 700;
         line-height: 2.8rem;
@@ -173,7 +173,7 @@ export const CartItemActions = styled.div`
         user-select: none;
 
         &:focus {
-          outline: 2px solid ${({ theme }) => theme.default.hoverAlpha};
+          outline: 2px solid ${({ theme }) => theme.aliases.hoverAlpha};
         }
       }
     }
@@ -183,7 +183,7 @@ export const CartItemActions = styled.div`
     background-color: unset;
     border: none;
     border-radius: 0.4rem;
-    color: ${({ theme }) => theme.default.primary};
+    color: ${({ theme }) => theme.aliases.primary};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -198,7 +198,7 @@ export const CartItemActions = styled.div`
     width: 100%;
 
     &:hover {
-      background-color: ${({ theme }) => theme.default.hoverAlpha};
+      background-color: ${({ theme }) => theme.aliases.hoverAlpha};
     }
 
     @media ${({ theme }) => theme.breakpoint.mobile} {
@@ -231,14 +231,14 @@ export const CartItemPrice = styled.div`
   }
 
   > p {
-    color: ${({ theme }) => theme.default.textAlpha};
+    color: ${({ theme }) => theme.aliases.textAlpha};
     font-size: 1.2rem;
     font-weight: 400;
     line-height: 1.8rem;
   }
 
   > b {
-    color: ${({ theme }) => theme.default.primary};
+    color: ${({ theme }) => theme.aliases.primary};
     font-size: 1.6rem;
     font-weight: 700;
     line-height: 2.8rem;

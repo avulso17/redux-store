@@ -1,7 +1,6 @@
 import { Header } from '@/SEO/header'
 
 import { Navbar } from '../navbar'
-import { Sidebar } from '../sidebar'
 import { ChildrenContent, Container } from './styles'
 
 interface ILayoutProps {
@@ -12,11 +11,10 @@ interface ILayoutProps {
 export function Layout({ children, ...props }: ILayoutProps): JSX.Element {
   return (
     <>
-      <Header title='Redux Store' />
+      <Header title='Flow store' />
 
-      <Container initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+      <Container>
         <Navbar />
-        <Sidebar />
 
         <ChildrenContent {...props}>{children}</ChildrenContent>
       </Container>

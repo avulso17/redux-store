@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  background-color: ${({ theme }) => theme.default.contrastColor};
+  background-color: ${({ theme }) => theme.aliases.contrastColor};
   border-radius: 0.8rem;
   display: flex;
   gap: 1.6rem;
@@ -24,7 +24,7 @@ export const Container = styled.div`
 `
 
 export const CartContent = styled.div`
-  background-color: ${({ theme }) => theme.default.bgColor};
+  background-color: ${({ theme }) => theme.aliases.bgColor};
   border-radius: 0.6rem;
   display: flex;
   flex-direction: column;
@@ -48,7 +48,7 @@ export const CartHeader = styled.div`
   width: 100%;
 
   > svg {
-    color: ${({ theme }) => theme.default.primary};
+    color: ${({ theme }) => theme.aliases.primary};
     height: 1.8rem;
     width: 1.8rem;
   }
@@ -62,9 +62,9 @@ export const CartHeader = styled.div`
 
   > button {
     background: unset;
-    border: 1px solid ${({ theme }) => theme.default.primary};
+    border: 1px solid ${({ theme }) => theme.aliases.primary};
     border-radius: 0.6rem;
-    color: ${({ theme }) => theme.default.primary};
+    color: ${({ theme }) => theme.aliases.primary};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -92,8 +92,8 @@ export const CartHeader = styled.div`
     }
 
     &:hover {
-      background-color: ${({ theme }) => theme.default.primary};
-      color: ${({ theme }) => theme.default.textContrast};
+      background-color: ${({ theme }) => theme.aliases.primary};
+      color: ${({ theme }) => theme.aliases.textContrast};
     }
   }
 `
@@ -126,7 +126,7 @@ export const CartNoItems = styled.div`
   }
 
   > p {
-    color: ${({ theme }) => theme.default.textAlpha};
+    color: ${({ theme }) => theme.aliases.textAlpha};
     font-size: 1.4rem;
     line-height: 2.4rem;
   }
@@ -138,7 +138,7 @@ export const CartNoItems = styled.div`
 `
 
 export const ResumeSection = styled.div`
-  background-color: ${({ theme }) => theme.default.bgColor};
+  background-color: ${({ theme }) => theme.aliases.bgColor};
   border-radius: 0.6rem;
   display: flex;
   flex-direction: column;
@@ -166,7 +166,7 @@ export const ResumeSection = styled.div`
     flex-direction: column;
 
     > p {
-      color: ${({ theme }) => theme.default.textAlpha};
+      color: ${({ theme }) => theme.aliases.textAlpha};
       display: flex;
       align-items: baseline;
       justify-content: space-between;
@@ -177,7 +177,7 @@ export const ResumeSection = styled.div`
       padding: 0.8rem;
 
       > b {
-        color: ${({ theme }) => theme.default.text};
+        color: ${({ theme }) => theme.aliases.text};
         font-size: 1.6rem;
         line-height: 2.8rem;
         font-weight: 700;

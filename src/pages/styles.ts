@@ -10,7 +10,7 @@ export const Container = styled.div`
 `
 
 export const Container404 = styled.div`
-  background-color: ${({ theme }) => theme.default.contrastColor};
+  background-color: ${({ theme }) => theme.aliases.contrastColor};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -48,9 +48,9 @@ export const Container404 = styled.div`
 
     > a {
       align-self: center;
-      background-color: ${({ theme }) => theme.default.primary};
+      background-color: ${({ theme }) => theme.aliases.primary};
       border-radius: 0.8rem;
-      color: ${({ theme }) => theme.default.contrastColor};
+      color: ${({ theme }) => theme.aliases.contrastColor};
       font-size: 1.4rem;
       font-weight: 500;
       line-height: 1.8rem;

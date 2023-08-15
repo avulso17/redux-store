@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  background-color: ${({ theme }) => theme.default.bgColor};
+  background-color: ${({ theme }) => theme.aliases.bgColor};
   border-radius: 0.8rem;
   display: flex;
   flex-direction: column;
@@ -27,7 +27,7 @@ export const Container = styled.div`
   }
 
   &:hover {
-    outline: 2px solid ${({ theme }) => theme.default.primary};
+    outline: 2px solid ${({ theme }) => theme.aliases.primary};
   }
 `
 
@@ -47,7 +47,7 @@ export const TitleBox = styled.div`
   }
 
   > p {
-    color: ${({ theme }) => theme.default.textAlpha};
+    color: ${({ theme }) => theme.aliases.textAlpha};
     font-size: 1.6rem;
     overflow: hidden;
     overflow-y: auto;
@@ -63,7 +63,7 @@ export const ItemInfo = styled.div`
   width: 100%;
 
   > span {
-    color: ${({ theme }) => theme.default.primary};
+    color: ${({ theme }) => theme.aliases.primary};
     font-size: 2.4rem;
     font-weight: 700;
     line-height: 2.8rem;

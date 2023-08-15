@@ -8,6 +8,14 @@ import { useBrowserLayoutEffect } from '@/hooks/useBrowserLayoutEffect'
 import { toggleTheme } from '@/store/reducers/theme'
 import { darkTheme, lightTheme } from '@/styles/theme'
 
+import '@fontsource-variable/inter'
+
+import '@fontsource/roboto'
+import '@fontsource/roboto/300.css'
+import '@fontsource/roboto/500.css'
+import '@fontsource/roboto/700.css'
+import '@fontsource/roboto/900.css'
+
 export const ThemeProvider = ({
   children,
 }: {

@@ -27,7 +27,7 @@ export const TitleSection = styled.section`
   }
 
   > h1 {
-    color: ${({ theme }) => theme.default.primary};
+    color: ${({ theme }) => theme.aliases.primary};
     font-size: 4.8rem;
     font-weight: 700;
     line-height: 5.6rem;
@@ -66,7 +66,7 @@ export const ImageContainer = styled.span`
 
   &::after {
     content: '';
-    background-color: ${({ theme }) => theme.default.primary};
+    background-color: ${({ theme }) => theme.aliases.primary};
     border-radius: 100%;
     filter: blur(72px);
     position: absolute;

@@ -1,14 +1,13 @@
-import { motion } from 'framer-motion'
 import styled from 'styled-components'
 
-export const Container = styled(motion.div)`
+export const Container = styled.div`
   background-color: unset;
   display: grid;
   grid-template-areas:
-    'nav nav nav'
-    'sidebar content content';
+    'nav'
+    'content';
   grid-template-rows: ${({ theme }) => theme.sizes.navHeight} 1fr;
-  grid-template-columns: ${({ theme }) => theme.sizes.sidebarWidth} 1fr;
+  grid-template-columns: 1fr;
   overflow: hidden;
   height: 100vh;
   height: 100svh;
@@ -17,10 +16,8 @@ export const Container = styled(motion.div)`
   @media ${({ theme }) => theme.breakpoint.mobile} {
     grid-template-areas:
       'nav'
-      'content'
-      'sidebar';
-    grid-template-rows: ${({ theme }) => theme.sizes.navHeight} 1fr 5.6rem;
-    grid-template-columns: 1fr;
+      'content';
+    grid-template-rows: ${({ theme }) => theme.sizes.navHeight} 1fr;
   }
 `
 

@@ -24,8 +24,8 @@ export const StyledInput = styled.input<{
   warning?: ITextFieldProps['warning']
   width?: ITextFieldProps['width']
 }>`
-  background-color: ${({ theme }) => theme.default.bgColor};
-  color: ${({ theme }) => theme.default.text};
+  background-color: ${({ theme }) => theme.aliases.bgColor};
+  color: ${({ theme }) => theme.aliases.text};
   border: 0;
   border-radius: 0.6rem;
   display: inline-flex;
@@ -38,7 +38,7 @@ export const StyledInput = styled.input<{
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 2px ${({ theme }) => theme.default.primary};
+    box-shadow: 0 0 0 2px ${({ theme }) => theme.aliases.primary};
   }
 
   ${({ variant }) => {

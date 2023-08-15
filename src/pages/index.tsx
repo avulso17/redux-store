@@ -6,7 +6,7 @@ export default function Home(): JSX.Element {
   return (
     <Container>
       <Hero
-        title='Redux Store'
+        title='Flow Store'
         description='Compre diversos tipos de produtos no melhor site do Brasil!'
       />
     </Container>

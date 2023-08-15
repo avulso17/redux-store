@@ -19,7 +19,7 @@ export const DialogOverlay = styled(Overlay)`
 `
 
 export const DialogContent = styled(Content)`
-  background-color: ${({ theme }) => theme.default.bgColor};
+  background-color: ${({ theme }) => theme.aliases.bgColor};
   border-radius: 16px;
   box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
     hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
@@ -41,14 +41,14 @@ export const DialogContent = styled(Content)`
 `
 
 export const DialogTitle = styled(Title)`
-  color: ${({ theme }) => theme.default.text};
+  color: ${({ theme }) => theme.aliases.text};
   font-size: 1.8rem;
   font-weight: 500;
   margin: 0;
 `
 
 export const DialogDescription = styled(Description)`
-  color: ${({ theme }) => theme.default.textAlpha};
+  color: ${({ theme }) => theme.aliases.textAlpha};
   font-size: 1.5rem;
   line-height: 1.5;
   margin: 1rem 0 2rem;
@@ -63,9 +63,9 @@ export const Flex = styled.div`
 
 export const DialogCancel = styled(Cancel)`
   background: unset;
-  border: 1px solid ${({ theme }) => theme.default.primary};
+  border: 1px solid ${({ theme }) => theme.aliases.primary};
   border-radius: 0.6rem;
-  color: ${({ theme }) => theme.default.primary};
+  color: ${({ theme }) => theme.aliases.primary};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -85,8 +85,8 @@ export const DialogCancel = styled(Cancel)`
   }
 
   &:hover {
-    background-color: ${({ theme }) => theme.default.primary};
-    color: ${({ theme }) => theme.default.textContrast};
+    background-color: ${({ theme }) => theme.aliases.primary};
+    color: ${({ theme }) => theme.aliases.textContrast};
   }
 
   &:disabled {
@@ -103,10 +103,10 @@ export const DialogCancel = styled(Cancel)`
 `
 
 export const DialogAction = styled(Action)`
-  background: ${({ theme }) => theme.default.primary};
+  background: ${({ theme }) => theme.aliases.primary};
   border: none;
   border-radius: 0.6rem;
-  color: ${({ theme }) => theme.default.textContrast};
+  color: ${({ theme }) => theme.aliases.textContrast};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -126,7 +126,7 @@ export const DialogAction = styled(Action)`
   }
 
   &:hover {
-    background: ${({ theme }) => theme.default.thumbHover};
+    background: ${({ theme }) => theme.aliases.thumbHover};
   }
 
   &:disabled {

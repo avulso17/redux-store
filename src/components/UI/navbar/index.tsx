@@ -41,7 +41,10 @@ export const Navbar = memo(function Navbar(): JSX.Element {
     dispatch(resetSearch())
   }, [pathname, dispatch])
 
-  const memoReduxLogo = useMemo(() => <SiRedux />, [])
+  const memoReduxLogo = useMemo(
+    () => <img src='/global/logo.svg' alt='Flow store' />,
+    []
+  )
   const memoSearchIcon = useMemo(() => <MagnifyingGlassIcon />, [])
   const memoCloseSearchIcon = useMemo(() => <Cross1Icon />, [])
   const memoFavoritesIcon = useMemo(() => <HeartFilledIcon />, [])
@@ -69,12 +72,7 @@ export const Navbar = memo(function Navbar(): JSX.Element {
   return (
     <>
       <Container>
-        <Link href={'/'}>
-          <Logo>
-            {memoReduxLogo}
-            <b>store</b>
-          </Logo>
-        </Link>
+        <Logo href={'/'}>{memoReduxLogo}</Logo>
 
         <InputDiv className='input-div-web'>
           <SearchButton type='submit'>{memoSearchIcon}</SearchButton>

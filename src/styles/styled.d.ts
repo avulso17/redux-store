@@ -13,19 +13,51 @@ interface IColors {
   red: string
   red_dark: string
 }
-interface IDefault {
+interface IAliases {
   bgColor: string
   contrastColor: string
-  forecastGradient: string
   hoverAlpha: string
   primary: string
   scroll: string
+  secondary: string
   selection: string
   text: string
   textAlpha: string
   textContrast: string
   thumb: string
   thumbHover: string
+}
+
+interface ISpace {
+  1: string
+  '1-5': string
+  10: string
+  11: string
+  12: string
+  14: string
+  16: string
+  2: string
+  '2-5': string
+  20: string
+  24: string
+  28: string
+  3: string
+  '3-5': string
+  32: string
+  36: string
+  4: string
+  40: string
+  44: string
+  5: string
+  6: string
+  7: string
+  8: string
+  9: string
+  auto: string
+}
+interface IFonts {
+  inter: string
+  roboto: string
 }
 interface IFontSize {
   '2xl': string
@@ -78,25 +110,17 @@ interface IBreakpoint {
 }
 export interface IBaseConfig {
   breakpoint: IBreakpoint
+  colors: IColors
   fontSize: IFontSize
-  fonts: Record<string, string>
+  fonts: IFonts
   lineHeights: ILineHeight
   radii: IRadii
   sizes: ISizes
-  space: Record<string, string>
+  space: ISpaces
   transition: ITransition
 }
 declare module 'styled-components' {
-  export interface DefaultTheme {
-    breakpoint: IBreakpoint
-    colors: IColors
-    default: IDefault
-    fontSize: IFontSize
-    fonts: Record<string, string>
-    lineHeights: ILineHeight
-    radii: IRadii
-    sizes: ISizes
-    space: Record<string, string>
-    transition: ITransition
+  export interface DefaultTheme extends IBaseConfig {
+    aliases: IAliases
   }
 }

@@ -50,12 +50,12 @@ const StyledButton = styled.button<{
   ${({ variant }) =>
     variant === 'colorful' &&
     css`
-      background: ${({ theme }) => theme.default.primary};
+      background: ${({ theme }) => theme.aliases.primary};
       border: none;
-      color: ${({ theme }) => theme.default.textContrast};
+      color: ${({ theme }) => theme.aliases.textContrast};
 
       &:hover {
-        background: ${({ theme }) => theme.default.thumbHover};
+        background: ${({ theme }) => theme.aliases.thumbHover};
       }
 
       &:disabled {
@@ -69,12 +69,12 @@ const StyledButton = styled.button<{
     variant === 'outlined' &&
     css`
       background: unset;
-      border: 1px solid ${({ theme }) => theme.default.primary};
-      color: ${({ theme }) => theme.default.primary};
+      border: 1px solid ${({ theme }) => theme.aliases.primary};
+      color: ${({ theme }) => theme.aliases.primary};
 
       &:hover {
-        background-color: ${({ theme }) => theme.default.primary};
-        color: ${({ theme }) => theme.default.textContrast};
+        background-color: ${({ theme }) => theme.aliases.primary};
+        color: ${({ theme }) => theme.aliases.textContrast};
       }
 
       &:disabled {

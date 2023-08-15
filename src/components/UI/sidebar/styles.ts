@@ -15,7 +15,7 @@ export const Container = styled.aside`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  background-color: ${({ theme }) => theme.default.contrastColor};
+  background-color: ${({ theme }) => theme.aliases.contrastColor};
   grid-area: sidebar;
   padding: 1.2rem;
   height: 100%;
@@ -51,11 +51,11 @@ export const ButtonBox = styled.div`
 export const SideTooltip = styled(Content)`
   animation-duration: 400ms;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-  background-color: ${({ theme }) => theme.default.primary};
+  background-color: ${({ theme }) => theme.aliases.primary};
   border-radius: 0.8rem;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  color: ${({ theme }) => theme.default.textContrast};
+  color: ${({ theme }) => theme.aliases.textContrast};
   display: flex;
   align-items: center;
   font-size: 1.4rem;
@@ -91,7 +91,7 @@ export const SideButton = styled(Link)<{ selected?: boolean }>`
   background-color: unset;
   border: unset;
   border-radius: 8px;
-  color: ${({ theme }) => theme.default.primary};
+  color: ${({ theme }) => theme.aliases.primary};
   display: grid;
   place-items: center;
   padding: 0.8rem;
@@ -111,31 +111,31 @@ export const SideButton = styled(Link)<{ selected?: boolean }>`
   }
 
   &:hover {
-    background-color: ${({ theme }) => theme.default.primary};
-    color: ${({ theme }) => theme.default.contrastColor};
+    background-color: ${({ theme }) => theme.aliases.primary};
+    color: ${({ theme }) => theme.aliases.contrastColor};
 
     > svg {
-      color: ${({ theme }) => theme.default.contrastColor};
+      color: ${({ theme }) => theme.aliases.contrastColor};
     }
   }
 
   &:focus-visible {
-    background-color: ${({ theme }) => theme.default.primary};
-    color: ${({ theme }) => theme.default.contrastColor};
+    background-color: ${({ theme }) => theme.aliases.primary};
+    color: ${({ theme }) => theme.aliases.contrastColor};
 
     > svg {
-      color: ${({ theme }) => theme.default.contrastColor};
+      color: ${({ theme }) => theme.aliases.contrastColor};
     }
   }
 
   ${({ selected }) =>
     selected === true &&
     css`
-      background-color: ${({ theme }) => theme.default.primary};
-      color: ${({ theme }) => theme.default.contrastColor};
+      background-color: ${({ theme }) => theme.aliases.primary};
+      color: ${({ theme }) => theme.aliases.contrastColor};
 
       > svg {
-        color: ${({ theme }) => theme.default.contrastColor};
+        color: ${({ theme }) => theme.aliases.contrastColor};
       }
     `}
 `

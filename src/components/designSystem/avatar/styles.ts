@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Image, Root, Fallback } from '@radix-ui/react-avatar'
 
 export const AvatarRoot = styled(Root)<{ size: string | number }>`
-  background-color: ${({ theme }) => theme.default.primary};
+  background-color: ${({ theme }) => theme.aliases.primary};
   border-radius: 999px;
   display: inline-flex;
   align-items: center;
@@ -23,7 +23,7 @@ export const AvatarImage = styled(Image)`
 `
 
 export const AvatarFallback = styled(Fallback)`
-  background-color: ${({ theme }) => theme.default.primary};
+  background-color: ${({ theme }) => theme.aliases.primary};
   color: #fff;
   display: flex;
   align-items: center;

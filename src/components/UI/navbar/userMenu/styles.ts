@@ -20,13 +20,14 @@ import {
 } from '@radix-ui/react-dropdown-menu'
 
 export const Container = styled.div`
-  background-color: ${({ theme }) => theme.default.bgColor};
+  background-color: ${({ theme }) => theme.aliases.bgColor};
+  border: 1px solid ${({ theme }) => theme.aliases.contrastColor};
   border-radius: 8px;
   display: flex;
   justify-content: space-between;
   gap: 1rem;
   padding: 0.4rem;
-  height: 4rem;
+  height: fit-content;
   min-width: 18.8rem;
 
   @media ${({ theme }) => theme.breakpoint.tablet} {
@@ -38,7 +39,7 @@ export const DropdownButton = styled.button`
   background-color: unset;
   border: none;
   border-radius: 4px;
-  color: ${({ theme }) => theme.default.primary};
+  color: ${({ theme }) => theme.aliases.primary};
   display: grid;
   place-items: center;
   margin: auto 0;
@@ -67,11 +68,11 @@ export const DropdownButton = styled.button`
   }
 
   &:hover {
-    background-color: ${({ theme }) => theme.default.hoverAlpha};
+    background-color: ${({ theme }) => theme.aliases.hoverAlpha};
   }
 
   &:focus {
-    outline: 2px solid ${({ theme }) => theme.default.hoverAlpha};
+    outline: 2px solid ${({ theme }) => theme.aliases.hoverAlpha};
   }
 `
 
@@ -89,9 +90,9 @@ export const UserContent = styled.div`
     width: 100%;
 
     > h2 {
-      color: ${({ theme }) => theme.default.text};
+      color: ${({ theme }) => theme.aliases.text};
       font-size: 1.2rem;
-      font-weight: 700;
+      font-weight: 600;
       overflow: hidden;
       text-align: end;
       text-overflow: ellipsis;
@@ -110,7 +111,7 @@ export const UserContent = styled.div`
     width: 100%;
 
     > p {
-      color: ${({ theme }) => theme.default.text};
+      color: ${({ theme }) => theme.aliases.text};
       font-size: 1rem;
       font-weight: 300;
     }
@@ -134,7 +135,7 @@ export const UserContent = styled.div`
 const MenuContentStyles = css`
   animation-duration: 400ms;
   animation-timing-function: ${({ theme }) => theme.transition.radix};
-  background-color: ${({ theme }) => theme.default.contrastColor};
+  background-color: ${({ theme }) => theme.aliases.bgColor};
   border-radius: 0.6rem;
   box-shadow: 0px 10px 38px -10px rgba(22, 23, 24, 0.35),
     0px 10px 20px -15px rgba(22, 23, 24, 0.2);
@@ -165,7 +166,7 @@ const menuItemStyles = css`
   all: unset;
   align-items: center;
   border-radius: 4px;
-  color: ${({ theme }) => theme.default.text};
+  color: ${({ theme }) => theme.aliases.text};
   display: flex;
   font-size: 1.2rem;
   line-height: 1;
@@ -176,13 +177,13 @@ const menuItemStyles = css`
   user-select: none;
 
   &[data-disabled] {
-    color: ${({ theme }) => theme.default.textAlpha};
+    color: ${({ theme }) => theme.aliases.textAlpha};
     pointer-events: 'none';
   }
 
   &[data-highlighted] {
-    background-color: ${({ theme }) => theme.default.primary};
-    color: ${({ theme }) => theme.default.textContrast};
+    background-color: ${({ theme }) => theme.aliases.primary};
+    color: ${({ theme }) => theme.aliases.textContrast};
   }
 `
 
@@ -211,11 +212,11 @@ export const MenuCheckboxItem = styled(CheckboxItem)`
 `
 
 export const MenuArrow = styled(Arrow)`
-  fill: ${({ theme }) => theme.default.contrastColor};
+  fill: ${({ theme }) => theme.aliases.contrastColor};
 `
 
 export const MenuLabel = styled(Label)`
-  color: ${({ theme }) => theme.default.textAlpha};
+  color: ${({ theme }) => theme.aliases.textAlpha};
   font-size: 1.2rem;
   line-height: 2.4rem;
   padding-left: 2.4rem;
@@ -231,7 +232,7 @@ export const MenuItemIndicator = styled(ItemIndicator)`
 `
 
 export const MenuSeparator = styled(Separator)`
-  background-color: ${({ theme }) => theme.default.hoverAlpha};
+  background-color: ${({ theme }) => theme.aliases.hoverAlpha};
   min-height: 0.1rem;
   height: 0.1rem;
   margin: 0.5rem;
@@ -240,17 +241,17 @@ export const MenuSeparator = styled(Separator)`
 export const RightSlot = styled.div`
   margin-left: auto;
   padding-left: 2rem;
-  color: ${({ theme }) => theme.default.text};
+  color: ${({ theme }) => theme.aliases.text};
 
   [data-highlighted] > & {
-    color: ${({ theme }) => theme.default.textContrast};
+    color: ${({ theme }) => theme.aliases.textContrast};
   }
 
   [data-disabled] > & {
-    color: ${({ theme }) => theme.default.textAlpha};
+    color: ${({ theme }) => theme.aliases.textAlpha};
 
     > svg {
-      color: ${({ theme }) => theme.default.textAlpha};
+      color: ${({ theme }) => theme.aliases.textAlpha};
     }
   }
 `
